@@ -94,7 +94,8 @@ namespace DB2VM.Controller
                 else
                 {
                     list_v_hisdrugdia[i][(int)enum_雲端藥檔.GUID] = list_BBCM_buf[0][(int)enum_雲端藥檔.GUID].ObjectToString();
-                    list_BBCM_Replace.Add(list_v_hisdrugdia[i]);
+                    if(!list_v_hisdrugdia[i].IsEqual(list_BBCM_buf[0])) list_BBCM_Replace.Add(list_v_hisdrugdia[i]);
+
 
                 }
             }
