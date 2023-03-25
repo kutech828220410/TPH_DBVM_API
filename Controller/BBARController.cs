@@ -70,28 +70,40 @@ namespace DB2VM
                 string commandText = "";
                 List<OrderClass> orderClasses = new List<OrderClass>();
                 List<object[]> list_value_Add = new List<object[]>();
-                if (BarCode.Length == 25)
+                string[] strArray_Barcode = BarCode.Split(";");
+
+                if (strArray_Barcode.Length == 3)
                 {
                     //住院首日或住院ST藥袋
+                    if(strArray_Barcode[0].Length == 25)
+                    {
+                        string 住院序號 = strArray_Barcode[0].Substring(0, 10);
+                        string 醫令時間 = strArray_Barcode[0].Substring(10, 14);
+                        string 醫令類型 = strArray_Barcode[0].Substring(24, 1);
+                        string 藥品碼 = strArray_Barcode[2];
+                        醫令類型 = (醫令類型 == "0") ? "S" : "B";
+                        commandText = $"select * from PHAADC where PAC_SEQ='{住院序號}'  and PAC_PROCDTTM='{醫令時間}' AND PAC_TYPE='{醫令類型}' AND PAC_DIACODE ='{藥品碼}'";
+                    }
+                                        
+                }
+                else if (BarCode.Length == 25)
+                {
                     string 住院序號 = BarCode.Substring(0, 10);
                     string 醫令時間 = BarCode.Substring(10, 14);
                     string 醫令類型 = BarCode.Substring(24, 1);
                     醫令類型 = (醫令類型 == "0") ? "S" : "B";
-                    commandText = $"select * from PHAADC where PAC_SEQ='{住院序號}'  and PAC_PROCDTTM='{醫令時間}' AND PAC_TYPE='{醫令類型}'";                   
+                    commandText = $"select * from PHAADC where PAC_SEQ='{住院序號}'  and PAC_PROCDTTM='{醫令時間}' AND PAC_TYPE='{醫令類型}'";
                 }
-                else
+                else if (strArray_Barcode.Length >= 9)
                 {
-                    string[] strArray_Barcode = BarCode.Split(";");
-                    if(strArray_Barcode.Length >= 9)
-                    {
-                        string 本次領藥號 = strArray_Barcode[(int)enum_急診藥袋.本次領藥號];
-                        string 看診日期 = strArray_Barcode[(int)enum_急診藥袋.看診日期];
-                        string 病歷號 = strArray_Barcode[(int)enum_急診藥袋.病歷號];
-                        string 序號 = strArray_Barcode[(int)enum_急診藥袋.序號];
+                    string 本次領藥號 = strArray_Barcode[(int)enum_急診藥袋.本次領藥號];
+                    string 看診日期 = strArray_Barcode[(int)enum_急診藥袋.看診日期];
+                    string 病歷號 = strArray_Barcode[(int)enum_急診藥袋.病歷號];
+                    string 序號 = strArray_Barcode[(int)enum_急診藥袋.序號];
 
-                        commandText = $"select * from phaadc where PAC_DRUGNO={本次領藥號} and PAC_VISITDT={看診日期} and PAC_PATID={病歷號} and PAC_SEQ={序號}";
-                    }
+                    commandText = $"select * from phaadc where PAC_DRUGNO={本次領藥號} and PAC_VISITDT={看診日期} and PAC_PATID={病歷號} and PAC_SEQ={序號}";
                 }
+                //1120003290202303241711370;8287;IRI
                 if (commandText.StringIsEmpty()) return "Barcode type error!";
                 //xstring jsonString = "";
                 OracleCommand cmd = new OracleCommand(commandText, conn_oracle);
