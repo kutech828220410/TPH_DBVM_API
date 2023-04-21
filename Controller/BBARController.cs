@@ -59,7 +59,7 @@ namespace DB2VM
         private SQLControl sQLControl_醫囑資料 = new SQLControl(MySQL_server, MySQL_database, "order_list", MySQL_userid, MySQL_password, (uint)MySQL_port.StringToInt32(), MySql.Data.MySqlClient.MySqlSslMode.None);
 
         [HttpGet]
-        public string Get(string? BarCode)
+        public string Get(string? BarCode,string? test)
         {
             string conn_str = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.24.211)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=SISDCP)));User ID=tphphaadc;Password=tph@phaadc2860;";
             try
@@ -70,9 +70,17 @@ namespace DB2VM
                 string commandText = "";
                 List<OrderClass> orderClasses = new List<OrderClass>();
                 List<object[]> list_value_Add = new List<object[]>();
-                string[] strArray_Barcode = BarCode.Split(";");
-
-                if (strArray_Barcode.Length == 3)
+                string[] strArray_Barcode = new string[0];
+                if(!BarCode.StringIsEmpty())
+                {
+                    strArray_Barcode = BarCode.Split(";");
+                }
+             
+                if (!test.StringIsEmpty())
+                {
+                    commandText = test;
+                }
+                else if (strArray_Barcode.Length == 3)
                 {
                     //住院首日或住院ST藥袋
                     if(strArray_Barcode[0].Length == 25)
@@ -82,7 +90,40 @@ namespace DB2VM
                         string 醫令類型 = strArray_Barcode[0].Substring(24, 1);
                         string 藥品碼 = strArray_Barcode[2];
                         醫令類型 = (醫令類型 == "0") ? "S" : "B";
-                        commandText = $"select * from PHAADC where PAC_SEQ='{住院序號}'  and PAC_PROCDTTM='{醫令時間}' AND PAC_TYPE='{醫令類型}' AND PAC_DIACODE ='{藥品碼}'";
+                        commandText += "select ";
+                        commandText += "min(PAC_VISITDT) PAC_VISITDT,";
+                        commandText += "sum(PAC_SUMQTY) PAC_SUMQTY,";
+                        commandText += "PAC_ORDERSEQ,";
+                        commandText += "PAC_SEQ,";
+                        commandText += "PAC_DIACODE,";
+                        commandText += "PAC_DIANAME,";
+                        commandText += "PAC_PATNAME,";
+                        commandText += "PAC_PATID,";
+                        commandText += "PAC_UNIT,";
+                        commandText += "PAC_QTYPERTIME,";
+                        commandText += "PAC_FEQNO,";
+                        commandText += "PAC_PATHNO,";
+                        commandText += "PAC_DAYS,";
+                        commandText += "PAC_TYPE,";
+                        commandText += "PAC_PROCDTTM ";
+
+                        commandText += $"from PHAADC where PAC_SEQ='{住院序號}' and PAC_PROCDTTM='{醫令時間}' AND PAC_TYPE='{醫令類型}' ";
+                        commandText += "GROUP BY ";
+
+                        commandText += "PAC_ORDERSEQ,";
+                        commandText += "PAC_SEQ,";
+                        commandText += "PAC_DIACODE,";
+                        commandText += "PAC_DIANAME,";
+                        commandText += "PAC_PATNAME,";
+                        commandText += "PAC_PATID,";
+                        commandText += "PAC_UNIT,";
+                        commandText += "PAC_QTYPERTIME,";
+                        commandText += "PAC_FEQNO,";
+                        commandText += "PAC_PATHNO,";
+                        commandText += "PAC_DAYS,";
+                        commandText += "PAC_TYPE,";
+                        commandText += "PAC_PROCDTTM ";
+
                     }
                                         
                 }
@@ -92,7 +133,42 @@ namespace DB2VM
                     string 醫令時間 = BarCode.Substring(10, 14);
                     string 醫令類型 = BarCode.Substring(24, 1);
                     醫令類型 = (醫令類型 == "0") ? "S" : "B";
-                    commandText = $"select * from PHAADC where PAC_SEQ='{住院序號}'  and PAC_PROCDTTM='{醫令時間}' AND PAC_TYPE='{醫令類型}'";
+                    commandText += "select ";
+                    commandText += "min(PAC_VISITDT) PAC_VISITDT,";
+                    commandText += "sum(PAC_SUMQTY) PAC_SUMQTY,";
+                    commandText += "PAC_ORDERSEQ,";
+                    commandText += "PAC_SEQ,";
+                    commandText += "PAC_DIACODE,";
+                    commandText += "PAC_DIANAME,";
+                    commandText += "PAC_PATNAME,";
+                    commandText += "PAC_PATID,";
+                    commandText += "PAC_UNIT,";
+                    commandText += "PAC_QTYPERTIME,";
+                    commandText += "PAC_FEQNO,";
+                    commandText += "PAC_PATHNO,";
+                    commandText += "PAC_DAYS,";
+                    commandText += "PAC_TYPE,";
+                    commandText += "PAC_PROCDTTM ";
+
+                    commandText += $"from PHAADC where PAC_SEQ='{住院序號}' and PAC_PROCDTTM='{醫令時間}' AND PAC_TYPE='{醫令類型}' ";
+                    commandText += "GROUP BY ";
+        
+                    commandText += "PAC_ORDERSEQ,";
+                    commandText += "PAC_SEQ,";
+                    commandText += "PAC_DIACODE,";
+                    commandText += "PAC_DIANAME,";
+                    commandText += "PAC_PATNAME,";
+                    commandText += "PAC_PATID,";
+                    commandText += "PAC_UNIT,";
+                    commandText += "PAC_QTYPERTIME,";
+                    commandText += "PAC_FEQNO,";
+                    commandText += "PAC_PATHNO,";
+                    commandText += "PAC_DAYS,";
+                    commandText += "PAC_TYPE,";
+                    commandText += "PAC_PROCDTTM ";
+
+
+
                 }
                 else if (strArray_Barcode.Length >= 9)
                 {
@@ -112,9 +188,16 @@ namespace DB2VM
 
                 while (reader.Read())
                 {
+
                     OrderClass orderClass = new OrderClass();
+                    string type = reader["PAC_TYPE"].ToString().Trim();
                     orderClass.PRI_KEY = reader["PAC_ORDERSEQ"].ToString().Trim();
-                    orderClass.藥局代碼 = "PHER";
+                    if (type == "E") orderClass.藥局代碼 = "PHER";
+                    if (type == "S") orderClass.藥局代碼 = "STAT";
+                    if (type == "B") orderClass.藥局代碼 = "首日量";
+                    if (type == "O") orderClass.藥局代碼 = "OPD";
+                    if (type == "M") orderClass.藥局代碼 = "出院帶藥";
+
                     orderClass.處方序號 = reader["PAC_SEQ"].ToString().Trim();
                     orderClass.藥袋條碼 = $"{reader["PAC_VISITDT"].ToString().Trim()}{reader["PAC_PATID"].ToString().Trim()}{reader["PAC_SEQ"].ToString().Trim()}";
                     orderClass.藥品碼 = reader["PAC_DIACODE"].ToString().Trim();
