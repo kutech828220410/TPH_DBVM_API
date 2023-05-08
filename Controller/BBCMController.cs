@@ -17,6 +17,7 @@ namespace DB2VM.Controller
     {
         GUID,
         藥品碼,
+        料號,
         中文名稱,
         藥品名稱,
         藥品學名,
@@ -60,6 +61,7 @@ namespace DB2VM.Controller
                 object[] value = new object[new enum_雲端藥檔().GetLength()];
 
                 value[(int)enum_雲端藥檔.藥品碼] = reader["DIA_DIACODE"].ToString().Trim();
+                value[(int)enum_雲端藥檔.料號] = reader["DIA_SKDIACODE"].ToString().Trim();
                 value[(int)enum_雲端藥檔.藥品名稱] = reader["DIA_EGNAME"].ToString().Trim();
                 value[(int)enum_雲端藥檔.中文名稱] = reader["DIA_EGNAME"].ToString().Trim();
                 value[(int)enum_雲端藥檔.藥品學名] = reader["DIA_CHNAME"].ToString().Trim();
@@ -69,7 +71,7 @@ namespace DB2VM.Controller
                 value[(int)enum_雲端藥檔.最小包裝單位] = reader["DIA_UNIT"].ToString().Trim();
                 value[(int)enum_雲端藥檔.最小包裝數量] = "1";
                 value[(int)enum_雲端藥檔.藥品條碼1] = reader["DIA_SKDIACODE"].ToString().Trim();
-                value[(int)enum_雲端藥檔.藥品條碼2] = reader["DIA_SKDIACODE"].ToString().Trim();
+                value[(int)enum_雲端藥檔.藥品條碼2] = reader["c"].ToString().Trim();
                 value[(int)enum_雲端藥檔.警訊藥品] = (reader["MED_HWARNING"].ToString().Trim() == "Y") ? "True" : "False";
                 value[(int)enum_雲端藥檔.管制級別] = reader["DIA_RESTRIC"].ToString().Trim();
                 value[(int)enum_雲端藥檔.類別] = reader["DIA_DRUGKINDNAME"].ToString().Trim();
