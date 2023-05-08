@@ -70,8 +70,8 @@ namespace DB2VM.Controller
                 value[(int)enum_雲端藥檔.包裝數量] = "1";
                 value[(int)enum_雲端藥檔.最小包裝單位] = reader["DIA_UNIT"].ToString().Trim();
                 value[(int)enum_雲端藥檔.最小包裝數量] = "1";
-                value[(int)enum_雲端藥檔.藥品條碼1] = reader["DIA_SKDIACODE"].ToString().Trim();
-                value[(int)enum_雲端藥檔.藥品條碼2] = reader["c"].ToString().Trim();
+                //value[(int)enum_雲端藥檔.藥品條碼1] = reader["DIA_SKDIACODE"].ToString().Trim();
+                //value[(int)enum_雲端藥檔.藥品條碼2] = reader["DIA_SKDIACODE"].ToString().Trim();
                 value[(int)enum_雲端藥檔.警訊藥品] = (reader["MED_HWARNING"].ToString().Trim() == "Y") ? "True" : "False";
                 value[(int)enum_雲端藥檔.管制級別] = reader["DIA_RESTRIC"].ToString().Trim();
                 value[(int)enum_雲端藥檔.類別] = reader["DIA_DRUGKINDNAME"].ToString().Trim();
@@ -96,7 +96,12 @@ namespace DB2VM.Controller
                 else
                 {
                     list_v_hisdrugdia[i][(int)enum_雲端藥檔.GUID] = list_BBCM_buf[0][(int)enum_雲端藥檔.GUID].ObjectToString();
-                    if(!list_v_hisdrugdia[i].IsEqual(list_BBCM_buf[0])) list_BBCM_Replace.Add(list_v_hisdrugdia[i]);
+                    if (!list_v_hisdrugdia[i].IsEqual(list_BBCM_buf[0], (int)enum_雲端藥檔.藥品條碼1, (int)enum_雲端藥檔.藥品條碼2))
+                    {
+                        list_v_hisdrugdia[i][(int)enum_雲端藥檔.藥品條碼1] = list_BBCM_buf[0][(int)enum_雲端藥檔.藥品條碼1];
+                        list_v_hisdrugdia[i][(int)enum_雲端藥檔.藥品條碼2] = list_BBCM_buf[0][(int)enum_雲端藥檔.藥品條碼2];
+                        list_BBCM_Replace.Add(list_v_hisdrugdia[i]);
+                    }
 
 
                 }
