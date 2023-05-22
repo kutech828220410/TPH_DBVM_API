@@ -62,14 +62,26 @@ namespace DB2VM
         public string Get(string? BarCode,string? test)
         {
             string conn_str = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.24.211)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=SISDCP)));User ID=tphphaadc;Password=tph@phaadc2860;";
+            OracleConnection conn_oracle;
+            OracleDataReader reader;
+            OracleCommand cmd;
             try
             {
-                OracleConnection conn_oracle = new OracleConnection(conn_str);
-                conn_oracle.Open();
+                try
+                {
+                    conn_oracle = new OracleConnection(conn_str);
+                    conn_oracle.Open();
+                }
+                catch
+                {
+                    return "HIS系統連結失敗!";
+                }
+            
                 string jsonstring = "";
                 string commandText = "";
                 List<OrderClass> orderClasses = new List<OrderClass>();
                 List<object[]> list_value_Add = new List<object[]>();
+                List<object[]> list_value_replace = new List<object[]>();
                 string[] strArray_Barcode = new string[0];
                 if(!BarCode.StringIsEmpty())
                 {
@@ -182,49 +194,69 @@ namespace DB2VM
                 //1120003290202303241711370;8287;IRI
                 if (commandText.StringIsEmpty()) return "Barcode type error!";
                 //xstring jsonString = "";
-                OracleCommand cmd = new OracleCommand(commandText, conn_oracle);
-
-                var reader = cmd.ExecuteReader();
-
-                while (reader.Read())
+                cmd = new OracleCommand(commandText, conn_oracle);
+                try
                 {
+                    reader = cmd.ExecuteReader();
 
-                    OrderClass orderClass = new OrderClass();
-                    string type = reader["PAC_TYPE"].ToString().Trim();
-                    orderClass.PRI_KEY = reader["PAC_ORDERSEQ"].ToString().Trim();
-                    if (type == "E") orderClass.藥局代碼 = "PHER";
-                    if (type == "S") orderClass.藥局代碼 = "STAT";
-                    if (type == "B") orderClass.藥局代碼 = "首日量";
-                    if (type == "O") orderClass.藥局代碼 = "OPD";
-                    if (type == "M") orderClass.藥局代碼 = "出院帶藥";
 
-                    orderClass.處方序號 = reader["PAC_SEQ"].ToString().Trim();
-                    orderClass.藥袋條碼 = $"{reader["PAC_VISITDT"].ToString().Trim()}{reader["PAC_PATID"].ToString().Trim()}{reader["PAC_SEQ"].ToString().Trim()}";
-                    orderClass.藥品碼 = reader["PAC_DIACODE"].ToString().Trim();
-                    orderClass.藥品名稱 = reader["PAC_DIANAME"].ToString().Trim();
-                    orderClass.病人姓名 = reader["PAC_PATNAME"].ToString().Trim();
-                    orderClass.病歷號 = reader["PAC_PATID"].ToString().Trim();
-                    orderClass.包裝單位 = reader["PAC_UNIT"].ToString().Trim();
-                    orderClass.劑量 = reader["PAC_QTYPERTIME"].ToString().Trim();
-                    orderClass.頻次 = reader["PAC_FEQNO"].ToString().Trim();
-                    orderClass.途徑 = reader["PAC_PATHNO"].ToString().Trim();
-                    orderClass.天數 = reader["PAC_DAYS"].ToString().Trim();
-                    orderClass.交易量 = (reader["PAC_SUMQTY"].ToString().Trim().StringToInt32() * -1).ToString();
-                    string Time = reader["PAC_PROCDTTM"].ToString().Trim();
-                    if (Time.Length == 14)
+                    try
                     {
-                        string Year = Time.Substring(0, 4);
-                        string Month = Time.Substring(4, 2);
-                        string Day = Time.Substring(6, 2);
-                        string Hour = Time.Substring(8, 2);
-                        string Min = Time.Substring(10, 2);
-                        string Sec = Time.Substring(12, 2);
-                        orderClass.開方時間 = $"{Year}/{Month}/{Day} {Hour}:{Min}:{Sec}";
+                        while (reader.Read())
+                        {
+
+                            OrderClass orderClass = new OrderClass();
+                            string type = reader["PAC_TYPE"].ToString().Trim();
+                            orderClass.PRI_KEY = reader["PAC_ORDERSEQ"].ToString().Trim();
+                            if (type == "E") orderClass.藥局代碼 = "PHER";
+                            if (type == "S") orderClass.藥局代碼 = "STAT";
+                            if (type == "B") orderClass.藥局代碼 = "首日量";
+                            if (type == "O") orderClass.藥局代碼 = "OPD";
+                            if (type == "M") orderClass.藥局代碼 = "出院帶藥";
+
+                            orderClass.處方序號 = reader["PAC_SEQ"].ToString().Trim();
+                            orderClass.藥袋條碼 = $"{reader["PAC_VISITDT"].ToString().Trim()}{reader["PAC_PATID"].ToString().Trim()}{reader["PAC_SEQ"].ToString().Trim()}";
+                            orderClass.藥品碼 = reader["PAC_DIACODE"].ToString().Trim();
+                            orderClass.藥品名稱 = reader["PAC_DIANAME"].ToString().Trim();
+                            orderClass.病人姓名 = reader["PAC_PATNAME"].ToString().Trim();
+                            orderClass.病歷號 = reader["PAC_PATID"].ToString().Trim();
+                            orderClass.包裝單位 = reader["PAC_UNIT"].ToString().Trim();
+                            orderClass.劑量 = reader["PAC_QTYPERTIME"].ToString().Trim();
+                            orderClass.頻次 = reader["PAC_FEQNO"].ToString().Trim();
+                            orderClass.途徑 = reader["PAC_PATHNO"].ToString().Trim();
+                            orderClass.天數 = reader["PAC_DAYS"].ToString().Trim();
+                            string PAC_SUMQTY = reader["PAC_SUMQTY"].ToString().Trim();
+                            double sumQTY = PAC_SUMQTY.StringToDouble();
+                            sumQTY = Math.Ceiling(sumQTY);
+                            orderClass.交易量 = ((int)sumQTY * -1).ToString();
+                            string Time = reader["PAC_PROCDTTM"].ToString().Trim();
+                            if (Time.Length == 14)
+                            {
+                                string Year = Time.Substring(0, 4);
+                                string Month = Time.Substring(4, 2);
+                                string Day = Time.Substring(6, 2);
+                                string Hour = Time.Substring(8, 2);
+                                string Min = Time.Substring(10, 2);
+                                string Sec = Time.Substring(12, 2);
+                                orderClass.開方時間 = $"{Year}/{Month}/{Day} {Hour}:{Min}:{Sec}";
+                            }
+
+                            orderClasses.Add(orderClass);
+
+                        }
                     }
-
-                    orderClasses.Add(orderClass);
-
+                    catch
+                    {
+                        return "HIS系統回傳資料異常!";
+                    }
                 }
+                catch
+                {
+                    return "HIS系統命令下達失敗!";
+                }
+             
+
+                
                 conn_oracle.Close();
                 conn_oracle.Dispose();
 
@@ -249,17 +281,36 @@ namespace DB2VM
                         value[(int)enum_醫囑資料.狀態] = "未過帳";
                         list_value_Add.Add(value);
                     }
+                    else
+                    {
+                        object[] value = list_value[0];
+                        value[(int)enum_醫囑資料.PRI_KEY] = orderClasses[i].PRI_KEY;
+                        value[(int)enum_醫囑資料.藥局代碼] = orderClasses[i].藥局代碼;
+                        value[(int)enum_醫囑資料.藥品碼] = orderClasses[i].藥品碼;
+                        value[(int)enum_醫囑資料.藥品名稱] = orderClasses[i].藥品名稱;
+                        value[(int)enum_醫囑資料.病歷號] = orderClasses[i].病歷號;
+                        value[(int)enum_醫囑資料.藥袋條碼] = orderClasses[i].藥袋條碼;
+                        value[(int)enum_醫囑資料.病人姓名] = orderClasses[i].病人姓名;
+                        value[(int)enum_醫囑資料.交易量] = orderClasses[i].交易量;
+                        value[(int)enum_醫囑資料.開方日期] = orderClasses[i].開方時間;
+                
+                        list_value_replace.Add(value);
+                    }
                 }
 
                 if (list_value_Add.Count > 0)
                 {
                     this.sQLControl_醫囑資料.AddRows(null, list_value_Add);
                 }
+                if(list_value_replace.Count>0)
+                {
+                    this.sQLControl_醫囑資料.UpdateByDefulteExtra(null, list_value_replace);
+                }
                 return orderClasses.JsonSerializationt();
             }
             catch
             {
-                return "Database connecting error!";
+                return "醫令串接異常";
             }
            
         }
