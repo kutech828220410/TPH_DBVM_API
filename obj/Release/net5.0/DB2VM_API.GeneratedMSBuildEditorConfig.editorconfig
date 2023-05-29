@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = DB2VM_API
-build_property.ProjectDir = C:\Users\kwok\Desktop\TPH_DBVM_API\
+build_property.ProjectDir = C:\Users\Administrator\Source\Repos\TPH_DBVM_API\
