@@ -10,6 +10,7 @@ using System.Configuration;
 using Basic;
 using SQLUI;
 using Oracle.ManagedDataAccess.Client;
+using System.Text;
 
 namespace DB2VM.Controller
 {
@@ -51,11 +52,18 @@ namespace DB2VM.Controller
             OracleConnection conn_oracle = new OracleConnection(conn_str);
             conn_oracle.Open();
             string commandText = "";
-            if(Code.StringIsEmpty()) commandText = $"select * from v_hisdrugdia";
+            if (Code.StringIsEmpty()) commandText = $"select * from v_hisdrugdia";
             else commandText = $"select * from v_hisdrugdia where DIA_DIACODE='{Code}'";
             OracleCommand cmd = new OracleCommand(commandText, conn_oracle);
             List<object[]> list_v_hisdrugdia = new List<object[]>();
             var reader = cmd.ExecuteReader();
+            List<string> columnNames = new List<string>();
+            for (int i = 0; i < reader.FieldCount; i++)
+            {
+                string columnName = reader.GetName(i);
+                columnNames.Add(columnName);
+            }
+
             while (reader.Read())
             {
                 object[] value = new object[new enum_雲端藥檔().GetLength()];
@@ -63,7 +71,7 @@ namespace DB2VM.Controller
                 value[(int)enum_雲端藥檔.藥品碼] = reader["DIA_DIACODE"].ToString().Trim();
                 value[(int)enum_雲端藥檔.料號] = reader["DIA_SKDIACODE"].ToString().Trim();
                 value[(int)enum_雲端藥檔.藥品名稱] = reader["DIA_EGNAME"].ToString().Trim();
-                value[(int)enum_雲端藥檔.中文名稱] = reader["DIA_EGNAME"].ToString().Trim();
+                value[(int)enum_雲端藥檔.中文名稱] = reader["DIA_CNAME"].ToString().Trim();
                 value[(int)enum_雲端藥檔.藥品學名] = reader["DIA_CHNAME"].ToString().Trim();
                 value[(int)enum_雲端藥檔.健保碼] = reader["DIA_INSCODE"].ToString().Trim();
                 value[(int)enum_雲端藥檔.包裝單位] = reader["DIA_ATTACHUNIT"].ToString().Trim();
@@ -85,7 +93,7 @@ namespace DB2VM.Controller
             List<object[]> list_BBCM_buf = new List<object[]>();
             List<object[]> list_BBCM_Add = new List<object[]>();
             List<object[]> list_BBCM_Replace = new List<object[]>();
-            for(int i = 0; i < list_v_hisdrugdia.Count; i++)
+            for (int i = 0; i < list_v_hisdrugdia.Count; i++)
             {
                 list_BBCM_buf = list_BBCM.GetRows((int)enum_雲端藥檔.藥品碼, list_v_hisdrugdia[i][(int)enum_雲端藥檔.藥品碼].ObjectToString());
                 if (list_BBCM_buf.Count == 0)
@@ -107,6 +115,14 @@ namespace DB2VM.Controller
                 }
             }
             if (list_BBCM_Add.Count > 0) sQLControl_UDSDBBCM.AddRows(null, list_BBCM_Add);
+            for (int i = 0; i < list_BBCM_Replace.Count; i++)
+            {
+                string str = list_BBCM_Replace[i][(int)enum_雲端藥檔.中文名稱].ObjectToString();
+                byte[] bytes = Encoding.Default.GetBytes(str);
+                byte[] BIG5 = Encoding.Convert(Encoding.Default, Encoding.GetEncoding("BIG5"), bytes);//進行轉碼,參數1,來源編碼,參數二,目標編碼,參數三,欲編碼變
+                string decodedString = Encoding.GetEncoding("BIG5").GetString(BIG5);
+                list_BBCM_Replace[i][(int)enum_雲端藥檔.中文名稱] = decodedString;
+            }
             if (list_BBCM_Replace.Count > 0) sQLControl_UDSDBBCM.UpdateByDefulteExtra(null, list_BBCM_Replace);
 
 
