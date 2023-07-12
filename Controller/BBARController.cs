@@ -10,6 +10,7 @@ using System.Configuration;
 using Basic;
 using SQLUI;
 using Oracle.ManagedDataAccess.Client;
+using HIS_DB_Lib;
 namespace DB2VM
 {
     [Route("dbvm/[controller]")]
@@ -76,8 +77,9 @@ namespace DB2VM
                 {
                     return "HIS系統連結失敗!";
                 }
-            
-                string jsonstring = "";
+
+                returnData returnData = new returnData();
+                MyTimerBasic myTimerBasic = new MyTimerBasic();
                 string commandText = "";
                 List<OrderClass> orderClasses = new List<OrderClass>();
                 List<object[]> list_value_Add = new List<object[]>();
@@ -186,11 +188,14 @@ namespace DB2VM
                 {
                     string 本次領藥號 = strArray_Barcode[(int)enum_急診藥袋.本次領藥號];
                     string 看診日期 = strArray_Barcode[(int)enum_急診藥袋.看診日期];
-                    string 病歷號 = strArray_Barcode[(int)enum_急診藥袋.病歷號];
+                    string _病歷號 = strArray_Barcode[(int)enum_急診藥袋.病歷號];
                     string 序號 = strArray_Barcode[(int)enum_急診藥袋.序號];
 
-                    commandText = $"select * from phaadc where PAC_DRUGNO={本次領藥號} and PAC_VISITDT={看診日期} and PAC_PATID={病歷號} and PAC_SEQ={序號}";
+                    commandText = $"select * from phaadc where PAC_DRUGNO={本次領藥號} and PAC_VISITDT={看診日期} and PAC_PATID={_病歷號} and PAC_SEQ={序號}";
                 }
+                string _本次領藥號 = "0002196450";
+                string _看診日期 = "20230608";
+                commandText = $"select * from phaadc where PAC_PATID={_本次領藥號}";
                 //1120003290202303241711370;8287;IRI
                 if (commandText.StringIsEmpty()) return "Barcode type error!";
                 //xstring jsonString = "";
@@ -214,17 +219,13 @@ namespace DB2VM
                             if (type == "O") orderClass.藥局代碼 = "OPD";
                             if (type == "M") orderClass.藥局代碼 = "出院帶藥";
 
-                            orderClass.處方序號 = reader["PAC_SEQ"].ToString().Trim();
+                            //orderClass. = reader["PAC_SEQ"].ToString().Trim();
                             orderClass.藥袋條碼 = $"{reader["PAC_VISITDT"].ToString().Trim()}{reader["PAC_PATID"].ToString().Trim()}{reader["PAC_SEQ"].ToString().Trim()}";
                             orderClass.藥品碼 = reader["PAC_DIACODE"].ToString().Trim();
                             orderClass.藥品名稱 = reader["PAC_DIANAME"].ToString().Trim();
                             orderClass.病人姓名 = reader["PAC_PATNAME"].ToString().Trim();
                             orderClass.病歷號 = reader["PAC_PATID"].ToString().Trim();
-                            orderClass.包裝單位 = reader["PAC_UNIT"].ToString().Trim();
-                            orderClass.劑量 = reader["PAC_QTYPERTIME"].ToString().Trim();
-                            orderClass.頻次 = reader["PAC_FEQNO"].ToString().Trim();
-                            orderClass.途徑 = reader["PAC_PATHNO"].ToString().Trim();
-                            orderClass.天數 = reader["PAC_DAYS"].ToString().Trim();
+                
                             string PAC_SUMQTY = reader["PAC_SUMQTY"].ToString().Trim();
                             double sumQTY = PAC_SUMQTY.StringToDouble();
                             sumQTY = Math.Ceiling(sumQTY);
@@ -238,7 +239,7 @@ namespace DB2VM
                                 string Hour = Time.Substring(8, 2);
                                 string Min = Time.Substring(10, 2);
                                 string Sec = Time.Substring(12, 2);
-                                orderClass.開方時間 = $"{Year}/{Month}/{Day} {Hour}:{Min}:{Sec}";
+                                orderClass.開方日期 = $"{Year}/{Month}/{Day} {Hour}:{Min}:{Sec}";
                             }
 
                             orderClasses.Add(orderClass);
@@ -259,11 +260,21 @@ namespace DB2VM
                 
                 conn_oracle.Close();
                 conn_oracle.Dispose();
+                if(orderClasses.Count == 0)
+                {
+                    returnData.Code = -200;
+                    returnData.TimeTaken = myTimerBasic.ToString();
+                    returnData.Result = $"無此藥袋資料!";
 
+                    return returnData.JsonSerializationt(true);
+                }
+                string 病歷號 = orderClasses[0].病歷號;
+                List<object[]> list_value = this.sQLControl_醫囑資料.GetRowsByDefult(null, enum_醫囑資料.病歷號.GetEnumName(), 病歷號);
+                List<object[]> list_value_buf = new List<object[]>();
                 for (int i = 0; i < orderClasses.Count; i++)
                 {
-                    List<object[]> list_value = this.sQLControl_醫囑資料.GetRowsByDefult(null, enum_醫囑資料.PRI_KEY.GetEnumName(), orderClasses[i].PRI_KEY);
-                    if (list_value.Count == 0)
+                    list_value_buf = list_value.GetRows((int)enum_醫囑資料.PRI_KEY, orderClasses[i].PRI_KEY);
+                    if (list_value_buf.Count == 0)
                     {
                         object[] value = new object[new enum_醫囑資料().GetLength()];
                         value[(int)enum_醫囑資料.GUID] = Guid.NewGuid().ToString();
@@ -275,7 +286,7 @@ namespace DB2VM
                         value[(int)enum_醫囑資料.藥袋條碼] = orderClasses[i].藥袋條碼;
                         value[(int)enum_醫囑資料.病人姓名] = orderClasses[i].病人姓名;
                         value[(int)enum_醫囑資料.交易量] = orderClasses[i].交易量;
-                        value[(int)enum_醫囑資料.開方日期] = orderClasses[i].開方時間;
+                        value[(int)enum_醫囑資料.開方日期] = orderClasses[i].開方日期;
                         value[(int)enum_醫囑資料.產出時間] = DateTime.Now.ToDateTimeString_6();
                         value[(int)enum_醫囑資料.過帳時間] = DateTime.MinValue.ToDateTimeString_6();
                         value[(int)enum_醫囑資料.狀態] = "未過帳";
@@ -283,18 +294,24 @@ namespace DB2VM
                     }
                     else
                     {
-                        object[] value = list_value[0];
-                        value[(int)enum_醫囑資料.PRI_KEY] = orderClasses[i].PRI_KEY;
-                        value[(int)enum_醫囑資料.藥局代碼] = orderClasses[i].藥局代碼;
-                        value[(int)enum_醫囑資料.藥品碼] = orderClasses[i].藥品碼;
-                        value[(int)enum_醫囑資料.藥品名稱] = orderClasses[i].藥品名稱;
-                        value[(int)enum_醫囑資料.病歷號] = orderClasses[i].病歷號;
-                        value[(int)enum_醫囑資料.藥袋條碼] = orderClasses[i].藥袋條碼;
-                        value[(int)enum_醫囑資料.病人姓名] = orderClasses[i].病人姓名;
-                        value[(int)enum_醫囑資料.交易量] = orderClasses[i].交易量;
-                        value[(int)enum_醫囑資料.開方日期] = orderClasses[i].開方時間;
-                
-                        list_value_replace.Add(value);
+                        object[] value_src = orderClasses[i].ClassToSQL<OrderClass, enum_醫囑資料>();
+                        if(value_src.IsEqual(list_value_buf[0], (int)enum_醫囑資料.GUID, (int)enum_醫囑資料.產出時間, (int)enum_醫囑資料.開方日期, (int)enum_醫囑資料.過帳時間, (int)enum_醫囑資料.狀態) == false)
+                        {
+                            object[] value = list_value_buf[0];
+                            value[(int)enum_醫囑資料.PRI_KEY] = orderClasses[i].PRI_KEY;
+                            value[(int)enum_醫囑資料.藥局代碼] = orderClasses[i].藥局代碼;
+                            value[(int)enum_醫囑資料.藥品碼] = orderClasses[i].藥品碼;
+                            value[(int)enum_醫囑資料.藥品名稱] = orderClasses[i].藥品名稱;
+                            value[(int)enum_醫囑資料.病歷號] = orderClasses[i].病歷號;
+                            value[(int)enum_醫囑資料.藥袋條碼] = orderClasses[i].藥袋條碼;
+                            value[(int)enum_醫囑資料.病人姓名] = orderClasses[i].病人姓名;
+                            value[(int)enum_醫囑資料.交易量] = orderClasses[i].交易量;
+                            value[(int)enum_醫囑資料.開方日期] = orderClasses[i].開方日期;
+                            list_value_replace.Add(value);
+                        }
+            
+
+                     
                     }
                 }
 
@@ -306,7 +323,12 @@ namespace DB2VM
                 {
                     this.sQLControl_醫囑資料.UpdateByDefulteExtra(null, list_value_replace);
                 }
-                return orderClasses.JsonSerializationt();
+                returnData.Code = 200;
+                returnData.Data = orderClasses;
+                returnData.TimeTaken = myTimerBasic.ToString();
+                returnData.Result = $"取得醫囑完成! 共<{orderClasses.Count}>筆 ,新增<{list_value_Add.Count}>筆,修改<{list_value_replace.Count}>筆";
+
+                return returnData.JsonSerializationt(true);
             }
             catch
             {

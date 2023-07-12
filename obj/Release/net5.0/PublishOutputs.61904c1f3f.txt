@@ -198,6 +198,7 @@ C:\Users\kwok\Desktop\TPH_DBVM_API\obj\Release\net5.0\PubTmp\Out\runtimes\win\li
 C:\Users\kwok\Desktop\TPH_DBVM_API\obj\Release\net5.0\PubTmp\Out\runtimes\win\lib\netcoreapp3.1\System.Text.Encoding.CodePages.dll
 C:\Users\kwok\Desktop\TPH_DBVM_API\obj\Release\net5.0\PubTmp\Out\runtimes\win\lib\netcoreapp3.1\System.Windows.Extensions.dll
 C:\Users\kwok\Desktop\TPH_DBVM_API\obj\Release\net5.0\PubTmp\Out\Basic.dll
+C:\Users\kwok\Desktop\TPH_DBVM_API\obj\Release\net5.0\PubTmp\Out\HIS_DB_Lib.dll
 C:\Users\kwok\Desktop\TPH_DBVM_API\obj\Release\net5.0\PubTmp\Out\SQLUI.dll
 C:\Users\kwok\Desktop\TPH_DBVM_API\obj\Release\net5.0\PubTmp\Out\MyUI.dll
 C:\Users\kwok\Desktop\TPH_DBVM_API\obj\Release\net5.0\PubTmp\Out\LadderUI.dll

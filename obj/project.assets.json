@@ -1499,19 +1499,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {}
+    "C:\\Users\\kwok\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Source\\Repos\\TPH_DBVM_API\\DB2VM_API.csproj",
+      "projectUniqueName": "C:\\Users\\kwok\\Desktop\\TPH_DBVM_API\\DB2VM_API.csproj",
       "projectName": "DB2VM_API",
-      "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\TPH_DBVM_API\\DB2VM_API.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Source\\Repos\\TPH_DBVM_API\\obj\\",
+      "projectPath": "C:\\Users\\kwok\\Desktop\\TPH_DBVM_API\\DB2VM_API.csproj",
+      "packagesPath": "C:\\Users\\kwok\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kwok\\Desktop\\TPH_DBVM_API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\kwok\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1580,7 +1580,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.416\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -11,28 +11,10 @@ using Basic;
 using SQLUI;
 using Oracle.ManagedDataAccess.Client;
 using System.Text;
-
+using HIS_DB_Lib;
 namespace DB2VM.Controller
 {
-    public enum enum_雲端藥檔
-    {
-        GUID,
-        藥品碼,
-        料號,
-        中文名稱,
-        藥品名稱,
-        藥品學名,
-        健保碼,
-        包裝單位,
-        包裝數量,
-        最小包裝單位,
-        最小包裝數量,
-        藥品條碼1,
-        藥品條碼2,
-        警訊藥品,
-        管制級別,
-        類別,
-    }
+   
 
     [Route("dbvm/[controller]")]
     [ApiController]
@@ -70,8 +52,8 @@ namespace DB2VM.Controller
 
                 value[(int)enum_雲端藥檔.藥品碼] = reader["DIA_DIACODE"].ToString().Trim();
                 value[(int)enum_雲端藥檔.料號] = reader["DIA_SKDIACODE"].ToString().Trim();
-                value[(int)enum_雲端藥檔.藥品名稱] = reader["DIA_EGNAME"].ToString().Trim();
                 value[(int)enum_雲端藥檔.中文名稱] = reader["DIA_CNAME"].ToString().Trim();
+                value[(int)enum_雲端藥檔.藥品名稱] = reader["DIA_EGNAME"].ToString().Trim();
                 value[(int)enum_雲端藥檔.藥品學名] = reader["DIA_CHNAME"].ToString().Trim();
                 value[(int)enum_雲端藥檔.健保碼] = reader["DIA_INSCODE"].ToString().Trim();
                 value[(int)enum_雲端藥檔.包裝單位] = reader["DIA_ATTACHUNIT"].ToString().Trim();
