@@ -193,10 +193,10 @@ namespace DB2VM
 
                     commandText = $"select * from phaadc where PAC_DRUGNO={本次領藥號} and PAC_VISITDT={看診日期} and PAC_PATID={_病歷號} and PAC_SEQ={序號}";
                 }
-                string _本次領藥號 = "0002196450";
-                string _看診日期 = "20230608";
-                commandText = $"select * from phaadc where PAC_PATID={_本次領藥號}";
-                //1120003290202303241711370;8287;IRI
+                //string _本次領藥號 = "0002196450";
+                //string _看診日期 = "20230608";
+                //commandText = $"select * from phaadc where PAC_PATID={_本次領藥號}";
+                ////1120003290202303241711370;8287;IRI
                 if (commandText.StringIsEmpty()) return "Barcode type error!";
                 //xstring jsonString = "";
                 cmd = new OracleCommand(commandText, conn_oracle);
@@ -307,6 +307,8 @@ namespace DB2VM
                             value[(int)enum_醫囑資料.病人姓名] = orderClasses[i].病人姓名;
                             value[(int)enum_醫囑資料.交易量] = orderClasses[i].交易量;
                             value[(int)enum_醫囑資料.開方日期] = orderClasses[i].開方日期;
+                            value[(int)enum_醫囑資料.狀態] = "未過帳";
+
                             list_value_replace.Add(value);
                         }
             
