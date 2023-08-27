@@ -17,22 +17,7 @@ namespace DB2VM
     [ApiController]
     public class BBARController : ControllerBase
     {
-        public enum enum_醫囑資料
-        {
-            GUID,
-            PRI_KEY,
-            藥局代碼,
-            藥袋條碼,
-            藥品碼,
-            藥品名稱,
-            病人姓名,
-            病歷號,
-            交易量,
-            開方日期,
-            產出時間,
-            過帳時間,
-            狀態,
-        }
+   
         public enum enum_急診藥袋
         {
             本次領藥號,
@@ -60,7 +45,7 @@ namespace DB2VM
         private SQLControl sQLControl_醫囑資料 = new SQLControl(MySQL_server, MySQL_database, "order_list", MySQL_userid, MySQL_password, (uint)MySQL_port.StringToInt32(), MySql.Data.MySqlClient.MySqlSslMode.None);
 
         [HttpGet]
-        public string Get(string? BarCode,string? test)
+        public string Get(string? BarCode,string? test,string? MRN)
         {
             string conn_str = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.24.211)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=SISDCP)));User ID=tphphaadc;Password=tph@phaadc2860;";
             OracleConnection conn_oracle;
@@ -77,7 +62,7 @@ namespace DB2VM
                 {
                     return "HIS系統連結失敗!";
                 }
-
+                string PAC_ORDERSEQ = "";
                 returnData returnData = new returnData();
                 MyTimerBasic myTimerBasic = new MyTimerBasic();
                 string commandText = "";
@@ -90,9 +75,93 @@ namespace DB2VM
                     strArray_Barcode = BarCode.Split(";");
                 }
              
-                if (!test.StringIsEmpty())
+                if (!MRN.StringIsEmpty())
                 {
-                    commandText = test;
+                    if (MRN.Length < 10) MRN = "0" + MRN;
+                    if (MRN.Length < 10) MRN = "0" + MRN;
+                    if (MRN.Length < 10) MRN = "0" + MRN;
+                    if (MRN.Length < 10) MRN = "0" + MRN;
+                    if (MRN.Length < 10) MRN = "0" + MRN;
+                    if (MRN.Length < 10) MRN = "0" + MRN;
+                    if (MRN.Length < 10) MRN = "0" + MRN;
+                    if (MRN.Length < 10) MRN = "0" + MRN;
+                    if (MRN.Length < 10) MRN = "0" + MRN;
+                    if (MRN.Length < 10) MRN = "0" + MRN;
+                    if (MRN.Length < 10) MRN = "0" + MRN;
+                    commandText += "select ";
+                    commandText += "min(PAC_VISITDT) PAC_VISITDT,";
+                    commandText += "sum(PAC_SUMQTY) PAC_SUMQTY,";
+                    commandText += "PAC_ORDERSEQ,";
+                    commandText += "PAC_SEQ,";
+                    commandText += "PAC_DIACODE,";
+                    commandText += "PAC_DIANAME,";
+                    commandText += "PAC_PATNAME,";
+                    commandText += "PAC_PATID,";
+                    commandText += "PAC_UNIT,";
+                    commandText += "PAC_QTYPERTIME,";
+                    commandText += "PAC_FEQNO,";
+                    commandText += "PAC_PATHNO,";
+                    commandText += "PAC_DAYS,";
+                    commandText += "PAC_TYPE,";
+                    commandText += "PAC_PROCDTTM ";
+
+                    commandText += $"from PHAADC where PAC_PATID='{MRN}' ";
+                    commandText += "GROUP BY ";
+
+                    commandText += "PAC_ORDERSEQ,";
+                    commandText += "PAC_SEQ,";
+                    commandText += "PAC_DIACODE,";
+                    commandText += "PAC_DIANAME,";
+                    commandText += "PAC_PATNAME,";
+                    commandText += "PAC_PATID,";
+                    commandText += "PAC_UNIT,";
+                    commandText += "PAC_QTYPERTIME,";
+                    commandText += "PAC_FEQNO,";
+                    commandText += "PAC_PATHNO,";
+                    commandText += "PAC_DAYS,";
+                    commandText += "PAC_TYPE,";
+                    commandText += "PAC_PROCDTTM ";
+                }
+                else if (strArray_Barcode.Length == 4)
+                {
+                    string PAC_SEQ = strArray_Barcode[0];
+                    string PAC_VISITDT = strArray_Barcode[1];
+                    string PAC_DIACODE = strArray_Barcode[2];
+                    PAC_ORDERSEQ = strArray_Barcode[3];
+                    commandText += "select ";
+                    commandText += "min(PAC_VISITDT) PAC_VISITDT,";
+                    commandText += "sum(PAC_SUMQTY) PAC_SUMQTY,";
+                    commandText += "PAC_ORDERSEQ,";
+                    commandText += "PAC_SEQ,";
+                    commandText += "PAC_DIACODE,";
+                    commandText += "PAC_DIANAME,";
+                    commandText += "PAC_PATNAME,";
+                    commandText += "PAC_PATID,";
+                    commandText += "PAC_UNIT,";
+                    commandText += "PAC_QTYPERTIME,";
+                    commandText += "PAC_FEQNO,";
+                    commandText += "PAC_PATHNO,";
+                    commandText += "PAC_DAYS,";
+                    commandText += "PAC_TYPE,";
+                    commandText += "PAC_PROCDTTM ";
+
+                    commandText += $"from PHAADC where PAC_SEQ='{PAC_SEQ}' and PAC_VISITDT='{PAC_VISITDT}' AND PAC_DIACODE='{PAC_DIACODE}' ";
+                    commandText += "GROUP BY ";
+
+                    commandText += "PAC_ORDERSEQ,";
+                    commandText += "PAC_SEQ,";
+                    commandText += "PAC_DIACODE,";
+                    commandText += "PAC_DIANAME,";
+                    commandText += "PAC_PATNAME,";
+                    commandText += "PAC_PATID,";
+                    commandText += "PAC_UNIT,";
+                    commandText += "PAC_QTYPERTIME,";
+                    commandText += "PAC_FEQNO,";
+                    commandText += "PAC_PATHNO,";
+                    commandText += "PAC_DAYS,";
+                    commandText += "PAC_TYPE,";
+                    commandText += "PAC_PROCDTTM ";
+
                 }
                 else if (strArray_Barcode.Length == 3)
                 {
@@ -193,11 +262,12 @@ namespace DB2VM
 
                     commandText = $"select * from phaadc where PAC_DRUGNO={本次領藥號} and PAC_VISITDT={看診日期} and PAC_PATID={_病歷號} and PAC_SEQ={序號}";
                 }
-                //string _本次領藥號 = "0002196450";
+                //string _病歷號_ = "0000681203";
                 //string _看診日期 = "20230608";
-                //commandText = $"select * from phaadc where PAC_PATID={_本次領藥號}";
-                ////1120003290202303241711370;8287;IRI
-                if (commandText.StringIsEmpty()) return "Barcode type error!";
+                //string _CODE = "IMOR";
+                //commandText = $"select * from phaadc where PAC_PATID={_病歷號_}";
+                //////1120003290202303241711370;8287;IRI
+                //if (commandText.StringIsEmpty()) return "Barcode type error!";
                 //xstring jsonString = "";
                 cmd = new OracleCommand(commandText, conn_oracle);
                 try
@@ -241,8 +311,15 @@ namespace DB2VM
                                 string Sec = Time.Substring(12, 2);
                                 orderClass.開方日期 = $"{Year}/{Month}/{Day} {Hour}:{Min}:{Sec}";
                             }
-
-                            orderClasses.Add(orderClass);
+                            if(PAC_ORDERSEQ.StringIsEmpty() == false)
+                            {
+                                if(PAC_ORDERSEQ == orderClass.PRI_KEY) orderClasses.Add(orderClass);
+                            }
+                            else
+                            {
+                                orderClasses.Add(orderClass);
+                            }
+                     
 
                         }
                     }
@@ -278,6 +355,7 @@ namespace DB2VM
                     {
                         object[] value = new object[new enum_醫囑資料().GetLength()];
                         value[(int)enum_醫囑資料.GUID] = Guid.NewGuid().ToString();
+                        orderClasses[i].GUID = value[(int)enum_醫囑資料.GUID].ObjectToString();
                         value[(int)enum_醫囑資料.PRI_KEY] = orderClasses[i].PRI_KEY;
                         value[(int)enum_醫囑資料.藥局代碼] = orderClasses[i].藥局代碼;
                         value[(int)enum_醫囑資料.藥品碼] = orderClasses[i].藥品碼;
@@ -298,6 +376,7 @@ namespace DB2VM
                         if(value_src.IsEqual(list_value_buf[0], (int)enum_醫囑資料.GUID, (int)enum_醫囑資料.產出時間, (int)enum_醫囑資料.開方日期, (int)enum_醫囑資料.過帳時間, (int)enum_醫囑資料.狀態) == false)
                         {
                             object[] value = list_value_buf[0];
+                            orderClasses[i].GUID = value[(int)enum_醫囑資料.GUID].ObjectToString();
                             value[(int)enum_醫囑資料.PRI_KEY] = orderClasses[i].PRI_KEY;
                             value[(int)enum_醫囑資料.藥局代碼] = orderClasses[i].藥局代碼;
                             value[(int)enum_醫囑資料.藥品碼] = orderClasses[i].藥品碼;
@@ -316,15 +395,18 @@ namespace DB2VM
                      
                     }
                 }
-
-                if (list_value_Add.Count > 0)
+                Task task =  Task.Run(() =>
                 {
-                    this.sQLControl_醫囑資料.AddRows(null, list_value_Add);
-                }
-                if(list_value_replace.Count>0)
-                {
-                    this.sQLControl_醫囑資料.UpdateByDefulteExtra(null, list_value_replace);
-                }
+                    if (list_value_Add.Count > 0)
+                    {
+                        this.sQLControl_醫囑資料.AddRows(null, list_value_Add);
+                    }
+                    if (list_value_replace.Count > 0)
+                    {
+                        this.sQLControl_醫囑資料.UpdateByDefulteExtra(null, list_value_replace);
+                    }
+                });
+              
                 returnData.Code = 200;
                 returnData.Data = orderClasses;
                 returnData.TimeTaken = myTimerBasic.ToString();
