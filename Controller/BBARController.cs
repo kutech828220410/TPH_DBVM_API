@@ -17,7 +17,7 @@ namespace DB2VM
     [ApiController]
     public class BBARController : ControllerBase
     {
-   
+
         public enum enum_急診藥袋
         {
             本次領藥號,
@@ -45,7 +45,7 @@ namespace DB2VM
         private SQLControl sQLControl_醫囑資料 = new SQLControl(MySQL_server, MySQL_database, "order_list", MySQL_userid, MySQL_password, (uint)MySQL_port.StringToInt32(), MySql.Data.MySqlClient.MySqlSslMode.None);
 
         [HttpGet]
-        public string Get(string? BarCode,string? test,string? MRN)
+        public string Get(string? BarCode, string? test, string? MRN)
         {
             string conn_str = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.24.211)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=SISDCP)));User ID=tphphaadc;Password=tph@phaadc2860;";
             OracleConnection conn_oracle;
@@ -70,11 +70,11 @@ namespace DB2VM
                 List<object[]> list_value_Add = new List<object[]>();
                 List<object[]> list_value_replace = new List<object[]>();
                 string[] strArray_Barcode = new string[0];
-                if(!BarCode.StringIsEmpty())
+                if (!BarCode.StringIsEmpty())
                 {
                     strArray_Barcode = BarCode.Split(";");
                 }
-             
+
                 if (!MRN.StringIsEmpty())
                 {
                     if (MRN.Length < 10) MRN = "0" + MRN;
@@ -166,7 +166,7 @@ namespace DB2VM
                 else if (strArray_Barcode.Length == 3)
                 {
                     //住院首日或住院ST藥袋
-                    if(strArray_Barcode[0].Length == 25)
+                    if (strArray_Barcode[0].Length == 25)
                     {
                         string 住院序號 = strArray_Barcode[0].Substring(0, 10);
                         string 醫令時間 = strArray_Barcode[0].Substring(10, 14);
@@ -208,7 +208,7 @@ namespace DB2VM
                         commandText += "PAC_PROCDTTM ";
 
                     }
-                                        
+
                 }
                 else if (BarCode.Length == 25)
                 {
@@ -235,7 +235,7 @@ namespace DB2VM
 
                     commandText += $"from PHAADC where PAC_SEQ='{住院序號}' and PAC_PROCDTTM='{醫令時間}' AND PAC_TYPE='{醫令類型}' ";
                     commandText += "GROUP BY ";
-        
+
                     commandText += "PAC_ORDERSEQ,";
                     commandText += "PAC_SEQ,";
                     commandText += "PAC_DIACODE,";
@@ -295,7 +295,8 @@ namespace DB2VM
                             orderClass.藥品名稱 = reader["PAC_DIANAME"].ToString().Trim();
                             orderClass.病人姓名 = reader["PAC_PATNAME"].ToString().Trim();
                             orderClass.病歷號 = reader["PAC_PATID"].ToString().Trim();
-                
+                            orderClass.領藥號 = reader["PAC_DRUGNO"].ToString().Trim();
+
                             string PAC_SUMQTY = reader["PAC_SUMQTY"].ToString().Trim();
                             double sumQTY = PAC_SUMQTY.StringToDouble();
                             sumQTY = Math.Ceiling(sumQTY);
@@ -311,15 +312,15 @@ namespace DB2VM
                                 string Sec = Time.Substring(12, 2);
                                 orderClass.開方日期 = $"{Year}/{Month}/{Day} {Hour}:{Min}:{Sec}";
                             }
-                            if(PAC_ORDERSEQ.StringIsEmpty() == false)
+                            if (PAC_ORDERSEQ.StringIsEmpty() == false)
                             {
-                                if(PAC_ORDERSEQ == orderClass.PRI_KEY) orderClasses.Add(orderClass);
+                                if (PAC_ORDERSEQ == orderClass.PRI_KEY) orderClasses.Add(orderClass);
                             }
                             else
                             {
                                 orderClasses.Add(orderClass);
                             }
-                     
+
 
                         }
                     }
@@ -332,12 +333,12 @@ namespace DB2VM
                 {
                     return "HIS系統命令下達失敗!";
                 }
-             
 
-                
+
+
                 conn_oracle.Close();
                 conn_oracle.Dispose();
-                if(orderClasses.Count == 0)
+                if (orderClasses.Count == 0)
                 {
                     returnData.Code = -200;
                     returnData.TimeTaken = myTimerBasic.ToString();
@@ -356,8 +357,10 @@ namespace DB2VM
                         object[] value = new object[new enum_醫囑資料().GetLength()];
                         value[(int)enum_醫囑資料.GUID] = Guid.NewGuid().ToString();
                         orderClasses[i].GUID = value[(int)enum_醫囑資料.GUID].ObjectToString();
+                        orderClasses[i].狀態 = value[(int)enum_醫囑資料.狀態].ObjectToString();
                         value[(int)enum_醫囑資料.PRI_KEY] = orderClasses[i].PRI_KEY;
                         value[(int)enum_醫囑資料.藥局代碼] = orderClasses[i].藥局代碼;
+                        value[(int)enum_醫囑資料.領藥號] = orderClasses[i].領藥號;
                         value[(int)enum_醫囑資料.藥品碼] = orderClasses[i].藥品碼;
                         value[(int)enum_醫囑資料.藥品名稱] = orderClasses[i].藥品名稱;
                         value[(int)enum_醫囑資料.病歷號] = orderClasses[i].病歷號;
@@ -372,13 +375,20 @@ namespace DB2VM
                     }
                     else
                     {
+                        object[] value = list_value_buf[0];
+                        orderClasses[i].GUID = value[(int)enum_醫囑資料.GUID].ObjectToString();
+                        orderClasses[i].狀態 = value[(int)enum_醫囑資料.狀態].ObjectToString();
                         object[] value_src = orderClasses[i].ClassToSQL<OrderClass, enum_醫囑資料>();
-                        if(value_src.IsEqual(list_value_buf[0], (int)enum_醫囑資料.GUID, (int)enum_醫囑資料.產出時間, (int)enum_醫囑資料.開方日期, (int)enum_醫囑資料.過帳時間, (int)enum_醫囑資料.狀態) == false)
+                        bool flag_replace = false;
+                        if (value_src[(int)enum_醫囑資料.交易量].ObjectToString() != value[(int)enum_醫囑資料.交易量].ObjectToString()) flag_replace = true;
+                        if (value_src[(int)enum_醫囑資料.開方日期].ObjectToString() != value[(int)enum_醫囑資料.開方日期].ToDateTimeString()) flag_replace = true;
+
+                        if (flag_replace)
                         {
-                            object[] value = list_value_buf[0];
-                            orderClasses[i].GUID = value[(int)enum_醫囑資料.GUID].ObjectToString();
+
                             value[(int)enum_醫囑資料.PRI_KEY] = orderClasses[i].PRI_KEY;
                             value[(int)enum_醫囑資料.藥局代碼] = orderClasses[i].藥局代碼;
+                            value[(int)enum_醫囑資料.領藥號] = orderClasses[i].領藥號;
                             value[(int)enum_醫囑資料.藥品碼] = orderClasses[i].藥品碼;
                             value[(int)enum_醫囑資料.藥品名稱] = orderClasses[i].藥品名稱;
                             value[(int)enum_醫囑資料.病歷號] = orderClasses[i].病歷號;
@@ -387,15 +397,15 @@ namespace DB2VM
                             value[(int)enum_醫囑資料.交易量] = orderClasses[i].交易量;
                             value[(int)enum_醫囑資料.開方日期] = orderClasses[i].開方日期;
                             value[(int)enum_醫囑資料.狀態] = "未過帳";
-
+                            orderClasses[i].狀態 = "未過帳";
                             list_value_replace.Add(value);
                         }
-            
 
-                     
+
+
                     }
                 }
-                Task task =  Task.Run(() =>
+                Task task = Task.Run(() =>
                 {
                     if (list_value_Add.Count > 0)
                     {
@@ -406,7 +416,7 @@ namespace DB2VM
                         this.sQLControl_醫囑資料.UpdateByDefulteExtra(null, list_value_replace);
                     }
                 });
-              
+
                 returnData.Code = 200;
                 returnData.Data = orderClasses;
                 returnData.TimeTaken = myTimerBasic.ToString();
@@ -418,7 +428,7 @@ namespace DB2VM
             {
                 return "醫令串接異常";
             }
-           
+
         }
     }
 }

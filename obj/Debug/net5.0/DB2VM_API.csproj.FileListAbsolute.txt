@@ -638,3 +638,4 @@ C:\Users\HS\Source\Repos\TPH_DBVM_API\obj\Debug\net5.0\DB2VM_API.dll
 C:\Users\HS\Source\Repos\TPH_DBVM_API\obj\Debug\net5.0\ref\DB2VM_API.dll
 C:\Users\HS\Source\Repos\TPH_DBVM_API\obj\Debug\net5.0\DB2VM_API.pdb
 C:\Users\HS\Source\Repos\TPH_DBVM_API\obj\Debug\net5.0\DB2VM_API.genruntimeconfig.cache
+C:\Users\Administrator\Source\Repos\TPH_DBVM_API\bin\Debug\net5.0\HIS_DB_Lib.dll
