@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Administrator\\Source\\Repos\\TPH_DBVM_API\\DB2VM_API.csproj": {}
+    "C:\\Users\\Administrator\\source\\repos\\TPH_DBVM_API\\DB2VM_API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Administrator\\Source\\Repos\\TPH_DBVM_API\\DB2VM_API.csproj": {
+    "C:\\Users\\Administrator\\source\\repos\\TPH_DBVM_API\\DB2VM_API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\Source\\Repos\\TPH_DBVM_API\\DB2VM_API.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\source\\repos\\TPH_DBVM_API\\DB2VM_API.csproj",
         "projectName": "DB2VM_API",
-        "projectPath": "C:\\Users\\Administrator\\Source\\Repos\\TPH_DBVM_API\\DB2VM_API.csproj",
+        "projectPath": "C:\\Users\\Administrator\\source\\repos\\TPH_DBVM_API\\DB2VM_API.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\Source\\Repos\\TPH_DBVM_API\\obj\\",
+        "outputPath": "C:\\Users\\Administrator\\source\\repos\\TPH_DBVM_API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",

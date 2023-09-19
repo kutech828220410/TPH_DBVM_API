@@ -73,10 +73,15 @@ namespace DB2VM
                 if (!BarCode.StringIsEmpty())
                 {
                     strArray_Barcode = BarCode.Split(";");
+                 
                 }
 
                 if (!MRN.StringIsEmpty())
                 {
+                    if (!BarCode.StringIsEmpty())
+                    {
+                        MRN = BarCode;
+                    }
                     if (MRN.Length < 10) MRN = "0" + MRN;
                     if (MRN.Length < 10) MRN = "0" + MRN;
                     if (MRN.Length < 10) MRN = "0" + MRN;
@@ -103,6 +108,7 @@ namespace DB2VM
                     commandText += "PAC_PATHNO,";
                     commandText += "PAC_DAYS,";
                     commandText += "PAC_TYPE,";
+                    commandText += "PAC_DRUGNO,";
                     commandText += "PAC_PROCDTTM ";
 
                     commandText += $"from PHAADC where PAC_PATID='{MRN}' ";
@@ -120,6 +126,7 @@ namespace DB2VM
                     commandText += "PAC_PATHNO,";
                     commandText += "PAC_DAYS,";
                     commandText += "PAC_TYPE,";
+                    commandText += "PAC_DRUGNO,";
                     commandText += "PAC_PROCDTTM ";
                 }
                 else if (strArray_Barcode.Length == 4)
@@ -143,6 +150,7 @@ namespace DB2VM
                     commandText += "PAC_PATHNO,";
                     commandText += "PAC_DAYS,";
                     commandText += "PAC_TYPE,";
+                    commandText += "PAC_DRUGNO,";
                     commandText += "PAC_PROCDTTM ";
 
                     commandText += $"from PHAADC where PAC_SEQ='{PAC_SEQ}' and PAC_VISITDT='{PAC_VISITDT}' AND PAC_DIACODE='{PAC_DIACODE}' ";
@@ -160,6 +168,7 @@ namespace DB2VM
                     commandText += "PAC_PATHNO,";
                     commandText += "PAC_DAYS,";
                     commandText += "PAC_TYPE,";
+                    commandText += "PAC_DRUGNO,";
                     commandText += "PAC_PROCDTTM ";
 
                 }
@@ -188,6 +197,7 @@ namespace DB2VM
                         commandText += "PAC_PATHNO,";
                         commandText += "PAC_DAYS,";
                         commandText += "PAC_TYPE,";
+                        commandText += "PAC_DRUGNO,";
                         commandText += "PAC_PROCDTTM ";
 
                         commandText += $"from PHAADC where PAC_SEQ='{住院序號}' and PAC_PROCDTTM='{醫令時間}' AND PAC_TYPE='{醫令類型}' ";
@@ -205,6 +215,7 @@ namespace DB2VM
                         commandText += "PAC_PATHNO,";
                         commandText += "PAC_DAYS,";
                         commandText += "PAC_TYPE,";
+                        commandText += "PAC_DRUGNO,";
                         commandText += "PAC_PROCDTTM ";
 
                     }
@@ -231,6 +242,7 @@ namespace DB2VM
                     commandText += "PAC_PATHNO,";
                     commandText += "PAC_DAYS,";
                     commandText += "PAC_TYPE,";
+                    commandText += "PAC_DRUGNO,";
                     commandText += "PAC_PROCDTTM ";
 
                     commandText += $"from PHAADC where PAC_SEQ='{住院序號}' and PAC_PROCDTTM='{醫令時間}' AND PAC_TYPE='{醫令類型}' ";
@@ -248,6 +260,7 @@ namespace DB2VM
                     commandText += "PAC_PATHNO,";
                     commandText += "PAC_DAYS,";
                     commandText += "PAC_TYPE,";
+                    commandText += "PAC_DRUGNO,";
                     commandText += "PAC_PROCDTTM ";
 
 
