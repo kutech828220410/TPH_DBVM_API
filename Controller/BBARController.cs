@@ -31,10 +31,6 @@ namespace DB2VM
             本次醫令序號,
         }
 
-
-
-
-
         static string MySQL_server = $"{ConfigurationManager.AppSettings["MySQL_server"]}";
         static string MySQL_database = $"{ConfigurationManager.AppSettings["MySQL_database"]}";
         static string MySQL_userid = $"{ConfigurationManager.AppSettings["MySQL_user"]}";
@@ -309,11 +305,11 @@ namespace DB2VM
                             orderClass.病人姓名 = reader["PAC_PATNAME"].ToString().Trim();
                             orderClass.病歷號 = reader["PAC_PATID"].ToString().Trim();
                             orderClass.領藥號 = reader["PAC_DRUGNO"].ToString().Trim();
-
+                            string PAC_QTYPERTIME = reader["PAC_QTYPERTIME"].ToString().Trim();
                             string PAC_SUMQTY = reader["PAC_SUMQTY"].ToString().Trim();
                             double sumQTY = PAC_SUMQTY.StringToDouble();
-                            sumQTY = Math.Ceiling(sumQTY);
-                            orderClass.交易量 = ((int)sumQTY * -1).ToString();
+                            //sumQTY = Math.Ceiling(sumQTY);
+                            orderClass.交易量 = (sumQTY * -1).ToString();
                             string Time = reader["PAC_PROCDTTM"].ToString().Trim();
                             if (Time.Length == 14)
                             {
@@ -346,11 +342,9 @@ namespace DB2VM
                 {
                     return "HIS系統命令下達失敗!";
                 }
-
-
-
                 conn_oracle.Close();
                 conn_oracle.Dispose();
+
                 if (orderClasses.Count == 0)
                 {
                     returnData.Code = -200;
@@ -358,6 +352,39 @@ namespace DB2VM
                     returnData.Result = $"無此藥袋資料!";
 
                     return returnData.JsonSerializationt(true);
+                }
+
+                List<List<OrderClass>> list_orderclasses = GroupOrders(orderClasses);
+                for (int i = 0; i < list_orderclasses.Count; i++)
+                {
+                    double Truncate;
+                    List<OrderClass> temp_orderclasses = list_orderclasses[i];
+                    double 總量 = 0.0D;
+                    if(temp_orderclasses[0].藥品碼 == "OMOD")
+                    {
+
+                    }
+                    for (int k = 0; k < temp_orderclasses.Count; k++)
+                    {
+                        總量 += temp_orderclasses[k].交易量.StringToDouble();
+                    }
+                    Truncate = 總量 - Math.Truncate(總量);
+                    if (Truncate != 0) 總量 = (int)總量 - 1;
+                    for (int k = 0; k < temp_orderclasses.Count; k++)
+                    {
+                        double 交易量 = temp_orderclasses[k].交易量.StringToDouble();
+                        Truncate = 交易量 - Math.Truncate(交易量);
+                        if (Truncate != 0) 交易量 = (int)交易量 - 1;
+                        if(總量 - 交易量 <= 0)
+                        {
+                            temp_orderclasses[k].交易量 = 交易量.ToString();
+                        }
+                        else
+                        {
+                            temp_orderclasses[k].交易量 = 總量.ToString();
+                        }
+                        總量 = 總量 - 交易量;
+                    }
                 }
                 string 病歷號 = orderClasses[0].病歷號;
                 List<object[]> list_value = this.sQLControl_醫囑資料.GetRowsByDefult(null, enum_醫囑資料.病歷號.GetEnumName(), 病歷號);
@@ -443,5 +470,15 @@ namespace DB2VM
             }
 
         }
+        public static List<List<OrderClass>> GroupOrders(List<OrderClass> orders)
+        {
+            List<List<OrderClass>> groupedOrders = orders
+                .GroupBy(o => new { o.藥品碼, o.病歷號, o.開方日期 })
+                .Select(group => group.ToList())
+                .ToList();
+
+            return groupedOrders;
+        }
     }
+
 }
