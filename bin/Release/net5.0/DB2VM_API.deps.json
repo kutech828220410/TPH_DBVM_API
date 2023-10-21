@@ -839,6 +839,22 @@
           }
         }
       },
+      "System.Management/4.0.0.0": {
+        "runtime": {
+          "System.Management.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.6.1055.0"
+          }
+        }
+      },
+      "Interop.SpeechLib/5.4.0.0": {
+        "runtime": {
+          "Interop.SpeechLib.dll": {
+            "assemblyVersion": "5.4.0.0",
+            "fileVersion": "5.4.0.0"
+          }
+        }
+      },
       "LadderUI/1.0.0.0": {
         "runtime": {
           "LadderUI.dll": {
@@ -919,6 +935,14 @@
           }
         }
       },
+      "DrawingClass/1.0.0.5": {
+        "runtime": {
+          "DrawingClass.dll": {
+            "assemblyVersion": "1.0.0.5",
+            "fileVersion": "1.0.0.5"
+          }
+        }
+      },
       "TCP/1.0.0.0": {
         "runtime": {
           "TCP.dll": {
@@ -935,11 +959,11 @@
           }
         }
       },
-      "DrawingClass/1.0.0.5": {
+      "MeasureSystemFunction/1.0.0.0": {
         "runtime": {
-          "DrawingClass.dll": {
-            "assemblyVersion": "1.0.0.5",
-            "fileVersion": "1.0.0.5"
+          "MeasureSystemFunction.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
           }
         }
       },
@@ -2838,6 +2862,16 @@
       "serviceable": false,
       "sha512": ""
     },
+    "System.Management/4.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Interop.SpeechLib/5.4.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "LadderUI/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
@@ -2888,6 +2922,11 @@
       "serviceable": false,
       "sha512": ""
     },
+    "DrawingClass/1.0.0.5": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "TCP/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
@@ -2898,7 +2937,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "DrawingClass/1.0.0.5": {
+    "MeasureSystemFunction/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

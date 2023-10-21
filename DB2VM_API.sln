@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.32901.82
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DB2VM_API", "DB2VM_API.csproj", "{3D52BF28-AF7D-412F-B515-75786CF96BAD}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "order_update", "order_update\order_update.csproj", "{38BBE2F6-10E6-434C-ABFF-D41E381E96A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3D52BF28-AF7D-412F-B515-75786CF96BAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D52BF28-AF7D-412F-B515-75786CF96BAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D52BF28-AF7D-412F-B515-75786CF96BAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38BBE2F6-10E6-434C-ABFF-D41E381E96A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38BBE2F6-10E6-434C-ABFF-D41E381E96A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38BBE2F6-10E6-434C-ABFF-D41E381E96A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38BBE2F6-10E6-434C-ABFF-D41E381E96A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
