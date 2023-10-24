@@ -36,6 +36,8 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\obj\Release\net5.0\PubTmp\Out\w
 C:\Users\Administrator\source\repos\TPH_DBVM_API\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\jquery\dist\jquery.min.map
 C:\Users\Administrator\source\repos\TPH_DBVM_API\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\jquery\LICENSE.txt
 C:\Users\Administrator\source\repos\TPH_DBVM_API\obj\Release\net5.0\PubTmp\Out\app.config
+C:\Users\Administrator\source\repos\TPH_DBVM_API\obj\Release\net5.0\PubTmp\Out\med_update\App.config
+C:\Users\Administrator\source\repos\TPH_DBVM_API\obj\Release\net5.0\PubTmp\Out\med_update\bin\Release\med_update.exe.config
 C:\Users\Administrator\source\repos\TPH_DBVM_API\obj\Release\net5.0\PubTmp\Out\web.config
 C:\Users\Administrator\source\repos\TPH_DBVM_API\obj\Release\net5.0\PubTmp\Out\appsettings.Development.json
 C:\Users\Administrator\source\repos\TPH_DBVM_API\obj\Release\net5.0\PubTmp\Out\appsettings.json

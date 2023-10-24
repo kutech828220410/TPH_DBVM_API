@@ -85,6 +85,7 @@ namespace DB2VM.Controller
                 }
                 else
                 {
+
                     list_v_hisdrugdia[i][(int)enum_雲端藥檔.GUID] = list_BBCM_buf[0][(int)enum_雲端藥檔.GUID].ObjectToString();
                     if (!list_v_hisdrugdia[i].IsEqual(list_BBCM_buf[0], (int)enum_雲端藥檔.藥品條碼1, (int)enum_雲端藥檔.藥品條碼2))
                     {
@@ -108,7 +109,7 @@ namespace DB2VM.Controller
             if (list_BBCM_Replace.Count > 0) sQLControl_UDSDBBCM.UpdateByDefulteExtra(null, list_BBCM_Replace);
 
 
-            return "OK";
+            return $"新增<{list_BBCM_Add.Count}>筆資料,修改<{list_BBCM_Replace.Count}>筆資料";
         }
     }
 }

@@ -7,7 +7,6 @@ using System.Data;
 using System.Configuration;
 using Basic;
 using SQLUI;
-using Oracle.ManagedDataAccess.Client;
 using HIS_DB_Lib;
 
 namespace order_update

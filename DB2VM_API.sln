@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DB2VM_API", "DB2VM_API.cspr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "order_update", "order_update\order_update.csproj", "{38BBE2F6-10E6-434C-ABFF-D41E381E96A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "med_update", "med_update\med_update.csproj", "{FE719EA9-C699-4CA6-B9A8-511AB3DB5301}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{38BBE2F6-10E6-434C-ABFF-D41E381E96A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38BBE2F6-10E6-434C-ABFF-D41E381E96A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38BBE2F6-10E6-434C-ABFF-D41E381E96A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE719EA9-C699-4CA6-B9A8-511AB3DB5301}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE719EA9-C699-4CA6-B9A8-511AB3DB5301}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE719EA9-C699-4CA6-B9A8-511AB3DB5301}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE719EA9-C699-4CA6-B9A8-511AB3DB5301}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
