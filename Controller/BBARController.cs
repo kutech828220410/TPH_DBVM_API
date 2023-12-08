@@ -558,7 +558,7 @@ namespace DB2VM
                                 string Hour = Time.Substring(8, 2);
                                 string Min = Time.Substring(10, 2);
                                 string Sec = Time.Substring(12, 2);
-                                if ($"{Year}/{Month}/{Day}" != $"{datetime.Year}/{datetime.Month}/{datetime.Day}")
+                                if ($"{Year}/{Month}/{Day}" != $"{datetime.Year}/{datetime.Month.ToString("00")}/{datetime.Day.ToString("00")}")
                                 {
                                     continue;
                                 }
@@ -722,7 +722,7 @@ namespace DB2VM
                         this.sQLControl_醫囑資料.UpdateByDefulteExtra(null, list_value_replace);
                     }
                 });
-
+                task.Wait();
                 returnData.Code = 200;
                 returnData.Data = "";
                 returnData.TimeTaken = myTimerBasic.ToString();
@@ -730,9 +730,9 @@ namespace DB2VM
 
                 return returnData.JsonSerializationt(true);
             }
-            catch
+            catch(Exception e)
             {
-                return "醫令串接異常";
+                return $"醫令串接異常,msg:{e.Message}";
             }
         }
         public static List<List<OrderClass>> GroupOrders(List<OrderClass> orders)
