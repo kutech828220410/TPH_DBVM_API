@@ -28,6 +28,21 @@
     <Reference Include="HIS_DB_Lib">
       <HintPath>0.DLL\HIS_DB_Lib.dll</HintPath>
     </Reference>
+    <Reference Include="MyOffice">
+      <HintPath>0.DLL\MyOffice.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>0.DLL\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>0.DLL\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>0.DLL\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>0.DLL\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
     <Reference Include="SQLUI">
       <HintPath>0.DLL\SQLUI.dll</HintPath>
     </Reference>

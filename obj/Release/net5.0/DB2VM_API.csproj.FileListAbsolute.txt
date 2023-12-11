@@ -640,3 +640,11 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\bin\Release\net5.0\Interop.Spee
 C:\Users\Administrator\source\repos\TPH_DBVM_API\bin\Release\net5.0\MeasureSystemFunction.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\bin\Release\net5.0\med_update\App.config
 C:\Users\Administrator\source\repos\TPH_DBVM_API\bin\Release\net5.0\med_update\bin\Release\med_update.exe.config
+C:\Users\Administrator\source\repos\TPH_DBVM_API\bin\Release\net5.0\MyOffice.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\bin\Release\net5.0\NPOI.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\bin\Release\net5.0\NPOI.OOXML.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\bin\Release\net5.0\NPOI.OpenXml4Net.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\bin\Release\net5.0\NPOI.OpenXmlFormats.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\bin\Release\net5.0\Microsoft.Office.Interop.Excel.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\bin\Release\net5.0\ICSharpCode.SharpZipLib.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\bin\Release\net5.0\office.dll
