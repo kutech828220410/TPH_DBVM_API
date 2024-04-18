@@ -152,7 +152,7 @@ namespace DB2VM
                     commandText += "PAC_DRUGNO,";
                     commandText += "PAC_PROCDTTM ";
 
-                    commandText += $"from PHAADC where PAC_SEQ='{PAC_SEQ}' and PAC_VISITDT='{PAC_VISITDT}' AND PAC_DIACODE='{PAC_DIACODE}' ";
+                    commandText += $"from phaadcal where PAC_SEQ='{PAC_SEQ}' and PAC_VISITDT='{PAC_VISITDT}' AND PAC_DIACODE='{PAC_DIACODE}' AND PAC_ORDERSEQ='{PAC_ORDERSEQ}' ";
                     commandText += "GROUP BY ";
 
                     commandText += "PAC_ORDERSEQ,";
@@ -272,7 +272,8 @@ namespace DB2VM
                     string _病歷號 = strArray_Barcode[(int)enum_急診藥袋.病歷號];
                     string 序號 = strArray_Barcode[(int)enum_急診藥袋.序號];
 
-                    commandText = $"select * from phaadc where PAC_DRUGNO={本次領藥號} and PAC_VISITDT={看診日期} and PAC_PATID={_病歷號} and PAC_SEQ={序號}";
+                    commandText = $"select * from PHAADC where PAC_DRUGNO={本次領藥號} and PAC_VISITDT={看診日期} and PAC_PATID={_病歷號} and PAC_SEQ={序號}";
+                    //commandText = $"select * from phaadcal where PAC_DRUGNO={本次領藥號} and PAC_PATID={_病歷號} and PAC_SEQ={序號}";
                 }
                 //string _病歷號_ = "0000681203";
                 //string _看診日期 = "20230608";
@@ -282,16 +283,28 @@ namespace DB2VM
                 //if (commandText.StringIsEmpty()) return "Barcode type error!";
                 //xstring jsonString = "";
                 cmd = new OracleCommand(commandText, conn_oracle);
+                List<object[]> list_temp = new List<object[]>();
                 try
                 {
                     reader = cmd.ExecuteReader();
-
+                    List<string> list_colname = new List<string>();
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        string colname = reader.GetName(i);
+                        list_colname.Add(colname);
+                    }
 
                     try
                     {
                         while (reader.Read())
                         {
+                            List<object> value = new List<object>();
+                            for (int i = 0; i < list_colname.Count; i++)
+                            {
+                                value.Add(reader[list_colname[i]]);
 
+                            }
+                            list_temp.Add(value.ToArray());
                             OrderClass orderClass = new OrderClass();
                             string type = reader["PAC_TYPE"].ToString().Trim();
                             if (type == "E") orderClass.藥局代碼 = "PHER";
@@ -364,11 +377,17 @@ namespace DB2VM
                     }
                     Truncate = 總量 - Math.Truncate(總量);
                     if (Truncate != 0) 總量 = (int)總量 - 1;
+                    bool 總量已到達 = false;
                     for (int k = 0; k < temp_orderclasses.Count; k++)
                     {
                         double 交易量 = temp_orderclasses[k].交易量.StringToDouble();
                         Truncate = 交易量 - Math.Truncate(交易量);
                         if (Truncate != 0) 交易量 = (int)交易量 - 1;
+                        if(總量已到達)
+                        {
+                            temp_orderclasses[k].交易量 = "0";
+                            continue;
+                        }
                         if(總量 - 交易量 <= 0)
                         {
                             temp_orderclasses[k].交易量 = 交易量.ToString();
@@ -376,6 +395,7 @@ namespace DB2VM
                         else
                         {
                             temp_orderclasses[k].交易量 = 總量.ToString();
+                            總量已到達 = true;
                         }
                         總量 = 總量 - 交易量;
                     }

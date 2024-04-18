@@ -46,6 +46,11 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\obj\Release\net5.0\PubTmp\Out\o
 C:\Users\Administrator\source\repos\TPH_DBVM_API\obj\Release\net5.0\PubTmp\Out\order_update\bin\Release\net5.0\order_update.runtimeconfig.json
 C:\Users\Administrator\source\repos\TPH_DBVM_API\obj\Release\net5.0\PubTmp\Out\order_update\obj\order_update.csproj.nuget.dgspec.json
 C:\Users\Administrator\source\repos\TPH_DBVM_API\obj\Release\net5.0\PubTmp\Out\order_update\obj\project.assets.json
+C:\Users\Administrator\source\repos\TPH_DBVM_API\obj\Release\net5.0\PubTmp\Out\PHAADCAL_update\bin\Release\netcoreapp3.1\PHAADCAL_update.deps.json
+C:\Users\Administrator\source\repos\TPH_DBVM_API\obj\Release\net5.0\PubTmp\Out\PHAADCAL_update\bin\Release\netcoreapp3.1\PHAADCAL_update.runtimeconfig.dev.json
+C:\Users\Administrator\source\repos\TPH_DBVM_API\obj\Release\net5.0\PubTmp\Out\PHAADCAL_update\bin\Release\netcoreapp3.1\PHAADCAL_update.runtimeconfig.json
+C:\Users\Administrator\source\repos\TPH_DBVM_API\obj\Release\net5.0\PubTmp\Out\PHAADCAL_update\obj\PHAADCAL_update.csproj.nuget.dgspec.json
+C:\Users\Administrator\source\repos\TPH_DBVM_API\obj\Release\net5.0\PubTmp\Out\PHAADCAL_update\obj\project.assets.json
 C:\Users\Administrator\source\repos\TPH_DBVM_API\obj\Release\net5.0\PubTmp\Out\clidriver\bin\db2app64.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\obj\Release\net5.0\PubTmp\Out\clidriver\bin\db2cli.exe
 C:\Users\Administrator\source\repos\TPH_DBVM_API\obj\Release\net5.0\PubTmp\Out\clidriver\bin\db2cli64.dll

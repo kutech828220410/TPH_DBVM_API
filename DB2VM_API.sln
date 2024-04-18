@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "order_update", "order_updat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "med_update", "med_update\med_update.csproj", "{FE719EA9-C699-4CA6-B9A8-511AB3DB5301}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PHAADCAL_update", "PHAADCAL_update\PHAADCAL_update.csproj", "{1FEADD96-8D04-4949-9A86-AAE1DBD67A11}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{FE719EA9-C699-4CA6-B9A8-511AB3DB5301}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE719EA9-C699-4CA6-B9A8-511AB3DB5301}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE719EA9-C699-4CA6-B9A8-511AB3DB5301}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FEADD96-8D04-4949-9A86-AAE1DBD67A11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FEADD96-8D04-4949-9A86-AAE1DBD67A11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FEADD96-8D04-4949-9A86-AAE1DBD67A11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FEADD96-8D04-4949-9A86-AAE1DBD67A11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

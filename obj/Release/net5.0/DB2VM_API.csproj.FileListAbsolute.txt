@@ -648,3 +648,8 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\bin\Release\net5.0\NPOI.OpenXml
 C:\Users\Administrator\source\repos\TPH_DBVM_API\bin\Release\net5.0\Microsoft.Office.Interop.Excel.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\bin\Release\net5.0\ICSharpCode.SharpZipLib.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\bin\Release\net5.0\office.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\bin\Release\net5.0\PHAADCAL_update\obj\PHAADCAL_update.csproj.nuget.dgspec.json
+C:\Users\Administrator\source\repos\TPH_DBVM_API\bin\Release\net5.0\PHAADCAL_update\obj\project.assets.json
+C:\Users\Administrator\source\repos\TPH_DBVM_API\bin\Release\net5.0\PHAADCAL_update\bin\Release\netcoreapp3.1\PHAADCAL_update.deps.json
+C:\Users\Administrator\source\repos\TPH_DBVM_API\bin\Release\net5.0\PHAADCAL_update\bin\Release\netcoreapp3.1\PHAADCAL_update.runtimeconfig.dev.json
+C:\Users\Administrator\source\repos\TPH_DBVM_API\bin\Release\net5.0\PHAADCAL_update\bin\Release\netcoreapp3.1\PHAADCAL_update.runtimeconfig.json

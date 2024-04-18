@@ -95,9 +95,9 @@ namespace DB2VM_API
                 for (int k = 0; k < creat.Contents[i].Sub_content.Count; k++)
                 {
                     sheetClass.AddNewCell_Webapi(index, index, 0, 0, $"{ creat.Contents[i].請購單號}", "微軟正黑體", 14, false, NPOI_Color.BLACK, 430, NPOI.SS.UserModel.HorizontalAlignment.Left, NPOI.SS.UserModel.VerticalAlignment.Bottom, NPOI.SS.UserModel.BorderStyle.Thin);
-                    sheetClass.AddNewCell_Webapi(index, index, 0, 0, $"{ creat.Contents[i].Sub_content[k].總量}", "微軟正黑體", 14, false, NPOI_Color.BLACK, 430, NPOI.SS.UserModel.HorizontalAlignment.Left, NPOI.SS.UserModel.VerticalAlignment.Bottom, NPOI.SS.UserModel.BorderStyle.Thin);
-                    sheetClass.AddNewCell_Webapi(index, index, 0, 0, $"{ creat.Contents[i].Sub_content[k].批號}", "微軟正黑體", 14, false, NPOI_Color.BLACK, 430, NPOI.SS.UserModel.HorizontalAlignment.Left, NPOI.SS.UserModel.VerticalAlignment.Bottom, NPOI.SS.UserModel.BorderStyle.Thin);
-                    sheetClass.AddNewCell_Webapi(index, index, 0, 0, $"{ creat.Contents[i].Sub_content[k].效期}", "微軟正黑體", 14, false, NPOI_Color.BLACK, 430, NPOI.SS.UserModel.HorizontalAlignment.Left, NPOI.SS.UserModel.VerticalAlignment.Bottom, NPOI.SS.UserModel.BorderStyle.Thin);
+                    sheetClass.AddNewCell_Webapi(index, index, 1, 1, $"{ creat.Contents[i].Sub_content[k].實收數量}", "微軟正黑體", 14, false, NPOI_Color.BLACK, 430, NPOI.SS.UserModel.HorizontalAlignment.Left, NPOI.SS.UserModel.VerticalAlignment.Bottom, NPOI.SS.UserModel.BorderStyle.Thin);
+                    sheetClass.AddNewCell_Webapi(index, index, 2, 2, $"{ creat.Contents[i].Sub_content[k].批號}", "微軟正黑體", 14, false, NPOI_Color.BLACK, 430, NPOI.SS.UserModel.HorizontalAlignment.Left, NPOI.SS.UserModel.VerticalAlignment.Bottom, NPOI.SS.UserModel.BorderStyle.Thin);
+                    sheetClass.AddNewCell_Webapi(index, index, 3, 3, $"{ creat.Contents[i].Sub_content[k].效期.StringToDateTime().ToDateString().Replace("/","")}", "微軟正黑體", 14, false, NPOI_Color.BLACK, 430, NPOI.SS.UserModel.HorizontalAlignment.Left, NPOI.SS.UserModel.VerticalAlignment.Bottom, NPOI.SS.UserModel.BorderStyle.Thin);
                     index++;
                 }
 
