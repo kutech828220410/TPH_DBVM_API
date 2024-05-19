@@ -46,7 +46,7 @@
             },
             "Oracle.ManagedDataAccess.Core": {
               "target": "Package",
-              "version": "[3.21.130, )"
+              "version": "[3.21.90, )"
             }
           },
           "imports": [
