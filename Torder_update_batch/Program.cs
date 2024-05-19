@@ -69,7 +69,7 @@ namespace Torder_update_batch
                     List<object[]> list_src_order = new List<object[]>();
                     MyTimerBasic myTimerBasic = new MyTimerBasic(50000);
                     string TimeTaken = "";
-                    string dbfFilePath = @"C:\0.醫院資料\F.部立台北醫院\中藥局\o1130501.DBF"; // 替換成你的 DBF 檔案路徑
+                    string dbfFilePath = @"C:\0.醫院資料\F.部立台北醫院\中藥局\o1130509.DBF"; // 替換成你的 DBF 檔案路徑
                                                                                 
                     string connectionString = $"Provider=Microsoft.Jet.OLEDB.4.0;Data Source={System.IO.Path.GetDirectoryName(dbfFilePath)};Extended Properties=dBASE IV;"; // 設定連接字串
                     using (OleDbConnection connection = new OleDbConnection(connectionString))
@@ -135,6 +135,9 @@ namespace Torder_update_batch
                             string 藥名 = "";
                             string 病歷號 = "";
                             string 病人姓名 = "";
+                            string 科別 = "";
+                            string 醫師姓名 = "";
+                            string 醫師ID = "";
                             string 總量 = "";
                             string 領藥號 = "";
                             string 開方日期 = "";
@@ -151,6 +154,8 @@ namespace Torder_update_batch
                                 病人姓名 = list_src_order[i][(int)enum_Torder.病患姓名].ObjectToString();
                                 總量 = list_src_order[i][(int)enum_Torder.總量].ObjectToString();
                                 領藥號 = list_src_order[i][(int)enum_Torder.領藥號].ObjectToString();
+                                科別 = list_src_order[i][(int)enum_Torder.科別].ObjectToString();
+                                醫師ID = list_src_order[i][(int)enum_Torder.醫師代碼].ObjectToString();
                                 string 開方日期_date = list_src_order[i][(int)enum_Torder.開方日期].ObjectToString();
                                 string 開方日期_time = list_src_order[i][(int)enum_Torder.開方時間].ObjectToString();
                                 if (開方日期_date.Length == 8)
@@ -189,6 +194,8 @@ namespace Torder_update_batch
                                     value[(int)enum_OrderT.病歷號] = 病歷號;
                                     value[(int)enum_OrderT.交易量] = 總量.StringToDouble() * (-1);
                                     value[(int)enum_OrderT.領藥號] = 領藥號;
+                                    value[(int)enum_OrderT.科別] = 科別;
+                                    value[(int)enum_OrderT.醫師ID] = 醫師ID;
                                     value[(int)enum_OrderT.病人姓名] = 病人姓名;
                                     value[(int)enum_OrderT.開方日期] = 開方日期;
                                     value[(int)enum_OrderT.產出時間] = DateTime.Now.ToDateTimeString_6();
