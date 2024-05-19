@@ -142,9 +142,15 @@ namespace Torder_update_batch
                             string 領藥號 = "";
                             string 開方日期 = "";
                             string 天數 = "";
+                            string 單次劑量 = "";
+                            string 途徑 = "";
+                            string 頻次 = "";
+
                             string 大單位 = "";
                             string 藥局代碼 = "";
-
+                            string 年齡 = "";
+                            string 性別 = "";
+                            string 單位 = "";
                             string DateNow = DateTime.Now.ToDateString();
                             for (int i = 0; i < list_src_order.Count; i++)
                             {
@@ -156,6 +162,12 @@ namespace Torder_update_batch
                                 領藥號 = list_src_order[i][(int)enum_Torder.領藥號].ObjectToString();
                                 科別 = list_src_order[i][(int)enum_Torder.科別].ObjectToString();
                                 醫師ID = list_src_order[i][(int)enum_Torder.醫師代碼].ObjectToString();
+                                年齡 = list_src_order[i][(int)enum_Torder.年齡].ObjectToString();
+                                性別 = list_src_order[i][(int)enum_Torder.性別].ObjectToString();
+                                單位 = list_src_order[i][(int)enum_Torder.單位].ObjectToString();
+                                途徑 = list_src_order[i][(int)enum_Torder.途徑].ObjectToString();
+                                頻次 = list_src_order[i][(int)enum_Torder.頻次].ObjectToString();
+                                單次劑量 = list_src_order[i][(int)enum_Torder.單次劑量].ObjectToString();
                                 string 開方日期_date = list_src_order[i][(int)enum_Torder.開方日期].ObjectToString();
                                 string 開方日期_time = list_src_order[i][(int)enum_Torder.開方時間].ObjectToString();
                                 if (開方日期_date.Length == 8)
@@ -197,6 +209,13 @@ namespace Torder_update_batch
                                     value[(int)enum_OrderT.科別] = 科別;
                                     value[(int)enum_OrderT.醫師ID] = 醫師ID;
                                     value[(int)enum_OrderT.病人姓名] = 病人姓名;
+                                    value[(int)enum_OrderT.年齡] = 年齡;
+                                    value[(int)enum_OrderT.性別] = 性別;
+                                    value[(int)enum_OrderT.途徑] = 途徑;
+                                    value[(int)enum_OrderT.頻次] = 頻次;
+                                    value[(int)enum_OrderT.天數] = 天數;
+                                    value[(int)enum_OrderT.劑量單位] = 單位;
+                                    value[(int)enum_OrderT.單次劑量] = 單次劑量;
                                     value[(int)enum_OrderT.開方日期] = 開方日期;
                                     value[(int)enum_OrderT.產出時間] = DateTime.Now.ToDateTimeString_6();
                                     value[(int)enum_OrderT.結方日期] = DateTime.MinValue.ToDateTimeString();
