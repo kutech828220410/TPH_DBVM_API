@@ -70,27 +70,29 @@ namespace Torder_update_batch
                     MyTimerBasic myTimerBasic = new MyTimerBasic(50000);
                     string TimeTaken = "";
                     string dbfFilePath = @"C:\0.醫院資料\F.部立台北醫院\中藥局\o1130509.DBF"; // 替換成你的 DBF 檔案路徑
-                                                                                
-                    string connectionString = $"Provider=Microsoft.Jet.OLEDB.4.0;Data Source={System.IO.Path.GetDirectoryName(dbfFilePath)};Extended Properties=dBASE IV;"; // 設定連接字串
+                    string databaseDirectory = @"C:\0.醫院資料\F.部立台北醫院\中藥局\";
+                    string connectionString = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source='{databaseDirectory}';Extended Properties=dBASE IV;"; // 設定連接字串
                     using (OleDbConnection connection = new OleDbConnection(connectionString))
                     {
                         try
                         {
-
+                  
                             DataTable dataTable = null;
                             // 開啟連接
                             connection.Open();
 
                             // 執行 SQL 查詢
-                            string sqlQuery = "SELECT * FROM " + System.IO.Path.GetFileNameWithoutExtension(dbfFilePath);
+                            string sqlQuery = "SELECT * FROM " + $"{System.IO.Path.GetFileNameWithoutExtension(dbfFilePath)}.DBF";
                             using (OleDbCommand command = new OleDbCommand(sqlQuery, connection))
                             {
+
                                 using (OleDbDataAdapter adapter = new OleDbDataAdapter(command))
                                 {
                                     dataTable = new DataTable();
                                     adapter.Fill(dataTable);
 
                                     // 輸出資料到控制台
+
                                     foreach (DataRow row in dataTable.Rows)
                                     {
                                         object[] value = new object[dataTable.Columns.Count];
@@ -152,6 +154,7 @@ namespace Torder_update_batch
                             string 性別 = "";
                             string 單位 = "";
                             string DateNow = DateTime.Now.ToDateString();
+
                             for (int i = 0; i < list_src_order.Count; i++)
                             {
                                 藥碼 = list_src_order[i][(int)enum_Torder.藥碼].ObjectToString();
@@ -226,7 +229,20 @@ namespace Torder_update_batch
                                 }
 
                             }
-                
+                            List<string> list_病歷號_add = new List<string>();
+
+                            list_病歷號_add = (from temp in list_order_add
+                                            select temp[(int)enum_OrderT.病歷號].ObjectToString()).Distinct().ToList();
+
+                            for (int i = 0; i < list_病歷號_add.Count; i++)
+                            {
+                                list_order_buf = list_order_add.GetRows((int)enum_OrderT.病歷號, list_病歷號_add[i]);
+                                for (int k = 0; k < list_order_buf.Count; k++)
+                                {
+                                    list_order_buf[k][(int)enum_OrderT.批序] = $"{k + 1}";
+                                }
+                            }
+
                             sQLControl_醫囑資料.AddRows(null, list_order_add);
                             TimeTaken = $"{myTimerBasic}";
                             Logger.Log($"共新增<{list_order_add.Count}>筆處方,{TimeTaken} ");
