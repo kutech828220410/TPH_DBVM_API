@@ -188,7 +188,7 @@ namespace Torder_update_batch
                                 大單位 = list_src_order[i][(int)enum_Torder.大單位].ObjectToString();
                                 藥局代碼 = list_src_order[i][(int)enum_Torder.醫令類型].ObjectToString();
 
-                                PRI_KEY = $"{藥碼},{病歷號},{總量},{天數},{領藥號},{藥局代碼},{開方日期},{DateNow}";
+                                PRI_KEY = $"{病歷號},{領藥號},{藥局代碼},{開方日期},{DateNow}";
 
                                 if (藥局代碼 == "E") 藥局代碼 = "PHER";
                                 if (藥局代碼 == "S") 藥局代碼 = "STAT";
