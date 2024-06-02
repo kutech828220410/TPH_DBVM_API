@@ -128,9 +128,9 @@ namespace PHAADCAL_update
 
                     }
                 }
-                catch
+                catch(Exception ex)
                 {
-                    
+                    Console.WriteLine($"Exception : {ex.Message}");
                 }
 
                 conn_oracle.Close();
@@ -140,9 +140,9 @@ namespace PHAADCAL_update
                 System.Threading.Thread.Sleep(3000);
 
             }
-            catch
+            catch (Exception ex)
             {
-
+                Console.WriteLine($"Exception : {ex.Message}");
             }
             finally
             {

@@ -9,7 +9,7 @@
       "PHAADCAL_update/1.0.0": {
         "dependencies": {
           "MySql.Data": "8.0.29",
-          "Oracle.ManagedDataAccess.Core": "3.21.130",
+          "Oracle.ManagedDataAccess.Core": "3.21.90",
           "Basic": "1.0.0.0",
           "HIS_DB_Lib": "1.0.0.0",
           "SQLUI": "1.0.0.0"
@@ -72,7 +72,7 @@
           }
         }
       },
-      "Microsoft.NETCore.Platforms/2.0.0": {},
+      "Microsoft.NETCore.Platforms/5.0.4": {},
       "Microsoft.Win32.Registry/5.0.0": {
         "dependencies": {
           "System.Security.AccessControl": "6.0.0",
@@ -135,12 +135,12 @@
           }
         }
       },
-      "Oracle.ManagedDataAccess.Core/3.21.130": {
+      "Oracle.ManagedDataAccess.Core/3.21.90": {
         "dependencies": {
-          "System.Diagnostics.PerformanceCounter": "6.0.1",
-          "System.DirectoryServices": "6.0.1",
-          "System.DirectoryServices.Protocols": "6.0.2",
-          "System.Text.Json": "6.0.1"
+          "System.Diagnostics.PerformanceCounter": "6.0.0",
+          "System.DirectoryServices": "5.0.0",
+          "System.DirectoryServices.Protocols": "5.0.1",
+          "System.Text.Json": "6.0.0"
         },
         "runtime": {
           "lib/netstandard2.1/Oracle.ManagedDataAccess.dll": {
@@ -162,7 +162,7 @@
           }
         }
       },
-      "System.Diagnostics.PerformanceCounter/6.0.1": {
+      "System.Diagnostics.PerformanceCounter/6.0.0": {
         "dependencies": {
           "Microsoft.Win32.Registry": "5.0.0",
           "System.Configuration.ConfigurationManager": "6.0.0",
@@ -171,7 +171,7 @@
         "runtime": {
           "lib/netcoreapp3.1/System.Diagnostics.PerformanceCounter.dll": {
             "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.422.16404"
+            "fileVersion": "6.0.21.52210"
           }
         },
         "runtimeTargets": {
@@ -179,60 +179,62 @@
             "rid": "win",
             "assetType": "runtime",
             "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.422.16404"
+            "fileVersion": "6.0.21.52210"
           }
         }
       },
-      "System.DirectoryServices/6.0.1": {
+      "System.DirectoryServices/5.0.0": {
         "dependencies": {
+          "Microsoft.NETCore.Platforms": "5.0.4",
           "System.IO.FileSystem.AccessControl": "5.0.0",
           "System.Security.AccessControl": "6.0.0",
           "System.Security.Permissions": "6.0.0",
           "System.Security.Principal.Windows": "5.0.0"
         },
         "runtime": {
-          "lib/netcoreapp3.1/System.DirectoryServices.dll": {
+          "lib/netstandard2.0/System.DirectoryServices.dll": {
             "assemblyVersion": "4.0.0.0",
-            "fileVersion": "6.0.1423.7309"
+            "fileVersion": "5.0.20.51904"
           }
         },
         "runtimeTargets": {
-          "runtimes/win/lib/netcoreapp3.1/System.DirectoryServices.dll": {
+          "runtimes/win/lib/netcoreapp2.0/System.DirectoryServices.dll": {
             "rid": "win",
             "assetType": "runtime",
             "assemblyVersion": "4.0.0.0",
-            "fileVersion": "6.0.1423.7309"
+            "fileVersion": "5.0.20.51904"
           }
         }
       },
-      "System.DirectoryServices.Protocols/6.0.2": {
+      "System.DirectoryServices.Protocols/5.0.1": {
         "dependencies": {
+          "Microsoft.NETCore.Platforms": "5.0.4",
           "System.Security.Principal.Windows": "5.0.0"
         },
         "runtime": {
-          "lib/netcoreapp3.1/System.DirectoryServices.Protocols.dll": {
-            "assemblyVersion": "6.0.0.2",
-            "fileVersion": "6.0.1823.26907"
+          "lib/netstandard2.0/System.DirectoryServices.Protocols.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "5.0.1121.47308"
           }
         },
         "runtimeTargets": {
-          "runtimes/linux/lib/netcoreapp3.1/System.DirectoryServices.Protocols.dll": {
+          "runtimes/linux/lib/netcoreapp2.0/System.DirectoryServices.Protocols.dll": {
             "rid": "linux",
             "assetType": "runtime",
-            "assemblyVersion": "6.0.0.2",
-            "fileVersion": "6.0.1823.26907"
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "5.0.1121.47308"
           },
-          "runtimes/osx/lib/netcoreapp3.1/System.DirectoryServices.Protocols.dll": {
+          "runtimes/osx/lib/netcoreapp2.0/System.DirectoryServices.Protocols.dll": {
             "rid": "osx",
             "assetType": "runtime",
-            "assemblyVersion": "6.0.0.2",
-            "fileVersion": "6.0.1823.26907"
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "5.0.1121.47308"
           },
-          "runtimes/win/lib/netcoreapp3.1/System.DirectoryServices.Protocols.dll": {
+          "runtimes/win/lib/netcoreapp2.0/System.DirectoryServices.Protocols.dll": {
             "rid": "win",
             "assetType": "runtime",
-            "assemblyVersion": "6.0.0.2",
-            "fileVersion": "6.0.1823.26907"
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "5.0.1121.47308"
           }
         }
       },
@@ -364,7 +366,7 @@
       },
       "System.Text.Encoding.CodePages/4.4.0": {
         "dependencies": {
-          "Microsoft.NETCore.Platforms": "2.0.0"
+          "Microsoft.NETCore.Platforms": "5.0.4"
         }
       },
       "System.Text.Encodings.Web/6.0.0": {
@@ -378,7 +380,7 @@
           }
         }
       },
-      "System.Text.Json/6.0.1": {
+      "System.Text.Json/6.0.0": {
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "6.0.0",
           "System.Text.Encodings.Web": "6.0.0"
@@ -386,7 +388,7 @@
         "runtime": {
           "lib/netcoreapp3.1/System.Text.Json.dll": {
             "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.121.56705"
+            "fileVersion": "6.0.21.52210"
           }
         }
       },
@@ -449,11 +451,59 @@
           }
         }
       },
+      "Newtonsoft.Json/13.0.0.0": {
+        "runtime": {
+          "Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.1.25517"
+          }
+        }
+      },
       "Interop.SpeechLib/5.4.0.0": {
         "runtime": {
           "Interop.SpeechLib.dll": {
             "assemblyVersion": "5.4.0.0",
             "fileVersion": "5.4.0.0"
+          }
+        }
+      },
+      "H_Pannel_lib/1.0.0.0": {
+        "runtime": {
+          "H_Pannel_lib.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "MyOffice/1.0.0.0": {
+        "runtime": {
+          "MyOffice.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "PopupControl/1.5.0.28608": {
+        "runtime": {
+          "PopupControl.dll": {
+            "assemblyVersion": "1.5.0.28608",
+            "fileVersion": "1.5.0.28608"
+          }
+        }
+      },
+      "SunnyUI/3.6.5.0": {
+        "runtime": {
+          "SunnyUI.dll": {
+            "assemblyVersion": "3.6.5.0",
+            "fileVersion": "3.6.5.0"
+          }
+        }
+      },
+      "CSkin/10.23.0.0": {
+        "runtime": {
+          "CSkin.dll": {
+            "assemblyVersion": "10.23.0.0",
+            "fileVersion": "10.23.0.0"
           }
         }
       },
@@ -545,6 +595,46 @@
           }
         }
       },
+      "zxing/0.16.6.0": {
+        "runtime": {
+          "zxing.dll": {
+            "assemblyVersion": "0.16.6.0",
+            "fileVersion": "0.16.6.0"
+          }
+        }
+      },
+      "NPOI/2.4.1.0": {
+        "runtime": {
+          "NPOI.dll": {
+            "assemblyVersion": "2.4.1.0",
+            "fileVersion": "2.4.1.0"
+          }
+        }
+      },
+      "Microsoft.Office.Interop.Excel/15.0.0.0": {
+        "runtime": {
+          "Microsoft.Office.Interop.Excel.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.4569.1506"
+          }
+        }
+      },
+      "NPOI.OOXML/2.4.1.0": {
+        "runtime": {
+          "NPOI.OOXML.dll": {
+            "assemblyVersion": "2.4.1.0",
+            "fileVersion": "2.4.1.0"
+          }
+        }
+      },
+      "SunnyUI.Common/3.6.5.0": {
+        "runtime": {
+          "SunnyUI.Common.dll": {
+            "assemblyVersion": "3.6.5.0",
+            "fileVersion": "3.6.5.0"
+          }
+        }
+      },
       "TCP/1.0.0.0": {
         "runtime": {
           "TCP.dll": {
@@ -574,6 +664,38 @@
           "MVSDK.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "ICSharpCode.SharpZipLib/1.0.0.999": {
+        "runtime": {
+          "ICSharpCode.SharpZipLib.dll": {
+            "assemblyVersion": "1.0.0.999",
+            "fileVersion": "1.0.0.999"
+          }
+        }
+      },
+      "office/15.0.0.0": {
+        "runtime": {
+          "office.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.4613.1000"
+          }
+        }
+      },
+      "NPOI.OpenXml4Net/2.4.1.0": {
+        "runtime": {
+          "NPOI.OpenXml4Net.dll": {
+            "assemblyVersion": "2.4.1.0",
+            "fileVersion": "2.4.1.0"
+          }
+        }
+      },
+      "NPOI.OpenXmlFormats/2.4.1.0": {
+        "runtime": {
+          "NPOI.OpenXmlFormats.dll": {
+            "assemblyVersion": "2.4.1.0",
+            "fileVersion": "2.4.1.0"
           }
         }
       }
@@ -620,12 +742,12 @@
       "path": "k4os.hash.xxhash/1.0.6",
       "hashPath": "k4os.hash.xxhash.1.0.6.nupkg.sha512"
     },
-    "Microsoft.NETCore.Platforms/2.0.0": {
+    "Microsoft.NETCore.Platforms/5.0.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-VdLJOCXhZaEMY7Hm2GKiULmn7IEPFE4XC5LPSfBVCUIA8YLZVh846gtfBJalsPQF2PlzdD7ecX7DZEulJ402ZQ==",
-      "path": "microsoft.netcore.platforms/2.0.0",
-      "hashPath": "microsoft.netcore.platforms.2.0.0.nupkg.sha512"
+      "sha512": "sha512-S/AHu+d3Fk/yoWHIXNAs8N030bCf22GlXoMqLC/zK24i+VfhG0kWYtFeEv6s07b05qchNEGabwOcq49zzR8MPA==",
+      "path": "microsoft.netcore.platforms/5.0.4",
+      "hashPath": "microsoft.netcore.platforms.5.0.4.nupkg.sha512"
     },
     "Microsoft.Win32.Registry/5.0.0": {
       "type": "package",
@@ -648,12 +770,12 @@
       "path": "mysql.data/8.0.29",
       "hashPath": "mysql.data.8.0.29.nupkg.sha512"
     },
-    "Oracle.ManagedDataAccess.Core/3.21.130": {
+    "Oracle.ManagedDataAccess.Core/3.21.90": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-bXNwPyAaDivO84HEYiegK7r/LleSEfA0nc70bE88wkqd1E0Q1+r/SUbJ51xOK2vk6iHbTSMuhnC79BU8svPBjQ==",
-      "path": "oracle.manageddataaccess.core/3.21.130",
-      "hashPath": "oracle.manageddataaccess.core.3.21.130.nupkg.sha512"
+      "sha512": "sha512-q1k7i9Im9GPFJzBz9w0sLRlN0MBTWHaAAdanTiHVlpMfVQ/JiKRb5uDVv8bplsMfn2S74WJAXbzwzou/6yb9kg==",
+      "path": "oracle.manageddataaccess.core/3.21.90",
+      "hashPath": "oracle.manageddataaccess.core.3.21.90.nupkg.sha512"
     },
     "System.Buffers/4.5.1": {
       "type": "package",
@@ -669,26 +791,26 @@
       "path": "system.configuration.configurationmanager/6.0.0",
       "hashPath": "system.configuration.configurationmanager.6.0.0.nupkg.sha512"
     },
-    "System.Diagnostics.PerformanceCounter/6.0.1": {
+    "System.Diagnostics.PerformanceCounter/6.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-dDl7Gx3bmSrM2k2ZIm+ucEJnLloZRyvfQF1DvfvATcGF3jtaUBiPvChma+6ZcZzxWMirN3kCywkW7PILphXyMQ==",
-      "path": "system.diagnostics.performancecounter/6.0.1",
-      "hashPath": "system.diagnostics.performancecounter.6.0.1.nupkg.sha512"
+      "sha512": "sha512-gbeE5tNp/oB7O8kTTLh3wPPJCxpNOphXPTWVs1BsYuFOYapFijWuh0LYw1qnDo4gwDUYPXOmpTIhvtxisGsYOQ==",
+      "path": "system.diagnostics.performancecounter/6.0.0",
+      "hashPath": "system.diagnostics.performancecounter.6.0.0.nupkg.sha512"
     },
-    "System.DirectoryServices/6.0.1": {
+    "System.DirectoryServices/5.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-935IbO7h5FDGYxeO3cbx/CuvBBuk/VI8sENlfmXlh1pupNOB3LAGzdYdPY8CawGJFP7KNrHK5eUlsFoz3F6cuA==",
-      "path": "system.directoryservices/6.0.1",
-      "hashPath": "system.directoryservices.6.0.1.nupkg.sha512"
+      "sha512": "sha512-lAS54Y3KO1XV68akGa0/GJeddkkuuiv2CtcSkMiTmLHQ6o6kFbKpw4DmJZADF7a6KjPwYxmZnH4D3eGicrJdcg==",
+      "path": "system.directoryservices/5.0.0",
+      "hashPath": "system.directoryservices.5.0.0.nupkg.sha512"
     },
-    "System.DirectoryServices.Protocols/6.0.2": {
+    "System.DirectoryServices.Protocols/5.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-vDDPWwHn3/DNZ+kPkdXHoada+tKPEC9bVqDOr4hK6HBSP7hGCUTA0Zw6WU5qpGaqa5M1/V+axHMIv+DNEbIf6g==",
-      "path": "system.directoryservices.protocols/6.0.2",
-      "hashPath": "system.directoryservices.protocols.6.0.2.nupkg.sha512"
+      "sha512": "sha512-rqSmdHgoYL8RghMsYcwtzNWKbXdT9wHwYDIDcd9TQkRLO/ptF1Op/BTiBc/AbducFCS/PMcqpttXuzw2hp4Iyg==",
+      "path": "system.directoryservices.protocols/5.0.1",
+      "hashPath": "system.directoryservices.protocols.5.0.1.nupkg.sha512"
     },
     "System.Drawing.Common/6.0.0": {
       "type": "package",
@@ -760,12 +882,12 @@
       "path": "system.text.encodings.web/6.0.0",
       "hashPath": "system.text.encodings.web.6.0.0.nupkg.sha512"
     },
-    "System.Text.Json/6.0.1": {
+    "System.Text.Json/6.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-X3cTdM+jna1YyfTUzToW7aVgINFv7R1W4+1+3hua/YCyLjApPoR8fd+2Cep9DbfYjbv+rBx4K6dlmAWEJr9AHg==",
-      "path": "system.text.json/6.0.1",
-      "hashPath": "system.text.json.6.0.1.nupkg.sha512"
+      "sha512": "sha512-zaJsHfESQvJ11vbXnNlkrR46IaMULk/gHxYsJphzSF+07kTjPHv+Oc14w6QEOfo3Q4hqLJgStUaYB9DBl0TmWg==",
+      "path": "system.text.json/6.0.0",
+      "hashPath": "system.text.json.6.0.0.nupkg.sha512"
     },
     "System.Windows.Extensions/6.0.0": {
       "type": "package",
@@ -799,7 +921,37 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Newtonsoft.Json/13.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Interop.SpeechLib/5.4.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "H_Pannel_lib/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MyOffice/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PopupControl/1.5.0.28608": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SunnyUI/3.6.5.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CSkin/10.23.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -859,6 +1011,31 @@
       "serviceable": false,
       "sha512": ""
     },
+    "zxing/0.16.6.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NPOI/2.4.1.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Office.Interop.Excel/15.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NPOI.OOXML/2.4.1.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SunnyUI.Common/3.6.5.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "TCP/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
@@ -875,6 +1052,26 @@
       "sha512": ""
     },
     "MVSDK/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ICSharpCode.SharpZipLib/1.0.0.999": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "office/15.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NPOI.OpenXml4Net/2.4.1.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NPOI.OpenXmlFormats/2.4.1.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

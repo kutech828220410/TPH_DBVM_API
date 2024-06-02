@@ -49,6 +49,28 @@ namespace Torder_update_batch
         }
 
         private static string API_Server = "http://127.0.0.1:4433";
+
+
+        public static int ConvertToMinguoYear(int year)
+        {
+            if (year < 1912)
+            {
+                throw new ArgumentOutOfRangeException(nameof(year), "年份必須大於等於 1912 年。");
+            }
+            return year - 1911;
+        }
+
+        /// <summary>
+        /// 將西元日期轉換為民國日期。
+        /// </summary>
+        /// <param name="date">西元日期。</param>
+        /// <returns>民國日期字符串。</returns>
+        public static string ConvertToMinguoDate(DateTime date)
+        {
+            int minguoYear = ConvertToMinguoYear(date.Year);
+            return $"{minguoYear}{date.Month.ToString("00")}{date.Day.ToString("00")}";
+        }
+
         static void Main(string[] args)
         {
 
@@ -69,9 +91,9 @@ namespace Torder_update_batch
                     List<object[]> list_src_order = new List<object[]>();
                     MyTimerBasic myTimerBasic = new MyTimerBasic(50000);
                     string TimeTaken = "";
-                    string dbfFilePath = @"C:\0.醫院資料\F.部立台北醫院\中藥局\o1130509.DBF"; // 替換成你的 DBF 檔案路徑
-                    string databaseDirectory = @"C:\0.醫院資料\F.部立台北醫院\中藥局\";
-                    string connectionString = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source='{databaseDirectory}';Extended Properties=dBASE IV;"; // 設定連接字串
+                    string dbfFilePath = $@"Y:\DB_601\o{ConvertToMinguoDate(DateTime.Now)}.DBF"; // 替換成你的 DBF 檔案路徑
+                    string databaseDirectory = @"Y:\DB_601";
+                    string connectionString = $"Provider=Microsoft.Jet.OLEDB.4.0;Data Source='{databaseDirectory}';Extended Properties=dBASE IV;"; // 設定連接字串
                     using (OleDbConnection connection = new OleDbConnection(connectionString))
                     {
                         try
@@ -257,6 +279,7 @@ namespace Torder_update_batch
                         finally
                         {
                             connection.Close();
+                            System.Threading.Thread.Sleep(200);
                         }
                     }
 
