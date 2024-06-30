@@ -65,3 +65,4 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\obj\Release
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\obj\Release\Torder_update_batch.csproj.CopyComplete
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\obj\Release\Torder_update_batch.exe
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\obj\Release\Torder_update_batch.pdb
+C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\SQLUI.xml

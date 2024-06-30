@@ -215,3 +215,4 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\WebAp
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\ref\WebApi.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\WebApi.pdb
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\WebApi.genruntimeconfig.cache
+C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\SQLUI.xml

@@ -105,9 +105,11 @@ namespace DB2VM
                     commandText += "PAC_DAYS,";
                     commandText += "PAC_TYPE,";
                     commandText += "PAC_DRUGNO,";
+                    commandText += "PAC_SECTNO,";
+                    commandText += "PAC_DOCCD,";
                     commandText += "PAC_PROCDTTM ";
 
-                    commandText += $"from PHAADC where PAC_PATID='{MRN}' ";
+                    commandText += $"from PHAADCAL where PAC_PATID='{MRN}' ";
                     commandText += "GROUP BY ";
 
                     commandText += "PAC_ORDERSEQ,";
@@ -123,12 +125,14 @@ namespace DB2VM
                     commandText += "PAC_DAYS,";
                     commandText += "PAC_TYPE,";
                     commandText += "PAC_DRUGNO,";
+                    commandText += "PAC_SECTNO,";
+                    commandText += "PAC_DOCCD,";
                     commandText += "PAC_PROCDTTM ";
 
 
 
                 }
-                else if (strArray_Barcode.Length == 4)
+                else if (strArray_Barcode.Length == 5)
                 {
                     string PAC_SEQ = strArray_Barcode[0];
                     string PAC_VISITDT = strArray_Barcode[1];
@@ -150,6 +154,8 @@ namespace DB2VM
                     commandText += "PAC_DAYS,";
                     commandText += "PAC_TYPE,";
                     commandText += "PAC_DRUGNO,";
+                    commandText += "PAC_SECTNO,";
+                    commandText += "PAC_DOCCD,";
                     commandText += "PAC_PROCDTTM ";
 
                     commandText += $"from phaadcal where PAC_SEQ='{PAC_SEQ}' and PAC_VISITDT='{PAC_VISITDT}' AND PAC_DIACODE='{PAC_DIACODE}' AND PAC_ORDERSEQ='{PAC_ORDERSEQ}' ";
@@ -168,10 +174,12 @@ namespace DB2VM
                     commandText += "PAC_DAYS,";
                     commandText += "PAC_TYPE,";
                     commandText += "PAC_DRUGNO,";
+                    commandText += "PAC_SECTNO,";
+                    commandText += "PAC_DOCCD,";
                     commandText += "PAC_PROCDTTM ";
 
                 }
-                else if (strArray_Barcode.Length == 3)
+                else if (strArray_Barcode.Length == 4)
                 {
                     //住院首日或住院ST藥袋
                     if (strArray_Barcode[0].Length == 25)
@@ -197,6 +205,8 @@ namespace DB2VM
                         commandText += "PAC_DAYS,";
                         commandText += "PAC_TYPE,";
                         commandText += "PAC_DRUGNO,";
+                        commandText += "PAC_SECTNO,";
+                        commandText += "PAC_DOCCD,";
                         commandText += "PAC_PROCDTTM ";
 
                         commandText += $"from PHAADC where PAC_SEQ='{住院序號}' and PAC_PROCDTTM='{醫令時間}' AND PAC_TYPE='{醫令類型}' ";
@@ -215,8 +225,56 @@ namespace DB2VM
                         commandText += "PAC_DAYS,";
                         commandText += "PAC_TYPE,";
                         commandText += "PAC_DRUGNO,";
+                        commandText += "PAC_SECTNO,";
+                        commandText += "PAC_DOCCD,";
                         commandText += "PAC_PROCDTTM ";
 
+                    }
+                    else
+                    {
+                        string PAC_SEQ = strArray_Barcode[0];
+                        string PAC_VISITDT = strArray_Barcode[1];
+                        string PAC_DIACODE = strArray_Barcode[2];
+                        PAC_ORDERSEQ = strArray_Barcode[3];
+                        commandText += "select ";
+                        commandText += "min(PAC_VISITDT) PAC_VISITDT,";
+                        commandText += "sum(PAC_SUMQTY) PAC_SUMQTY,";
+                        commandText += "PAC_ORDERSEQ,";
+                        commandText += "PAC_SEQ,";
+                        commandText += "PAC_DIACODE,";
+                        commandText += "PAC_DIANAME,";
+                        commandText += "PAC_PATNAME,";
+                        commandText += "PAC_PATID,";
+                        commandText += "PAC_UNIT,";
+                        commandText += "PAC_QTYPERTIME,";
+                        commandText += "PAC_FEQNO,";
+                        commandText += "PAC_PATHNO,";
+                        commandText += "PAC_DAYS,";
+                        commandText += "PAC_TYPE,";
+                        commandText += "PAC_DRUGNO,";
+                        commandText += "PAC_SECTNO,";
+                        commandText += "PAC_DOCCD,";
+                        commandText += "PAC_PROCDTTM ";
+
+                        commandText += $"from phaadcal where PAC_SEQ='{PAC_SEQ}' and PAC_VISITDT='{PAC_VISITDT}' AND PAC_DIACODE='{PAC_DIACODE}' AND PAC_ORDERSEQ='{PAC_ORDERSEQ}' ";
+                        commandText += "GROUP BY ";
+
+                        commandText += "PAC_ORDERSEQ,";
+                        commandText += "PAC_SEQ,";
+                        commandText += "PAC_DIACODE,";
+                        commandText += "PAC_DIANAME,";
+                        commandText += "PAC_PATNAME,";
+                        commandText += "PAC_PATID,";
+                        commandText += "PAC_UNIT,";
+                        commandText += "PAC_QTYPERTIME,";
+                        commandText += "PAC_FEQNO,";
+                        commandText += "PAC_PATHNO,";
+                        commandText += "PAC_DAYS,";
+                        commandText += "PAC_TYPE,";
+                        commandText += "PAC_DRUGNO,";
+                        commandText += "PAC_SECTNO,";
+                        commandText += "PAC_DOCCD,";
+                        commandText += "PAC_PROCDTTM ";
                     }
 
                 }
@@ -242,6 +300,8 @@ namespace DB2VM
                     commandText += "PAC_DAYS,";
                     commandText += "PAC_TYPE,";
                     commandText += "PAC_DRUGNO,";
+                    commandText += "PAC_SECTNO,";
+                    commandText += "PAC_DOCCD,";
                     commandText += "PAC_PROCDTTM ";
 
                     commandText += $"from PHAADC where PAC_SEQ='{住院序號}' and PAC_PROCDTTM='{醫令時間}' AND PAC_TYPE='{醫令類型}' ";
@@ -260,6 +320,8 @@ namespace DB2VM
                     commandText += "PAC_DAYS,";
                     commandText += "PAC_TYPE,";
                     commandText += "PAC_DRUGNO,";
+                    commandText += "PAC_SECTNO,";
+                    commandText += "PAC_DOCCD,";
                     commandText += "PAC_PROCDTTM ";
 
 
@@ -275,18 +337,12 @@ namespace DB2VM
                     commandText = $"select * from PHAADC where PAC_DRUGNO={本次領藥號} and PAC_VISITDT={看診日期} and PAC_PATID={_病歷號} and PAC_SEQ={序號}";
                     //commandText = $"select * from phaadcal where PAC_DRUGNO={本次領藥號} and PAC_PATID={_病歷號} and PAC_SEQ={序號}";
                 }
-                //string _病歷號_ = "0000681203";
-                //string _看診日期 = "20230608";
-                //string _CODE = "IMOR";
-                //commandText = $"select * from phaadc where PAC_PATID={_病歷號_}";
-                //////1120003290202303241711370;8287;IRI
-                //if (commandText.StringIsEmpty()) return "Barcode type error!";
-                //xstring jsonString = "";
+         
                 cmd = new OracleCommand(commandText, conn_oracle);
                 List<object[]> list_temp = new List<object[]>();
                 try
                 {
-                    reader = cmd.ExecuteReader();
+                    reader = cmd.ExecuteReader();       
                     List<string> list_colname = new List<string>();
                     for (int i = 0; i < reader.FieldCount; i++)
                     {
@@ -315,11 +371,21 @@ namespace DB2VM
 
                             orderClass.PRI_KEY = $"{reader["PAC_ORDERSEQ"].ToString().Trim()}-{reader["PAC_DRUGNO"].ToString().Trim()}";
                             orderClass.藥袋條碼 = $"{reader["PAC_VISITDT"].ToString().Trim()}{reader["PAC_PATID"].ToString().Trim()}{reader["PAC_SEQ"].ToString().Trim()}";
+                            orderClass.住院序號 = reader["PAC_SEQ"].ToString().Trim();
                             orderClass.藥品碼 = reader["PAC_DIACODE"].ToString().Trim();
                             orderClass.藥品名稱 = reader["PAC_DIANAME"].ToString().Trim();
                             orderClass.病人姓名 = reader["PAC_PATNAME"].ToString().Trim();
                             orderClass.病歷號 = reader["PAC_PATID"].ToString().Trim();
                             orderClass.領藥號 = reader["PAC_DRUGNO"].ToString().Trim();
+
+                            orderClass.就醫時間 = reader["PAC_VISITDT"].ToString().Trim();
+                            orderClass.就醫時間 = $"{orderClass.就醫時間.Substring(0, 4)}-{orderClass.就醫時間.Substring(4, 2)}-{orderClass.就醫時間.Substring(6, 2)}";
+                            orderClass.科別 = reader["PAC_SECTNO"].ToString().Trim();
+                            orderClass.醫師代碼 = reader["PAC_DOCCD"].ToString().Trim();
+
+
+
+
                             string PAC_QTYPERTIME = reader["PAC_QTYPERTIME"].ToString().Trim();
                             string PAC_SUMQTY = reader["PAC_SUMQTY"].ToString().Trim();
                             double sumQTY = PAC_SUMQTY.StringToDouble();
@@ -367,10 +433,7 @@ namespace DB2VM
                     double Truncate;
                     List<OrderClass> temp_orderclasses = list_orderclasses[i];
                     double 總量 = 0.0D;
-                    if(temp_orderclasses[0].藥品碼 == "OMOD")
-                    {
-
-                    }
+              
                     for (int k = 0; k < temp_orderclasses.Count; k++)
                     {
                         總量 += temp_orderclasses[k].交易量.StringToDouble();
@@ -421,7 +484,10 @@ namespace DB2VM
                         value[(int)enum_醫囑資料.藥袋條碼] = orderClasses[i].藥袋條碼;
                         value[(int)enum_醫囑資料.病人姓名] = orderClasses[i].病人姓名;
                         value[(int)enum_醫囑資料.交易量] = orderClasses[i].交易量;
-                        value[(int)enum_醫囑資料.開方日期] = orderClasses[i].開方日期;
+                        value[(int)enum_醫囑資料.住院序號] = orderClasses[i].住院序號;
+                        value[(int)enum_醫囑資料.醫師代碼] = orderClasses[i].醫師代碼;
+                        value[(int)enum_醫囑資料.科別] = orderClasses[i].科別;
+                        value[(int)enum_醫囑資料.就醫時間] = orderClasses[i].就醫時間;
                         value[(int)enum_醫囑資料.產出時間] = DateTime.Now.ToDateTimeString_6();
                         value[(int)enum_醫囑資料.過帳時間] = DateTime.MinValue.ToDateTimeString_6();
                         value[(int)enum_醫囑資料.狀態] = "未過帳";
@@ -449,12 +515,16 @@ namespace DB2VM
                             value[(int)enum_醫囑資料.PRI_KEY] = orderClasses[i].PRI_KEY;
                             value[(int)enum_醫囑資料.藥局代碼] = orderClasses[i].藥局代碼;
                             value[(int)enum_醫囑資料.領藥號] = orderClasses[i].領藥號;
+                            value[(int)enum_醫囑資料.住院序號] = orderClasses[i].住院序號;
                             value[(int)enum_醫囑資料.藥品碼] = orderClasses[i].藥品碼;
                             value[(int)enum_醫囑資料.藥品名稱] = orderClasses[i].藥品名稱;
                             value[(int)enum_醫囑資料.病歷號] = orderClasses[i].病歷號;
                             value[(int)enum_醫囑資料.藥袋條碼] = orderClasses[i].藥袋條碼;
                             value[(int)enum_醫囑資料.病人姓名] = orderClasses[i].病人姓名;
                             value[(int)enum_醫囑資料.交易量] = orderClasses[i].交易量;
+                            value[(int)enum_醫囑資料.醫師代碼] = orderClasses[i].醫師代碼;
+                            value[(int)enum_醫囑資料.科別] = orderClasses[i].科別;
+                            value[(int)enum_醫囑資料.就醫時間] = orderClasses[i].就醫時間;
                             value[(int)enum_醫囑資料.開方日期] = orderClasses[i].開方日期;
                             value[(int)enum_醫囑資料.狀態] = "未過帳";
                             orderClasses[i].狀態 = "未過帳";

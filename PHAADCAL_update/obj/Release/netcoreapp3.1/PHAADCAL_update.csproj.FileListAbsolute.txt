@@ -90,3 +90,4 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\PHAADCAL_update\bin\Release\net
 C:\Users\Administrator\source\repos\TPH_DBVM_API\PHAADCAL_update\bin\Release\netcoreapp3.1\NPOI.OpenXml4Net.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\PHAADCAL_update\bin\Release\netcoreapp3.1\NPOI.OpenXmlFormats.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\PHAADCAL_update\bin\Release\netcoreapp3.1\HIS_DB_Lib.xml
+C:\Users\Administrator\source\repos\TPH_DBVM_API\PHAADCAL_update\bin\Release\netcoreapp3.1\SQLUI.xml
