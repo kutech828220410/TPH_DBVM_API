@@ -147,6 +147,7 @@ namespace Torder_update_batch
 
                             List<object[]> list_order = sQLControl_醫囑資料.GetRowsByBetween(null, (int)enum_OrderT.產出時間, dateTime_st.ToDateTimeString(), dateTime_end.ToDateTimeString());
                             List<object[]> list_order_buf = new List<object[]>();
+                            List<object[]> list_order_temp = new List<object[]>();
                             List<object[]> list_order_add = new List<object[]>();
 
                             TimeTaken = $"{myTimerBasic}";
@@ -201,11 +202,13 @@ namespace Torder_update_batch
                                 }
                                 if (開方日期_time.Length == 4)
                                 {
-                                    開方日期_time = $"{開方日期_time.Substring(0, 2)}:{開方日期_time.Substring(2, 2)}";
+                                    開方日期_time = $"{開方日期_time.Substring(0, 2)}:{開方日期_time.Substring(2, 2)}:00";
                                 }
                                 開方日期 = $"{開方日期_date} {開方日期_time}";
-                                if (開方日期.Check_Date_String() == false) continue;
-
+                                if (開方日期.Check_Date_String() == false)
+                                {
+                                    continue;
+                                }
                                 天數 = list_src_order[i][(int)enum_Torder.天數].ObjectToString();
                                 大單位 = list_src_order[i][(int)enum_Torder.大單位].ObjectToString();
                                 藥局代碼 = list_src_order[i][(int)enum_Torder.醫令類型].ObjectToString();
@@ -219,7 +222,7 @@ namespace Torder_update_batch
                                 if (藥局代碼 == "M") 藥局代碼 = "出院帶藥";
 
                                 list_order_buf = list_order.GetRows((int)enum_OrderT.PRI_KEY, PRI_KEY);
-
+                          
                                 if (list_order_buf.Count == 0)
                                 {
                                     object[] value = new object[new enum_OrderT().GetLength()];
@@ -249,7 +252,41 @@ namespace Torder_update_batch
                                     value[(int)enum_OrderT.狀態] = enum_醫囑資料_狀態.未過帳.GetEnumName();
                                     list_order_add.Add(value);
                                 }
-
+                                else
+                                {
+                                    list_order_temp = (from temp in list_order_buf
+                                                       where temp[(int)enum_OrderT.藥品碼].ObjectToString() == 藥碼
+                                                       select temp).ToList();
+                                    if (list_order_temp.Count == 0)
+                                    {
+                                        object[] value = new object[new enum_OrderT().GetLength()];
+                                        value[(int)enum_OrderT.GUID] = Guid.NewGuid().ToString();
+                                        value[(int)enum_OrderT.PRI_KEY] = PRI_KEY;
+                                        value[(int)enum_OrderT.藥局代碼] = 藥局代碼;
+                                        value[(int)enum_OrderT.藥品碼] = 藥碼;
+                                        value[(int)enum_OrderT.藥品名稱] = 藥名;
+                                        value[(int)enum_OrderT.病歷號] = 病歷號;
+                                        value[(int)enum_OrderT.交易量] = 總量.StringToDouble() * (-1);
+                                        value[(int)enum_OrderT.領藥號] = 領藥號;
+                                        value[(int)enum_OrderT.科別] = 科別;
+                                        value[(int)enum_OrderT.醫師ID] = 醫師ID;
+                                        value[(int)enum_OrderT.病人姓名] = 病人姓名;
+                                        value[(int)enum_OrderT.年齡] = 年齡;
+                                        value[(int)enum_OrderT.性別] = 性別;
+                                        value[(int)enum_OrderT.途徑] = 途徑;
+                                        value[(int)enum_OrderT.頻次] = 頻次;
+                                        value[(int)enum_OrderT.天數] = 天數;
+                                        value[(int)enum_OrderT.劑量單位] = 單位;
+                                        value[(int)enum_OrderT.單次劑量] = 單次劑量;
+                                        value[(int)enum_OrderT.開方日期] = 開方日期;
+                                        value[(int)enum_OrderT.產出時間] = DateTime.Now.ToDateTimeString_6();
+                                        value[(int)enum_OrderT.結方日期] = DateTime.MinValue.ToDateTimeString();
+                                        value[(int)enum_OrderT.展藥時間] = DateTime.MinValue.ToDateTimeString();
+                                        value[(int)enum_OrderT.過帳時間] = DateTime.MinValue.ToDateTimeString();
+                                        value[(int)enum_OrderT.狀態] = enum_醫囑資料_狀態.未過帳.GetEnumName();
+                                        list_order_add.Add(value);
+                                    }
+                                }
                             }
                             List<string> list_病歷號_add = new List<string>();
 

@@ -35,13 +35,11 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\H_Pannel
 C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\MyOffice.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\PopupControl.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\SunnyUI.dll
-C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\CSkin.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\zxing.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\NPOI.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\Microsoft.Office.Interop.Excel.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\NPOI.OOXML.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\SunnyUI.Common.dll
-C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\Microsoft.mshtml.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\ICSharpCode.SharpZipLib.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\office.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\NPOI.OpenXml4Net.dll
@@ -64,3 +62,4 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\System.T
 C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\System.Threading.Tasks.Extensions.xml
 C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\System.ValueTuple.xml
 C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\SQLUI.xml
+C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\Basic.xml

@@ -22,7 +22,6 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\MySql.Data.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\PopupControl.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\SunnyUI.dll
-C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\CSkin.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\LadderUI.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\FontAwesome.Sharp.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\MeasureSystemUI.dll
@@ -39,7 +38,6 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\Microsoft.Office.Interop.Excel.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\NPOI.OOXML.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\SunnyUI.Common.dll
-C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\Microsoft.mshtml.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\TCP.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\CallBackUI.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\MeasureSystemFunction.dll
@@ -60,9 +58,10 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\System.Text.Json.xml
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\System.Threading.Tasks.Extensions.xml
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\System.ValueTuple.xml
-C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\obj\Release\Torder_update_batch.csproj.AssemblyReference.cache
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\obj\Release\Torder_update_batch.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\obj\Release\Torder_update_batch.csproj.CopyComplete
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\obj\Release\Torder_update_batch.exe
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\obj\Release\Torder_update_batch.pdb
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\SQLUI.xml
+C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\obj\Release\Torder_update_batch.csproj.AssemblyReference.cache
+C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\Basic.xml

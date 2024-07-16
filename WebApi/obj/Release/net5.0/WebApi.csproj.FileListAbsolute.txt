@@ -180,7 +180,6 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\Micro
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\ICSharpCode.SharpZipLib.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\PopupControl.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\SunnyUI.dll
-C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\CSkin.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\LadderUI.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\FontAwesome.Sharp.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\MeasureSystemUI.dll
@@ -216,3 +215,5 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\ref\W
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\WebApi.pdb
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\WebApi.genruntimeconfig.cache
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\SQLUI.xml
+C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\Basic.xml
+C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\CSkin.dll

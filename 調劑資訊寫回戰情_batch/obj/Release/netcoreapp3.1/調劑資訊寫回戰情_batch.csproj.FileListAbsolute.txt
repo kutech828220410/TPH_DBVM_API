@@ -55,7 +55,6 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\調劑資訊寫回戰情_batch\
 C:\Users\Administrator\source\repos\TPH_DBVM_API\調劑資訊寫回戰情_batch\bin\Release\netcoreapp3.1\MyOffice.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\調劑資訊寫回戰情_batch\bin\Release\netcoreapp3.1\PopupControl.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\調劑資訊寫回戰情_batch\bin\Release\netcoreapp3.1\SunnyUI.dll
-C:\Users\Administrator\source\repos\TPH_DBVM_API\調劑資訊寫回戰情_batch\bin\Release\netcoreapp3.1\CSkin.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\調劑資訊寫回戰情_batch\bin\Release\netcoreapp3.1\LadderUI.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\調劑資訊寫回戰情_batch\bin\Release\netcoreapp3.1\FontAwesome.Sharp.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\調劑資訊寫回戰情_batch\bin\Release\netcoreapp3.1\MeasureSystemUI.dll
@@ -91,3 +90,4 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\調劑資訊寫回戰情_batch\
 C:\Users\Administrator\source\repos\TPH_DBVM_API\調劑資訊寫回戰情_batch\obj\Release\netcoreapp3.1\調劑資訊寫回戰情_batch.pdb
 C:\Users\Administrator\source\repos\TPH_DBVM_API\調劑資訊寫回戰情_batch\obj\Release\netcoreapp3.1\調劑資訊寫回戰情_batch.genruntimeconfig.cache
 C:\Users\Administrator\source\repos\TPH_DBVM_API\調劑資訊寫回戰情_batch\bin\Release\netcoreapp3.1\SQLUI.xml
+C:\Users\Administrator\source\repos\TPH_DBVM_API\調劑資訊寫回戰情_batch\bin\Release\netcoreapp3.1\Basic.xml

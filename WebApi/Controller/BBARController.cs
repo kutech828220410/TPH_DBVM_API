@@ -17,7 +17,7 @@ namespace DB2VM
     [ApiController]
     public class BBARController : ControllerBase
     {
-
+    
         public enum enum_急診藥袋
         {
             本次領藥號,
@@ -403,6 +403,11 @@ namespace DB2VM
                                 orderClass.開方日期 = $"{Year}/{Month}/{Day} {Hour}:{Min}:{Sec}";
                             }
                             orderClasses.Add(orderClass);
+
+                        
+
+
+
 
                         }
                     }
