@@ -335,7 +335,7 @@ namespace DB2VM
                     string 序號 = strArray_Barcode[(int)enum_急診藥袋.序號];
 
                     commandText = $"select * from PHAADC where PAC_DRUGNO={本次領藥號} and PAC_VISITDT={看診日期} and PAC_PATID={_病歷號} and PAC_SEQ={序號}";
-                    //commandText = $"select * from phaadcal where PAC_DRUGNO={本次領藥號} and PAC_PATID={_病歷號} and PAC_SEQ={序號}";
+                    commandText = $"select * from phaadcal where PAC_DRUGNO={本次領藥號} and PAC_PATID={_病歷號} and PAC_SEQ={序號}";
                 }
          
                 cmd = new OracleCommand(commandText, conn_oracle);
@@ -352,6 +352,8 @@ namespace DB2VM
 
                     try
                     {
+                        List<personPageClass> personPageClasses = personPageClass.get_all("http://192.168.23.54:4433");
+
                         while (reader.Read())
                         {
                             List<object> value = new List<object>();
@@ -383,8 +385,19 @@ namespace DB2VM
                             orderClass.科別 = reader["PAC_SECTNO"].ToString().Trim();
                             orderClass.醫師代碼 = reader["PAC_DOCCD"].ToString().Trim();
 
-
-
+                            if (strArray_Barcode.Length >= 9)
+                            {
+                                string PAC_DRUGGIST = reader["PAC_DRUGGIST"].ToString().Trim();
+                                orderClass.藥師ID = PAC_DRUGGIST.StringToInt32().ToString();
+                                List<personPageClass> personPageClasses_buf = (from temp in personPageClasses
+                                                                               where temp.ID == orderClass.藥師ID
+                                                                               select temp).ToList();
+                                if (personPageClasses_buf.Count> 0 )
+                                {
+                                    orderClass.藥師姓名 = personPageClasses_buf[0].姓名;
+                                }
+                            }
+                           
 
                             string PAC_QTYPERTIME = reader["PAC_QTYPERTIME"].ToString().Trim();
                             string PAC_SUMQTY = reader["PAC_SUMQTY"].ToString().Trim();
@@ -403,11 +416,6 @@ namespace DB2VM
                                 orderClass.開方日期 = $"{Year}/{Month}/{Day} {Hour}:{Min}:{Sec}";
                             }
                             orderClasses.Add(orderClass);
-
-                        
-
-
-
 
                         }
                     }
