@@ -18,6 +18,9 @@
     <Reference Include="Basic">
       <HintPath>..\0.DLL\Basic.dll</HintPath>
     </Reference>
+    <Reference Include="CSkin">
+      <HintPath>..\0.DLL\CSkin.dll</HintPath>
+    </Reference>
     <Reference Include="HIS_DB_Lib">
       <HintPath>..\0.DLL\HIS_DB_Lib.dll</HintPath>
     </Reference>

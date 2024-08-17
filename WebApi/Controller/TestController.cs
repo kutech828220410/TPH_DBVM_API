@@ -25,11 +25,12 @@ namespace DB2VM
 
             string MyDb2ConnectionString = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.24.211)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=SISDCP)));User ID=tphphaadc;Password=tph@phaadc2860;";
             OracleConnection conn_oracle = new OracleConnection(MyDb2ConnectionString);
-          
-
+            OracleDataReader reader;
+            OracleCommand cmd;
             try
             {
                 conn_oracle.Open();
+
                 conn_oracle.Close();
                 conn_oracle.Dispose();
             }

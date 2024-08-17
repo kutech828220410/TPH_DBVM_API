@@ -199,7 +199,6 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\CallB
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\MeasureSystemFunction.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\MVSDK.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\HIS_DB_Lib.xml
-C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\WebApi.csproj.AssemblyReference.cache
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\WebApi.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\WebApi.AssemblyInfoInputs.cache
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\WebApi.AssemblyInfo.cs
@@ -217,3 +216,4 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\WebAp
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\SQLUI.xml
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\Basic.xml
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\CSkin.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\WebApi.csproj.AssemblyReference.cache

@@ -811,6 +811,11 @@
             圖片網址。
             </summary>
         </member>
+        <member name="P:HIS_DB_Lib.medClassBasic.圖片網址1">
+            <summary>
+            圖片網址。
+            </summary>
+        </member>
         <member name="P:HIS_DB_Lib.medClassBasic.開檔狀態">
             <summary>
             開檔狀態。
@@ -896,7 +901,17 @@
             副檔名
             </summary>
         </member>
+        <member name="P:HIS_DB_Lib.medPicClass.副檔名1">
+            <summary>
+            副檔名
+            </summary>
+        </member>
         <member name="P:HIS_DB_Lib.medPicClass.pic_base64">
+            <summary>
+            pic_base64
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.medPicClass.pic1_base64">
             <summary>
             pic_base64
             </summary>
@@ -944,6 +959,151 @@
         <member name="P:HIS_DB_Lib.medPriceClass.加入時間">
             <summary>
             加入時間
+            </summary>
+        </member>
+        <member name="T:HIS_DB_Lib.medRecheckLogClass">
+            <summary>
+            表示藥品覆盤日志的數據類別。
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.medRecheckLogClass.GUID">
+            <summary>
+            獨特的標識符。
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.medRecheckLogClass.發生類別">
+            <summary>
+            發生類別。
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.medRecheckLogClass.藥碼">
+            <summary>
+            藥品的代碼。
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.medRecheckLogClass.藥名">
+            <summary>
+            藥品的名稱。
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.medRecheckLogClass.庫存值">
+            <summary>
+            庫存值。
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.medRecheckLogClass.盤點值">
+            <summary>
+            盤點值。
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.medRecheckLogClass.差異值">
+            <summary>
+            差異值。
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.medRecheckLogClass.批號">
+            <summary>
+            批號。
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.medRecheckLogClass.效期">
+            <summary>
+            效期。
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.medRecheckLogClass.醫令_GUID">
+            <summary>
+            醫令的唯一標識符。
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.medRecheckLogClass.交易紀錄_GUID">
+            <summary>
+            交易紀錄的唯一標識符。
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.medRecheckLogClass.盤點藥師1">
+            <summary>
+            盤點藥師。
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.medRecheckLogClass.盤點藥師ID1">
+            <summary>
+            盤點藥師ID2。
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.medRecheckLogClass.盤點藥師2">
+            <summary>
+            盤點藥師。
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.medRecheckLogClass.盤點藥師ID2">
+            <summary>
+            盤點藥師ID2。
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.medRecheckLogClass.排除藥師">
+            <summary>
+            排除藥師。
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.medRecheckLogClass.發生時間">
+            <summary>
+            發生時間。
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.medRecheckLogClass.排除時間">
+            <summary>
+            排除時間。
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.medRecheckLogClass.異常原因">
+            <summary>
+            異常原因。
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.medRecheckLogClass.狀態">
+            <summary>
+            狀態。
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.notifyExceptionClass.GUID">
+            <summary>
+            唯一KEY.
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.notifyExceptionClass.類別">
+            <summary>
+            唯一KEY.
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.notifyExceptionClass.內容">
+            <summary>
+            唯一KEY.
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.notifyExceptionClass.發生時間">
+            <summary>
+            唯一KEY.
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.OrderClass.天數">
+            <summary>
+            天數
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.OrderClass.實際調劑量">
+            <summary>
+            實際調劑量
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.OrderClass.核對姓名">
+            <summary>
+            核對姓名
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.OrderClass.核對ID">
+            <summary>
+            核對ID
             </summary>
         </member>
         <member name="T:HIS_DB_Lib.OrderTClass">
@@ -1416,6 +1576,16 @@
             藥師證字號
             </summary>
         </member>
+        <member name="P:HIS_DB_Lib.takeMedicineStackClass.覆核藥師姓名">
+            <summary>
+            覆核藥師姓名
+            </summary>
+        </member>
+        <member name="P:HIS_DB_Lib.takeMedicineStackClass.覆核藥師ID">
+            <summary>
+            覆核藥師ID
+            </summary>
+        </member>
         <member name="P:HIS_DB_Lib.takeMedicineStackClass.動作">
             <summary>
             交易記錄查詢動作
@@ -1621,6 +1791,11 @@
             領用人
             </summary>
         </member>
+        <member name="P:HIS_DB_Lib.transactionsClass.覆核藥師">
+            <summary>
+            領用人
+            </summary>
+        </member>
         <member name="P:HIS_DB_Lib.transactionsClass.藥師證字號">
             <summary>
             藥師證字號
@@ -1820,6 +1995,124 @@
             <summary>
             變異紀錄(請參閱 udnoectc_ctcvarsClass)
             </summary>
+        </member>
+        <member name="M:HIS_DB_Lib.udnoectc.get_udnoectc_by_GUID(System.String,System.String,System.String,System.String)">
+            <summary>
+            根據 GUID 從 API 伺服器獲取化療配藥通知處方。
+            </summary>
+            <param name="API_Server">API 伺服器地址。</param>
+            <param name="GUID">唯一標識符 GUID。</param>
+            <returns>返回具有指定 GUID 的化療配藥通知處方對象。如果未找到或發生錯誤，返回 null。</returns>
+            <example>
+            以下是使用 `get_udnoectc_by_GUID` 方法的範例：
+            <code>
+            string apiServer = "http://example.com";
+            string guid = "unique-guid";
+            var prescription = udnoectc.get_udnoectc_by_GUID(apiServer, guid);
+            if (prescription != null)
+            {
+                Console.WriteLine($"病人姓名: {prescription.病人姓名}");
+            }
+            else
+            {
+                Console.WriteLine("未找到指定 GUID 的處方。");
+            }
+            </code>
+            </example>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:HIS_DB_Lib.udnoectc.update_udnoectc_orders_comp(System.String,System.String,System.String,System.Collections.Generic.List{HIS_DB_Lib.udnoectc_orders},System.String)" -->
+        <member name="M:HIS_DB_Lib.udnoectc.update_udnoectc_confirm_ph(System.String,System.String,System.String,System.String,HIS_DB_Lib.udnoectc)">
+            <summary>
+             更新指定操作員的化療配藥通知子項目為醫令確認狀態。
+            </summary>
+            <param name="API_Server">API 伺服器地址。</param>
+            <param name="ServerName">伺服器名稱。</param>
+            <param name="ServerType">伺服器類型。</param>
+            <param name="loginName">操作員名稱。</param>
+            <param name="udnoectcData">需要確認的化療配藥通知子項目。</param>
+            <returns>返回更新的化療配藥通知子項目列表。如果未找到或發生錯誤，返回 null。</returns>
+            <example>
+            以下是使用 `ConfirmChemotherapyRxOrders` 方法的範例：
+            <code>
+            string apiServer = "http://example.com";
+            string serverName = "cheom";
+            string serverType = "癌症備藥機";
+            string loginName = "JohnDoe";
+            var udnoectcData = new udnoectc();
+            // 設置需要確認的訂單資料到 udnoectcData 中
+            var confirmedOrders = ChemotherapyRxOrders.ConfirmChemotherapyRxOrders(apiServer, serverName, serverType, loginName, udnoectcData);
+            if (confirmedOrders != null)
+            {
+                Console.WriteLine("確認成功");
+            }
+            else
+            {
+                Console.WriteLine("未找到指定操作員的訂單或發生錯誤。");
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:HIS_DB_Lib.udnoectc.update_udnoectc_disp_ph(System.String,System.String,System.String,System.String,HIS_DB_Lib.udnoectc)">
+            <summary>
+            更新指定操作員的化療配藥通知子項目為調配完成狀態。
+            </summary>
+            <param name="API_Server">API 伺服器地址。</param>
+            <param name="ServerName">伺服器名稱。</param>
+            <param name="ServerType">伺服器類型。</param>
+            <param name="loginName">操作員名稱。</param>
+            <param name="udnoectcData">需要更新的化療配藥通知子項目。</param>
+            <returns>返回更新的化療配藥通知子項目列表。如果未找到或發生錯誤，返回 null。</returns>
+            <example>
+            以下是使用 `UpdateDispensingComplete` 方法的範例：
+            <code>
+            string apiServer = "http://example.com";
+            string serverName = "cheom";
+            string serverType = "癌症備藥機";
+            string loginName = "JohnDoe";
+            var udnoectcData = new udnoectc();
+            // 設置需要更新的訂單資料到 udnoectcData 中
+            var updatedOrders = ChemotherapyRxOrders.UpdateDispensingComplete(apiServer, serverName, serverType, loginName, udnoectcData);
+            if (updatedOrders != null)
+            {
+                Console.WriteLine("更新成功");
+            }
+            else
+            {
+                Console.WriteLine("未找到指定操作員的訂單或發生錯誤。");
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:HIS_DB_Lib.udnoectc.update_udnoectc_check_ph(System.String,System.String,System.String,System.String,HIS_DB_Lib.udnoectc)">
+            <summary>
+            更新指定操作員的化療配藥通知子項目為處方核對狀態。
+            </summary>
+            <param name="API_Server">API 伺服器地址。</param>
+            <param name="ServerName">伺服器名稱。</param>
+            <param name="ServerType">伺服器類型。</param>
+            <param name="loginName">操作員名稱。</param>
+            <param name="udnoectcData">需要更新的化療配藥通知子項目。</param>
+            <returns>返回更新的化療配藥通知子項目列表。如果未找到或發生錯誤，返回 null。</returns>
+            <example>
+            以下是使用 `UpdatePrescriptionCheck` 方法的範例：
+            <code>
+            string apiServer = "http://example.com";
+            string serverName = "cheom";
+            string serverType = "癌症備藥機";
+            string loginName = "JohnDoe";
+            var udnoectcData = new udnoectc();
+            // 設置需要更新的訂單資料到 udnoectcData 中
+            var updatedOrders = ChemotherapyRxOrders.UpdatePrescriptionCheck(apiServer, serverName, serverType, loginName, udnoectcData);
+            if (updatedOrders != null)
+            {
+                Console.WriteLine("更新成功");
+            }
+            else
+            {
+                Console.WriteLine("未找到指定操作員的訂單或發生錯誤。");
+            }
+            </code>
+            </example>
         </member>
         <member name="T:HIS_DB_Lib.udnoectc_orders">
             <summary>

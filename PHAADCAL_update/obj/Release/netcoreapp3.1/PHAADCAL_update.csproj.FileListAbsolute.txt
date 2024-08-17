@@ -91,3 +91,4 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\PHAADCAL_update\bin\Release\net
 C:\Users\Administrator\source\repos\TPH_DBVM_API\PHAADCAL_update\bin\Release\netcoreapp3.1\HIS_DB_Lib.xml
 C:\Users\Administrator\source\repos\TPH_DBVM_API\PHAADCAL_update\bin\Release\netcoreapp3.1\SQLUI.xml
 C:\Users\Administrator\source\repos\TPH_DBVM_API\PHAADCAL_update\bin\Release\netcoreapp3.1\Basic.xml
+C:\Users\Administrator\source\repos\TPH_DBVM_API\PHAADCAL_update\bin\Release\netcoreapp3.1\CSkin.dll

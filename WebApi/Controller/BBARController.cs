@@ -336,13 +336,61 @@ namespace DB2VM
 
                     commandText = $"select * from PHAADC where PAC_DRUGNO={本次領藥號} and PAC_VISITDT={看診日期} and PAC_PATID={_病歷號} and PAC_SEQ={序號}";
                     commandText = $"select * from phaadcal where PAC_DRUGNO={本次領藥號} and PAC_PATID={_病歷號} and PAC_SEQ={序號}";
+
+                    commandText = "";
+                    commandText += "select ";
+                    commandText += "min(PAC_VISITDT) PAC_VISITDT,";
+                    commandText += "sum(PAC_SUMQTY) PAC_SUMQTY,";
+                    commandText += "PAC_ORDERSEQ,";
+                    commandText += "PAC_SEQ,";
+                    commandText += "PAC_DIACODE,";
+                    commandText += "PAC_DIANAME,";
+                    commandText += "PAC_PATNAME,";
+                    commandText += "PAC_PATID,";
+                    commandText += "PAC_UNIT,";
+                    commandText += "PAC_QTYPERTIME,";
+                    commandText += "PAC_FEQNO,";
+                    commandText += "PAC_PATHNO,";
+                    commandText += "PAC_DAYS,";
+                    commandText += "PAC_TYPE,";
+                    commandText += "PAC_DRUGNO,";
+                    commandText += "PAC_SECTNO,";
+                    commandText += "PAC_DOCCD,";
+                    commandText += "PAC_PROCDTTM ,";
+                    commandText += "PAC_DRUGGIST ";
+                    commandText += $"from phaadcal where PAC_DRUGNO={本次領藥號} and PAC_PATID={_病歷號} and PAC_SEQ={序號} ";
+                    commandText += "GROUP BY ";
+
+                    commandText += "PAC_ORDERSEQ,";
+                    commandText += "PAC_SEQ,";
+                    commandText += "PAC_DIACODE,";
+                    commandText += "PAC_DIANAME,";
+                    commandText += "PAC_PATNAME,";
+                    commandText += "PAC_PATID,";
+                    commandText += "PAC_UNIT,";
+                    commandText += "PAC_QTYPERTIME,";
+                    commandText += "PAC_FEQNO,";
+                    commandText += "PAC_PATHNO,";
+                    commandText += "PAC_DAYS,";
+                    commandText += "PAC_TYPE,";
+                    commandText += "PAC_DRUGNO,";
+                    commandText += "PAC_SECTNO,";
+                    commandText += "PAC_DOCCD,";
+                    commandText += "PAC_PROCDTTM ,";
+                    commandText += "PAC_DRUGGIST ";
+
+                    
                 }
-         
+
                 cmd = new OracleCommand(commandText, conn_oracle);
                 List<object[]> list_temp = new List<object[]>();
+                string queryTime = "";
                 try
                 {
-                    reader = cmd.ExecuteReader();       
+                    MyTimerBasic myTimerBasic_query = new MyTimerBasic();
+
+                    reader = cmd.ExecuteReader();
+                    queryTime = myTimerBasic_query.ToString();
                     List<string> list_colname = new List<string>();
                     for (int i = 0; i < reader.FieldCount; i++)
                     {
@@ -563,7 +611,7 @@ namespace DB2VM
                 returnData.Code = 200;
                 returnData.Data = orderClasses;
                 returnData.TimeTaken = myTimerBasic.ToString();
-                returnData.Result = $"取得醫囑完成! 共<{orderClasses.Count}>筆 ,新增<{list_value_Add.Count}>筆,修改<{list_value_replace.Count}>筆";
+                returnData.Result = $"取得醫囑完成! 共<{orderClasses.Count}>筆 ,新增<{list_value_Add.Count}>筆,修改<{list_value_replace.Count}>筆 , 從DB取得時間:{queryTime}";
 
                 return returnData.JsonSerializationt(true);
             }
