@@ -43,6 +43,7 @@ namespace DB2VM
         [HttpGet]
         public string Get(string? BarCode, string? test, string? MRN)
         {
+            bool flag_術中醫令 = false;
             string conn_str = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.24.211)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=SISDCP)));User ID=tphphaadc;Password=tph@phaadc2860;";
             OracleConnection conn_oracle;
             OracleDataReader reader;
@@ -232,49 +233,103 @@ namespace DB2VM
                     }
                     else
                     {
-                        string PAC_SEQ = strArray_Barcode[0];
-                        string PAC_VISITDT = strArray_Barcode[1];
-                        string PAC_DIACODE = strArray_Barcode[2];
-                        PAC_ORDERSEQ = strArray_Barcode[3];
-                        commandText += "select ";
-                        commandText += "min(PAC_VISITDT) PAC_VISITDT,";
-                        commandText += "sum(PAC_SUMQTY) PAC_SUMQTY,";
-                        commandText += "PAC_ORDERSEQ,";
-                        commandText += "PAC_SEQ,";
-                        commandText += "PAC_DIACODE,";
-                        commandText += "PAC_DIANAME,";
-                        commandText += "PAC_PATNAME,";
-                        commandText += "PAC_PATID,";
-                        commandText += "PAC_UNIT,";
-                        commandText += "PAC_QTYPERTIME,";
-                        commandText += "PAC_FEQNO,";
-                        commandText += "PAC_PATHNO,";
-                        commandText += "PAC_DAYS,";
-                        commandText += "PAC_TYPE,";
-                        commandText += "PAC_DRUGNO,";
-                        commandText += "PAC_SECTNO,";
-                        commandText += "PAC_DOCCD,";
-                        commandText += "PAC_PROCDTTM ";
+                        if(strArray_Barcode[0].Length == 4)
+                        {
+                            string PAC_DRUGNO = strArray_Barcode[0];
+                            string PAC_VISITDT = strArray_Barcode[1];
+                            string PAC_PATID = strArray_Barcode[2];
+                            string PAC_SEQ = strArray_Barcode[3];
+                            commandText += "select ";
+                            commandText += "min(PAC_VISITDT) PAC_VISITDT,";
+                            commandText += "sum(PAC_SUMQTY) PAC_SUMQTY,";
+                            commandText += "PAC_ORDERSEQ,";
+                            commandText += "PAC_SEQ,";
+                            commandText += "PAC_DIACODE,";
+                            commandText += "PAC_DIANAME,";
+                            commandText += "PAC_PATNAME,";
+                            commandText += "PAC_PATID,";
+                            commandText += "PAC_UNIT,";
+                            commandText += "PAC_QTYPERTIME,";
+                            commandText += "PAC_FEQNO,";
+                            commandText += "PAC_PATHNO,";
+                            commandText += "PAC_DAYS,";
+                            commandText += "PAC_TYPE,";
+                            commandText += "PAC_DRUGNO,";
+                            commandText += "PAC_SECTNO,";
+                            commandText += "PAC_DOCCD,";
+                            commandText += "PAC_PROCDTTM ";
 
-                        commandText += $"from phaadcal where PAC_SEQ='{PAC_SEQ}' and PAC_VISITDT='{PAC_VISITDT}' AND PAC_DIACODE='{PAC_DIACODE}' AND PAC_ORDERSEQ='{PAC_ORDERSEQ}' ";
-                        commandText += "GROUP BY ";
+                            commandText += $"from phaadcal where PAC_DRUGNO='{PAC_DRUGNO}' and PAC_VISITDT='{PAC_VISITDT}' AND PAC_PATID='{PAC_PATID}' AND PAC_SEQ='{PAC_SEQ}'  ";
+                            commandText += "GROUP BY ";
 
-                        commandText += "PAC_ORDERSEQ,";
-                        commandText += "PAC_SEQ,";
-                        commandText += "PAC_DIACODE,";
-                        commandText += "PAC_DIANAME,";
-                        commandText += "PAC_PATNAME,";
-                        commandText += "PAC_PATID,";
-                        commandText += "PAC_UNIT,";
-                        commandText += "PAC_QTYPERTIME,";
-                        commandText += "PAC_FEQNO,";
-                        commandText += "PAC_PATHNO,";
-                        commandText += "PAC_DAYS,";
-                        commandText += "PAC_TYPE,";
-                        commandText += "PAC_DRUGNO,";
-                        commandText += "PAC_SECTNO,";
-                        commandText += "PAC_DOCCD,";
-                        commandText += "PAC_PROCDTTM ";
+                            commandText += "PAC_ORDERSEQ,";
+                            commandText += "PAC_SEQ,";
+                            commandText += "PAC_DIACODE,";
+                            commandText += "PAC_DIANAME,";
+                            commandText += "PAC_PATNAME,";
+                            commandText += "PAC_PATID,";
+                            commandText += "PAC_UNIT,";
+                            commandText += "PAC_QTYPERTIME,";
+                            commandText += "PAC_FEQNO,";
+                            commandText += "PAC_PATHNO,";
+                            commandText += "PAC_DAYS,";
+                            commandText += "PAC_TYPE,";
+                            commandText += "PAC_DRUGNO,";
+                            commandText += "PAC_SECTNO,";
+                            commandText += "PAC_DOCCD,";
+                            commandText += "PAC_PROCDTTM ";
+
+                            flag_術中醫令 = true;
+                        }
+                        else
+                        {
+                            string PAC_SEQ = strArray_Barcode[0];
+                            string PAC_VISITDT = strArray_Barcode[1];
+                            string PAC_DIACODE = strArray_Barcode[2];
+                            PAC_ORDERSEQ = strArray_Barcode[3];
+                            commandText += "select ";
+                            commandText += "min(PAC_VISITDT) PAC_VISITDT,";
+                            commandText += "sum(PAC_SUMQTY) PAC_SUMQTY,";
+                            commandText += "PAC_ORDERSEQ,";
+                            commandText += "PAC_SEQ,";
+                            commandText += "PAC_DIACODE,";
+                            commandText += "PAC_DIANAME,";
+                            commandText += "PAC_PATNAME,";
+                            commandText += "PAC_PATID,";
+                            commandText += "PAC_UNIT,";
+                            commandText += "PAC_QTYPERTIME,";
+                            commandText += "PAC_FEQNO,";
+                            commandText += "PAC_PATHNO,";
+                            commandText += "PAC_DAYS,";
+                            commandText += "PAC_TYPE,";
+                            commandText += "PAC_DRUGNO,";
+                            commandText += "PAC_SECTNO,";
+                            commandText += "PAC_DOCCD,";
+                            commandText += "PAC_PROCDTTM ";
+
+                            commandText += $"from phaadcal where PAC_SEQ='{PAC_SEQ}' and PAC_VISITDT='{PAC_VISITDT}' AND PAC_DIACODE='{PAC_DIACODE}' AND PAC_ORDERSEQ='{PAC_ORDERSEQ}' ";
+                            commandText += "GROUP BY ";
+
+                            commandText += "PAC_ORDERSEQ,";
+                            commandText += "PAC_SEQ,";
+                            commandText += "PAC_DIACODE,";
+                            commandText += "PAC_DIANAME,";
+                            commandText += "PAC_PATNAME,";
+                            commandText += "PAC_PATID,";
+                            commandText += "PAC_UNIT,";
+                            commandText += "PAC_QTYPERTIME,";
+                            commandText += "PAC_FEQNO,";
+                            commandText += "PAC_PATHNO,";
+                            commandText += "PAC_DAYS,";
+                            commandText += "PAC_TYPE,";
+                            commandText += "PAC_DRUGNO,";
+                            commandText += "PAC_SECTNO,";
+                            commandText += "PAC_DOCCD,";
+                            commandText += "PAC_PROCDTTM ";
+
+                            flag_術中醫令 = true;
+                        }
+                       
                     }
 
                 }
@@ -432,6 +487,7 @@ namespace DB2VM
                             orderClass.就醫時間 = $"{orderClass.就醫時間.Substring(0, 4)}-{orderClass.就醫時間.Substring(4, 2)}-{orderClass.就醫時間.Substring(6, 2)}";
                             orderClass.科別 = reader["PAC_SECTNO"].ToString().Trim();
                             orderClass.醫師代碼 = reader["PAC_DOCCD"].ToString().Trim();
+              
 
                             if (strArray_Barcode.Length >= 9)
                             {
