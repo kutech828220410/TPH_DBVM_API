@@ -210,6 +210,7 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTm
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\System.Management.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\Newtonsoft.Json.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\Interop.SpeechLib.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\Microsoft.mshtml.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\H_Pannel_lib.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\Microsoft.Office.Interop.Excel.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\ICSharpCode.SharpZipLib.dll
@@ -233,6 +234,7 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTm
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\CallBackUI.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\MeasureSystemFunction.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\MVSDK.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\stdole.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\Basic.xml
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\HIS_DB_Lib.xml
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\SQLUI.xml

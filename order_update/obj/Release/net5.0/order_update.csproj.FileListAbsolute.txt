@@ -86,3 +86,4 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Release\net5.0
 C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Release\net5.0\HIS_DB_Lib.xml
 C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Release\net5.0\SQLUI.xml
 C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Release\net5.0\Basic.xml
+C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Release\net5.0\stdole.dll

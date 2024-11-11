@@ -217,3 +217,5 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\SQLUI
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\Basic.xml
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\CSkin.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\WebApi.csproj.AssemblyReference.cache
+C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\Microsoft.mshtml.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\stdole.dll

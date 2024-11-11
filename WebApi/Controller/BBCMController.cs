@@ -70,7 +70,7 @@ namespace DB2VM.Controller
             cmd.Dispose();
             conn_oracle.Close();
             conn_oracle.Dispose();
-
+            medClass _medClass = medClass.get_med_clouds_by_code("http://127.0.0.1:4433", Code);
             List<object[]> list_BBCM = sQLControl_UDSDBBCM.GetAllRows(null);
             List<object[]> list_BBCM_buf = new List<object[]>();
             List<object[]> list_BBCM_Add = new List<object[]>();

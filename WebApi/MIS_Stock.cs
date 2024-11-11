@@ -65,10 +65,10 @@ namespace WebApi
                         {
                             
                         }
-                        if (v_Misadc.庫別 == "8503")
-                        {
-                            medClasses_buf[0].藥局庫存 = v_Misadc.庫存;
-                        }
+                        //if (v_Misadc.庫別 == "8503")
+                        //{
+                        //    medClasses_buf[0].藥局庫存 = v_Misadc.庫存;
+                        //}
                     }
 
                 }

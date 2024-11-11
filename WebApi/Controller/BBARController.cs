@@ -388,9 +388,9 @@ namespace DB2VM
                     string 看診日期 = strArray_Barcode[(int)enum_急診藥袋.看診日期];
                     string _病歷號 = strArray_Barcode[(int)enum_急診藥袋.病歷號];
                     string 序號 = strArray_Barcode[(int)enum_急診藥袋.序號];
-
-                    commandText = $"select * from PHAADC where PAC_DRUGNO={本次領藥號} and PAC_VISITDT={看診日期} and PAC_PATID={_病歷號} and PAC_SEQ={序號}";
-                    commandText = $"select * from phaadcal where PAC_DRUGNO={本次領藥號} and PAC_PATID={_病歷號} and PAC_SEQ={序號}";
+                    看診日期 = strArray_Barcode[(int)enum_急診藥袋.本次醫令序號].ObjectToString().Substring(0,8);
+                    //commandText = $"select * from PHAADC where PAC_DRUGNO={本次領藥號} and PAC_VISITDT={看診日期} and PAC_PATID={_病歷號} and PAC_SEQ={序號}";
+                    //commandText = $"select * from phaadcal where PAC_DRUGNO={本次領藥號} and PAC_PATID={_病歷號} and PAC_SEQ={序號}";
 
                     commandText = "";
                     commandText += "select ";
@@ -412,8 +412,9 @@ namespace DB2VM
                     commandText += "PAC_SECTNO,";
                     commandText += "PAC_DOCCD,";
                     commandText += "PAC_PROCDTTM ,";
+                    commandText += "PAC_VISITDT ,";
                     commandText += "PAC_DRUGGIST ";
-                    commandText += $"from phaadcal where PAC_DRUGNO={本次領藥號} and PAC_PATID={_病歷號} and PAC_SEQ={序號} ";
+                    commandText += $"from phaadcal where PAC_DRUGNO={本次領藥號}  and PAC_PATID={_病歷號} and PAC_SEQ={序號} ";
                     commandText += "GROUP BY ";
 
                     commandText += "PAC_ORDERSEQ,";
@@ -432,6 +433,7 @@ namespace DB2VM
                     commandText += "PAC_SECTNO,";
                     commandText += "PAC_DOCCD,";
                     commandText += "PAC_PROCDTTM ,";
+                    commandText += "PAC_VISITDT ,";
                     commandText += "PAC_DRUGGIST ";
 
                     
@@ -550,16 +552,19 @@ namespace DB2VM
                     double Truncate;
                     List<OrderClass> temp_orderclasses = list_orderclasses[i];
                     double 總量 = 0.0D;
-              
                     for (int k = 0; k < temp_orderclasses.Count; k++)
                     {
+                  
                         總量 += temp_orderclasses[k].交易量.StringToDouble();
+   
                     }
                     Truncate = 總量 - Math.Truncate(總量);
                     if (Truncate != 0) 總量 = (int)總量 - 1;
                     bool 總量已到達 = false;
                     for (int k = 0; k < temp_orderclasses.Count; k++)
                     {
+                    
+
                         double 交易量 = temp_orderclasses[k].交易量.StringToDouble();
                         Truncate = 交易量 - Math.Truncate(交易量);
                         if (Truncate != 0) 交易量 = (int)交易量 - 1;
@@ -605,6 +610,7 @@ namespace DB2VM
                         value[(int)enum_醫囑資料.醫師代碼] = orderClasses[i].醫師代碼;
                         value[(int)enum_醫囑資料.科別] = orderClasses[i].科別;
                         value[(int)enum_醫囑資料.就醫時間] = orderClasses[i].就醫時間;
+                        value[(int)enum_醫囑資料.藥師姓名] = orderClasses[i].藥師姓名;
                         value[(int)enum_醫囑資料.產出時間] = DateTime.Now.ToDateTimeString_6();
                         value[(int)enum_醫囑資料.過帳時間] = DateTime.MinValue.ToDateTimeString_6();
                         value[(int)enum_醫囑資料.狀態] = "未過帳";
@@ -643,6 +649,8 @@ namespace DB2VM
                             value[(int)enum_醫囑資料.科別] = orderClasses[i].科別;
                             value[(int)enum_醫囑資料.就醫時間] = orderClasses[i].就醫時間;
                             value[(int)enum_醫囑資料.開方日期] = orderClasses[i].開方日期;
+                            value[(int)enum_醫囑資料.藥師姓名] = orderClasses[i].藥師姓名;
+
                             value[(int)enum_醫囑資料.狀態] = "未過帳";
                             orderClasses[i].狀態 = "未過帳";
                             list_value_replace.Add(value);
@@ -668,8 +676,9 @@ namespace DB2VM
                 returnData.Data = orderClasses;
                 returnData.TimeTaken = myTimerBasic.ToString();
                 returnData.Result = $"取得醫囑完成! 共<{orderClasses.Count}>筆 ,新增<{list_value_Add.Count}>筆,修改<{list_value_replace.Count}>筆 , 從DB取得時間:{queryTime}";
-
-                return returnData.JsonSerializationt(true);
+                string json_result = returnData.JsonSerializationt(true);
+                Logger.Log("BBAR", json_result);
+                return json_result;
             }
             catch
             {
@@ -742,7 +751,6 @@ namespace DB2VM
                 commandText += "PAC_TYPE,";
                 commandText += "PAC_DRUGNO,";
                 commandText += "PAC_PROCDTTM ";
-
                 cmd = new OracleCommand(commandText, conn_oracle);
                 try
                 {
