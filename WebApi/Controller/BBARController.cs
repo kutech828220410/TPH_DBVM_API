@@ -585,7 +585,23 @@ namespace DB2VM
                         總量 = 總量 - 交易量;
                     }
                 }
+                List<KeyValuePair<string, int>> groupedByDate = orderClasses
+                    .GroupBy(order => order.就醫時間)
+                    .Select(group => new KeyValuePair<string, int>(group.Key, group.Count()))
+                    .ToList();
+
+                // 輸出分類結果
+                Logger.Log("BBAR", $"條碼: {BarCode}");
+
+                foreach (KeyValuePair<string, int> item in groupedByDate)
+                {
+                    Logger.Log("BBAR", $"日期: {item.Key}, 筆數: {item.Value}");
+                }
                 string 病歷號 = orderClasses[0].病歷號;
+                string Today = DateTime.Now.ToString("yyyy-MM-dd");
+                string tenDaysAgo = DateTime.Now.AddDays(-27).ToString("yyyy-MM-dd");
+                orderClasses = orderClasses.Where(temp => string.Compare(temp.就醫時間, tenDaysAgo) >= 0 && string.Compare(temp.就醫時間, Today) <= 0).ToList();
+                //orderClasses = orderClasses.Where(temp => temp.就醫時間 == Today).ToList();
                 List<object[]> list_value = this.sQLControl_醫囑資料.GetRowsByDefult(null, enum_醫囑資料.病歷號.GetEnumName(), 病歷號);
                 List<object[]> list_value_buf = new List<object[]>();
                 for (int i = 0; i < orderClasses.Count; i++)

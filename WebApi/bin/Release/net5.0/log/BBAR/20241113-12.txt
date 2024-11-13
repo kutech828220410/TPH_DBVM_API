@@ -1,0 +1,41 @@
+20241113-12:01:55 - {
+  "Data": [
+    {
+      "GUID": "76cd2aef-36a1-4420-8399-abff69d863d0",
+      "PRI_KEY": "20241111094743315-1417",
+      "PHARM_CODE": "PHER",
+      "MED_BAG_SN": "2024111100016669641",
+      "CODE": "ORIT3",
+      "NAME": "管3 RITALIN LA  20mg",
+      "HCASENO": "1",
+      "MED_BAG_NUM": "1417",
+      "PATNAME": "吳宥賢",
+      "PATCODE": "0001666964",
+      "DOCID": "0000741",
+      "SECTNO": "13",
+      "TXN_QTY": "-28",
+      "ORD_START": "2024/11/11 09:48:28",
+      "VISITDT_TIME": "2024-11-11",
+      "PHARER_NAME": "黃云霆",
+      "PHARER_ID": "13465",
+      "STATE": "未過帳"
+    }
+  ],
+  "Code": 200,
+  "Method": "",
+  "Result": "取得醫囑完成! 共<1>筆 ,新增<0>筆,修改<0>筆 , 從DB取得時間:150.178ms",
+  "Value": "",
+  "ValueAry": [],
+  "TimeTaken": "4566.344ms",
+  "Token": "",
+  "Server": "",
+  "DbName": "",
+  "TableName": "",
+  "Port": 0,
+  "UserName": "",
+  "Password": "",
+  "ServerType": "",
+  "ServerName": "",
+  "ServerContent": "",
+  "RequestUrl": ""
+}
