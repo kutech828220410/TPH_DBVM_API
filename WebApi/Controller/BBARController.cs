@@ -600,7 +600,9 @@ namespace DB2VM
                 string 病歷號 = orderClasses[0].病歷號;
                 string Today = DateTime.Now.ToString("yyyy-MM-dd");
                 string tenDaysAgo = DateTime.Now.AddDays(-27).ToString("yyyy-MM-dd");
-                orderClasses = orderClasses.Where(temp => string.Compare(temp.就醫時間, tenDaysAgo) >= 0 && string.Compare(temp.就醫時間, Today) <= 0).ToList();
+                //orderClasses = orderClasses.Where(temp => string.Compare(temp.就醫時間, tenDaysAgo) >= 0 && string.Compare(temp.就醫時間, Today) <= 0).ToList();
+                orderClasses = orderClasses.Where(temp => string.Compare(temp.就醫時間, tenDaysAgo) >= 0 ).ToList();
+
                 //orderClasses = orderClasses.Where(temp => temp.就醫時間 == Today).ToList();
                 List<object[]> list_value = this.sQLControl_醫囑資料.GetRowsByDefult(null, enum_醫囑資料.病歷號.GetEnumName(), 病歷號);
                 List<object[]> list_value_buf = new List<object[]>();
