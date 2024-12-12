@@ -217,5 +217,10 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\SQLUI
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\Basic.xml
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\CSkin.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\WebApi.csproj.AssemblyReference.cache
-C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\Microsoft.mshtml.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\stdole.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\AxOvkBase.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\AxAltairUDrvAsm4.5.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\AxOvkBaseAsm4.5.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\AxOvkMsr.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\AxAltairUDrv.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\Microsoft.mshtml.dll

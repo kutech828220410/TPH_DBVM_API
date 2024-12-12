@@ -63,6 +63,10 @@
             "System.Text.Json": {
               "target": "Package",
               "version": "[6.0.0, )"
+            },
+            "Unofficial.Microsoft.mshtml": {
+              "target": "Package",
+              "version": "[7.0.3300, )"
             }
           },
           "imports": [

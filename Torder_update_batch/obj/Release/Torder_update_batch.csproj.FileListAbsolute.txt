@@ -65,3 +65,9 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\obj\Release
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\SQLUI.xml
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\obj\Release\Torder_update_batch.csproj.AssemblyReference.cache
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\Basic.xml
+C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\CSkin.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\AxOvkBase.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\AxAltairUDrvAsm4.5.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\AxOvkBaseAsm4.5.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\AxOvkMsr.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\AxAltairUDrv.dll

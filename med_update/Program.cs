@@ -15,7 +15,7 @@ namespace med_update
     {
         static void Main(string[] args)
         {
-            string json = Basic.Net.WEBApiGet($"http://192.168.23.54:443/dbvm/BBCM");
+            string json = Basic.Net.WEBApiGet($"http://192.168.23.54:4434/dbvm/BBCM");
             Console.WriteLine($"{json}");
             System.Threading.Thread.Sleep(5000);
         }

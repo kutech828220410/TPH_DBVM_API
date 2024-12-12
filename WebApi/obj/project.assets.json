@@ -494,6 +494,15 @@
             "rid": "win"
           }
         }
+      },
+      "Unofficial.Microsoft.mshtml/7.0.3300": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Microsoft.mshtml.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Microsoft.mshtml.dll": {}
+        }
       }
     }
   },
@@ -1486,6 +1495,18 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "Unofficial.Microsoft.mshtml/7.0.3300": {
+      "sha512": "Nv4Bn/0y8ab6f5QnEXoDX49C0U4Iz2nPgHbyg35UV+cGoFS5QkPWNwp461cOEK1O0c/u8TXQ3THP3rdEHmhjtg==",
+      "type": "package",
+      "path": "unofficial.microsoft.mshtml/7.0.3300",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/Microsoft.mshtml.dll",
+        "unofficial.microsoft.mshtml.7.0.3300.nupkg.sha512",
+        "unofficial.microsoft.mshtml.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -1495,7 +1516,8 @@
       "Oracle.ManagedDataAccess.Core >= 3.21.90",
       "System.Configuration.ConfigurationManager >= 6.0.1",
       "System.Data.Odbc >= 6.0.0",
-      "System.Text.Json >= 6.0.0"
+      "System.Text.Json >= 6.0.0",
+      "Unofficial.Microsoft.mshtml >= 7.0.3300"
     ]
   },
   "packageFolders": {
@@ -1560,6 +1582,10 @@
           "System.Text.Json": {
             "target": "Package",
             "version": "[6.0.0, )"
+          },
+          "Unofficial.Microsoft.mshtml": {
+            "target": "Package",
+            "version": "[7.0.3300, )"
           }
         },
         "imports": [
@@ -1583,5 +1609,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.416\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "已使用 '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' 而非專案目標架構 'net5.0' 還原了套件 'Unofficial.Microsoft.mshtml 7.0.3300'。此套件與您的專案並非完全相容。",
+      "libraryId": "Unofficial.Microsoft.mshtml",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }

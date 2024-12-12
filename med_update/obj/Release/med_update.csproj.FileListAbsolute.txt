@@ -63,3 +63,9 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\System.T
 C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\System.ValueTuple.xml
 C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\SQLUI.xml
 C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\Basic.xml
+C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\CSkin.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\AxOvkBase.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\AxAltairUDrvAsm4.5.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\AxOvkBaseAsm4.5.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\AxOvkMsr.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\AxAltairUDrv.dll

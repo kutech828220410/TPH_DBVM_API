@@ -26,6 +26,7 @@
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.1" />
     <PackageReference Include="System.Data.Odbc" Version="6.0.0" />
     <PackageReference Include="System.Text.Json" Version="6.0.0" />
+    <PackageReference Include="Unofficial.Microsoft.mshtml" Version="7.0.3300" />
   </ItemGroup>
 
   <ItemGroup>

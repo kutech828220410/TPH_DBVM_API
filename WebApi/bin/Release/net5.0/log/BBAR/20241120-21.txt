@@ -1,0 +1,63 @@
+20241120-21:07:09 - 條碼: 2872;20241120;0001658386;1;QD;PO;28;0;20241120190552099
+20241120-21:07:09 - 日期: 2024-11-20, 筆數: 2
+20241120-21:07:10 - {
+  "Data": [
+    {
+      "GUID": "35d61709-bd5b-4211-b736-f9effac7428d",
+      "PRI_KEY": "20241120190552099-2872",
+      "PHARM_CODE": "PHER",
+      "MED_BAG_SN": "2024112000016583861",
+      "CODE": "ORIT1",
+      "NAME": "管3 Ritalin 10mg",
+      "HCASENO": "1",
+      "MED_BAG_NUM": "2872",
+      "PATNAME": "于易達",
+      "PATCODE": "0001658386",
+      "DOCID": "0000425",
+      "SECTNO": "13",
+      "TXN_QTY": "-28",
+      "ORD_START": "2024/11/20 19:06:32",
+      "VISITDT_TIME": "2024-11-20",
+      "PHARER_ID": "-1",
+      "STATE": "已過帳"
+    },
+    {
+      "GUID": "6f2b10cb-ef82-4f9a-adb9-61723181f0d1",
+      "PRI_KEY": "20241120190553509-2872",
+      "PHARM_CODE": "PHER",
+      "MED_BAG_SN": "2024112000016583861",
+      "CODE": "ORIT1",
+      "NAME": "管3 Ritalin 10mg",
+      "HCASENO": "1",
+      "MED_BAG_NUM": "2872",
+      "PATNAME": "于易達",
+      "PATCODE": "0001658386",
+      "DOCID": "0000425",
+      "SECTNO": "13",
+      "TXN_QTY": "-28",
+      "ORD_START": "2024/11/20 19:06:32",
+      "VISITDT_TIME": "2024-11-20",
+      "PHARER_ID": "-1",
+      "STATE": "已過帳"
+    }
+  ],
+  "Code": 200,
+  "Method": "",
+  "Result": "取得醫囑完成! 共<2>筆 ,新增<0>筆,修改<0>筆 , 從DB取得時間:134.557ms",
+  "Value": "",
+  "ValueAry": [],
+  "TimeTaken": "691.975ms",
+  "Token": "",
+  "Server": "",
+  "DbName": "",
+  "TableName": "",
+  "Port": 0,
+  "UserName": "",
+  "Password": "",
+  "ServerType": "",
+  "ServerName": "",
+  "ServerContent": "",
+  "RequestUrl": ""
+}
+20241120-21:08:58 - 條碼: 2872;20241120;0001658386;1;QD;PO;28;0;20241120190552099
+20241120-21:08:58 - 日期: 2024-11-20, 筆數: 2

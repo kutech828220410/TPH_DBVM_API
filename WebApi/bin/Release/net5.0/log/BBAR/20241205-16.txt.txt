@@ -1,0 +1,22 @@
+20241205-16:14:30 - 條碼: 1130014912202412051434561;8181;ORIT3;0000867415
+20241205-16:14:30 - 日期: 2024-12-06, 筆數: 1
+20241205-16:17:40 - {
+  "Data": [],
+  "Code": 200,
+  "Method": "",
+  "Result": "取得醫囑完成! 共<0>筆 ,新增<0>筆,修改<0>筆 , 從DB取得時間:55.257ms",
+  "Value": "",
+  "ValueAry": [],
+  "TimeTaken": "189255.025ms",
+  "Token": "",
+  "Server": "",
+  "DbName": "",
+  "TableName": "",
+  "Port": 0,
+  "UserName": "",
+  "Password": "",
+  "ServerType": "",
+  "ServerName": "",
+  "ServerContent": "",
+  "RequestUrl": ""
+}

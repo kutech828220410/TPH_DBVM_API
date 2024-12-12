@@ -181,6 +181,7 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTm
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\System.Text.Encodings.Web.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\System.Text.Json.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\System.Windows.Extensions.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\Microsoft.mshtml.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\runtimes\win\lib\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\runtimes\freebsd\lib\netcoreapp3.1\System.Data.Odbc.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\runtimes\linux\lib\netcoreapp3.1\System.Data.Odbc.dll
@@ -210,7 +211,6 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTm
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\System.Management.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\Newtonsoft.Json.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\Interop.SpeechLib.dll
-C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\Microsoft.mshtml.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\H_Pannel_lib.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\Microsoft.Office.Interop.Excel.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\ICSharpCode.SharpZipLib.dll
@@ -232,7 +232,12 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTm
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\SunnyUI.Common.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\TCP.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\CallBackUI.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\AxOvkBase.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\AxAltairUDrvAsm4.5.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\AxOvkBaseAsm4.5.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\AxOvkMsr.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\MeasureSystemFunction.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\AxAltairUDrv.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\MVSDK.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\stdole.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\Basic.xml

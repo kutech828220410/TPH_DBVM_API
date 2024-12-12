@@ -1,0 +1,82 @@
+20241206-11:04:56 - 條碼: 1130014912202412051434561;8181;ORIT3;0000867415
+20241206-11:04:56 - 日期: 2024-12-06, 筆數: 1
+20241206-11:04:56 - {
+  "Data": [
+    {
+      "GUID": "63861cb0-5049-4ee0-8eab-9e6b2eef5fd7",
+      "PRI_KEY": "20241205143457422-8181",
+      "PHARM_CODE": "首日量",
+      "MED_BAG_SN": "2024120600008674151130014912",
+      "CODE": "ORIT3",
+      "NAME": "管3 RITALIN LA  20mg",
+      "HCASENO": "1130014912",
+      "MED_BAG_NUM": "8181",
+      "PATNAME": "張樹林",
+      "PATCODE": "0000867415",
+      "DOCID": "0000725",
+      "SECTNO": "14",
+      "TXN_QTY": "-1",
+      "ORD_START": "2024/12/05 14:34:56",
+      "VISITDT_TIME": "2024-12-06",
+      "STATE": "未過帳"
+    }
+  ],
+  "Code": 200,
+  "Method": "",
+  "Result": "取得醫囑完成! 共<1>筆 ,新增<0>筆,修改<0>筆 , 從DB取得時間:53.178ms",
+  "Value": "",
+  "ValueAry": [],
+  "TimeTaken": "636.789ms",
+  "Token": "",
+  "Server": "",
+  "DbName": "",
+  "TableName": "",
+  "Port": 0,
+  "UserName": "",
+  "Password": "",
+  "ServerType": "",
+  "ServerName": "",
+  "ServerContent": "",
+  "RequestUrl": ""
+}
+20241206-11:06:18 - 條碼: 1130014912202412051434561;8181;ORIT3;0000867415
+20241206-11:06:18 - 日期: 2024-12-06, 筆數: 1
+20241206-11:06:18 - {
+  "Data": [
+    {
+      "GUID": "63861cb0-5049-4ee0-8eab-9e6b2eef5fd7",
+      "PRI_KEY": "20241205143457422-8181",
+      "PHARM_CODE": "首日量",
+      "MED_BAG_SN": "2024120600008674151130014912",
+      "CODE": "ORIT3",
+      "NAME": "管3 RITALIN LA  20mg",
+      "HCASENO": "1130014912",
+      "MED_BAG_NUM": "8181",
+      "PATNAME": "張樹林",
+      "PATCODE": "0000867415",
+      "DOCID": "0000725",
+      "SECTNO": "14",
+      "TXN_QTY": "-1",
+      "ORD_START": "2024/12/05 14:34:56",
+      "VISITDT_TIME": "2024-12-06",
+      "STATE": "未過帳"
+    }
+  ],
+  "Code": 200,
+  "Method": "",
+  "Result": "取得醫囑完成! 共<1>筆 ,新增<0>筆,修改<0>筆 , 從DB取得時間:33.350ms",
+  "Value": "",
+  "ValueAry": [],
+  "TimeTaken": "396.251ms",
+  "Token": "",
+  "Server": "",
+  "DbName": "",
+  "TableName": "",
+  "Port": 0,
+  "UserName": "",
+  "Password": "",
+  "ServerType": "",
+  "ServerName": "",
+  "ServerContent": "",
+  "RequestUrl": ""
+}
