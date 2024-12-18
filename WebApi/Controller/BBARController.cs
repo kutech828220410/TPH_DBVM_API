@@ -721,6 +721,8 @@ namespace DB2VM
                 {
                     conn_oracle = new OracleConnection(conn_str);
                     conn_oracle.Open();
+                    Logger.Log("BBAR", $"與HIS建立連線");
+
                 }
                 catch
                 {
@@ -1082,6 +1084,11 @@ namespace DB2VM
                     commandText += "PAC_VISITDT ,";
                     commandText += "PAC_DRUGGIST ";
                     commandText += $"from phaadcal where PAC_DRUGNO={本次領藥號}  and PAC_PATID={_病歷號} and PAC_SEQ={序號} ";
+                    //commandText += $"from phaadcal where PAC_DRUGNO={本次領藥號} and PAC_VISITDT = {看診日期}   ";
+                    //commandText += $"from phaadcal where PAC_DRUGNO={本次領藥號} and PAC_PATID={_病歷號} and  PAC_VISITDT={看診日期} ";
+                    //commandText += $"from phaadcal where PAC_DRUGNO={本次領藥號} and  PAC_VISITDT={看診日期} ";
+
+
                     commandText += "GROUP BY ";
 
                     commandText += "PAC_ORDERSEQ,";
@@ -1112,8 +1119,9 @@ namespace DB2VM
                 try
                 {
                     MyTimerBasic myTimerBasic_query = new MyTimerBasic();
-
+                    Logger.Log("BBAR", $"與HIS擷取資料開始");
                     reader = cmd.ExecuteReader();
+                    Logger.Log("BBAR", $"與HIS擷取資料結束");
                     queryTime = myTimerBasic_query.ToString();
                     List<string> list_colname = new List<string>();
                     for (int i = 0; i < reader.FieldCount; i++)
