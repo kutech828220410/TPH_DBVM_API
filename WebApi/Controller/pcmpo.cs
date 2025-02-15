@@ -60,6 +60,10 @@ namespace WebApi.Controller
                 }
                 string GUID = returnData.ValueAry[0];
                 returnData returnData_AI = textVisionClass.analyze(API, GUID, "Y");
+                if(returnData.Code != 200)
+                {
+                    return returnData_AI.JsonSerializationt(true);
+                }
                 textVisionClass out_textVisionClasses = returnData_AI.Data.ObjToClass<textVisionClass>();
                 if(out_textVisionClasses == null)
                 {
