@@ -1,0 +1,110 @@
+20250206-16:56:19 - 條碼: 1580;20250109;0002372824;1
+20250206-16:56:19 - 日期: 2025-01-09, 筆數: 7
+20250206-16:56:19 - {
+  "Data": [],
+  "Code": 200,
+  "Method": "",
+  "Result": "取得醫囑完成! 共<0>筆 ,新增<0>筆,修改<0>筆 , 從DB取得時間:526.353ms",
+  "Value": "",
+  "ValueAry": [],
+  "TimeTaken": "871.767ms",
+  "Token": "",
+  "Server": "",
+  "DbName": "",
+  "TableName": "",
+  "Port": 0,
+  "UserName": "",
+  "Password": "",
+  "ServerType": "",
+  "ServerName": "",
+  "ServerContent": "",
+  "RequestUrl": ""
+}
+20250206-16:56:21 - 條碼: 1580;20250109;0002372824;1
+20250206-16:56:21 - 日期: 2025-01-09, 筆數: 7
+20250206-16:56:21 - {
+  "Data": [],
+  "Code": 200,
+  "Method": "",
+  "Result": "取得醫囑完成! 共<0>筆 ,新增<0>筆,修改<0>筆 , 從DB取得時間:349.021ms",
+  "Value": "",
+  "ValueAry": [],
+  "TimeTaken": "392.803ms",
+  "Token": "",
+  "Server": "",
+  "DbName": "",
+  "TableName": "",
+  "Port": 0,
+  "UserName": "",
+  "Password": "",
+  "ServerType": "",
+  "ServerName": "",
+  "ServerContent": "",
+  "RequestUrl": ""
+}
+20250206-16:56:22 - 條碼: 1580;20250109;0002372824;1
+20250206-16:56:22 - 日期: 2025-01-09, 筆數: 7
+20250206-16:56:22 - {
+  "Data": [],
+  "Code": 200,
+  "Method": "",
+  "Result": "取得醫囑完成! 共<0>筆 ,新增<0>筆,修改<0>筆 , 從DB取得時間:252.913ms",
+  "Value": "",
+  "ValueAry": [],
+  "TimeTaken": "344.562ms",
+  "Token": "",
+  "Server": "",
+  "DbName": "",
+  "TableName": "",
+  "Port": 0,
+  "UserName": "",
+  "Password": "",
+  "ServerType": "",
+  "ServerName": "",
+  "ServerContent": "",
+  "RequestUrl": ""
+}
+20250206-16:56:36 - 條碼: 1580;20250109;0002372824;1
+20250206-16:56:36 - 日期: 2025-01-09, 筆數: 7
+20250206-16:56:36 - {
+  "Data": [],
+  "Code": 200,
+  "Method": "",
+  "Result": "取得醫囑完成! 共<0>筆 ,新增<0>筆,修改<0>筆 , 從DB取得時間:3.625ms",
+  "Value": "",
+  "ValueAry": [],
+  "TimeTaken": "60.860ms",
+  "Token": "",
+  "Server": "",
+  "DbName": "",
+  "TableName": "",
+  "Port": 0,
+  "UserName": "",
+  "Password": "",
+  "ServerType": "",
+  "ServerName": "",
+  "ServerContent": "",
+  "RequestUrl": ""
+}
+20250206-16:59:16 - 條碼: 1580;20250109;0002372824;1
+20250206-16:59:16 - 日期: 2025-01-09, 筆數: 7
+20250206-16:59:32 - {
+  "Data": [],
+  "Code": 200,
+  "Method": "",
+  "Result": "取得醫囑完成! 共<0>筆 ,新增<0>筆,修改<0>筆 , 從DB取得時間:8071.212ms",
+  "Value": "",
+  "ValueAry": [],
+  "TimeTaken": "15812.706ms",
+  "Token": "",
+  "Server": "",
+  "DbName": "",
+  "TableName": "",
+  "Port": 0,
+  "UserName": "",
+  "Password": "",
+  "ServerType": "",
+  "ServerName": "",
+  "ServerContent": "",
+  "RequestUrl": ""
+}

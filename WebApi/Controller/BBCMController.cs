@@ -111,5 +111,39 @@ namespace DB2VM.Controller
 
             return $"新增<{list_BBCM_Add.Count}>筆資料,修改<{list_BBCM_Replace.Count}>筆資料";
         }
+        [HttpGet("getMed")]
+        public string getMed(string ? Code)
+        {
+            string conn_str = "Data Source=192.168.24.211:1521/SISDCP;User ID=tphphaadc;Password=tph@phaadc2860;";
+            OracleConnection conn_oracle = new OracleConnection(conn_str);
+            conn_oracle.Open();
+            string commandText = "";
+            if (Code.StringIsEmpty()) commandText = $"select * from v_hisdrugdia";
+            else commandText = $"select * from v_hisdrugdia where DIA_DIACODE='{Code}'";
+            OracleCommand cmd = new OracleCommand(commandText, conn_oracle);
+            List<object[]> list_v_hisdrugdia = new List<object[]>();
+            var reader = cmd.ExecuteReader();
+            List<string> columnNames = new List<string>();
+            List<string> rowvalues = new List<string>();
+            for (int i = 0; i < reader.FieldCount; i++)
+            {
+                string columnName = reader.GetName(i);
+                columnNames.Add(columnName);
+            }
+
+            while (reader.Read())
+            {
+                for(int i = 0; i < columnNames.Count; i++)
+                {
+                    string rowvalue = reader[columnNames[i]].ToString().Trim();
+                    rowvalues.Add(rowvalue);
+                };
+              
+            }
+            cmd.Dispose();
+            conn_oracle.Close();
+            conn_oracle.Dispose();
+            return rowvalues.JsonSerializationt(true);
+        }
     }
 }

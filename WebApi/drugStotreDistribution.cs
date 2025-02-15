@@ -30,7 +30,7 @@ namespace WebApi
     }
     [Route("dbvm/[controller]")]
     [ApiController]
-    public class drugStotreDistribution : Controller
+    public class drugStotreDistribution : ControllerBase
     { 
        /// <summary>
        /// 以請領時間範圍下載撥補單
@@ -79,8 +79,10 @@ namespace WebApi
                 DateTime dateTime_st = 起始時間.StringToDateTime();
                 DateTime dateTime_end = 結束時間.StringToDateTime();
                 List<medClass> med_cloud = medClass.get_med_cloud("http://127.0.0.1:4433");
+                //List<medClass> med_cloud = medClass.get_med_cloud("https://pharma-cetrlm.tph.mohw.gov.tw:4443");
                 List<medClass> med_cloud_buf = new List<medClass>();
                 Dictionary<string, List<medClass>> keyValuePairs_cloud = med_cloud.CoverToDictionaryByCode();
+                //List<drugStotreDistributionClass> drugStotreDistributionClasses = drugStotreDistributionClass.get_by_addedTime("https://pharma-cetrlm.tph.mohw.gov.tw:4443", dateTime_st, dateTime_end);
                 List<drugStotreDistributionClass> drugStotreDistributionClasses = drugStotreDistributionClass.get_by_addedTime("http://127.0.0.1:4433", dateTime_st, dateTime_end);
                 List<object[]> list_drugStotreDistributionClasses = new List<object[]>();
                 for (int i = 0; i < drugStotreDistributionClasses.Count; i++)

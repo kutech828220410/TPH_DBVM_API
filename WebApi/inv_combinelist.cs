@@ -25,7 +25,7 @@ namespace WebApi
 {
     [Route("dbvm/[controller]")]
     [ApiController]
-    public class inv_combinelist : Controller
+    public class inv_combinelist : ControllerBase
     {
         /// <summary>
         /// 以合併單號取得完整合併單DataTable

@@ -15,6 +15,23 @@ using System.Configuration;
 using MyOffice;
 using NPOI;
 using System.Net.Http;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
+using SQLUI;
+using Basic;
+using System.Drawing;
+using System.Text;
+using System.Text.Json;
+using System.Text.Encodings.Web;
+using System.Text.Json.Serialization;
+using System.Configuration;
+using MyOffice;
+using NPOI;
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.IO;
 using HIS_DB_Lib;
@@ -31,7 +48,7 @@ namespace WebApi
 
     [Route("dbvm/[controller]")]
     [ApiController]
-    public class materialRequisition : Controller
+    public class materialRequisition : ControllerBase
     {
         /// <summary>
         /// 以請領時間範圍下載請領單
@@ -79,10 +96,12 @@ namespace WebApi
                 }
                 DateTime dateTime_st = 起始時間.StringToDateTime();
                 DateTime dateTime_end = 結束時間.StringToDateTime();
+                //List<medClass> med_cloud = medClass.get_med_cloud("http://127.0.0.1:4433");
                 List<medClass> med_cloud = medClass.get_med_cloud("http://127.0.0.1:4433");
                 List<medClass> med_cloud_buf = new List<medClass>();
                 Dictionary<string, List<medClass>> keyValuePairs_cloud =  med_cloud.CoverToDictionaryByCode();
                 List<materialRequisitionClass> materialRequisitionClasses = materialRequisitionClass.get_by_requestTime("http://127.0.0.1:4433", dateTime_st, dateTime_end);
+                //List<materialRequisitionClass> materialRequisitionClasses = materialRequisitionClass.get_by_requestTime("http://127.0.0.1:4433", dateTime_st, dateTime_end);
                 List<object[]> list_materialRequisitionClasses = new List<object[]>();
                 for (int i = 0; i < materialRequisitionClasses.Count; i++)
                 {

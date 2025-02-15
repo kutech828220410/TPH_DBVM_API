@@ -233,7 +233,7 @@ namespace DB2VM
                     }
                     else
                     {
-                        if(strArray_Barcode[0].Length == 4)
+                        if(strArray_Barcode[2].Length == 10)
                         {
                             string PAC_DRUGNO = strArray_Barcode[0];
                             string PAC_VISITDT = strArray_Barcode[1];
@@ -601,7 +601,7 @@ namespace DB2VM
                 string Today = DateTime.Now.ToString("yyyy-MM-dd");
                 string tenDaysAgo = DateTime.Now.AddDays(-27).ToString("yyyy-MM-dd");
                 //orderClasses = orderClasses.Where(temp => string.Compare(temp.就醫時間, tenDaysAgo) >= 0 && string.Compare(temp.就醫時間, Today) <= 0).ToList();
-                orderClasses = orderClasses.Where(temp => string.Compare(temp.就醫時間, tenDaysAgo) >= 0 ).ToList();
+                //orderClasses = orderClasses.Where(temp => string.Compare(temp.就醫時間, tenDaysAgo) >= 0 ).ToList();
 
                 //orderClasses = orderClasses.Where(temp => temp.就醫時間 == Today).ToList();
                 List<object[]> list_value = this.sQLControl_醫囑資料.GetRowsByDefult(null, enum_醫囑資料.病歷號.GetEnumName(), 病歷號);
@@ -721,7 +721,7 @@ namespace DB2VM
                 {
                     conn_oracle = new OracleConnection(conn_str);
                     conn_oracle.Open();
-                    Logger.Log("BBAR", $"與HIS建立連線");
+                    Logger.Log("BBAR_control", $"與HIS建立連線");
 
                 }
                 catch
@@ -1119,9 +1119,9 @@ namespace DB2VM
                 try
                 {
                     MyTimerBasic myTimerBasic_query = new MyTimerBasic();
-                    Logger.Log("BBAR", $"與HIS擷取資料開始");
+                    Logger.Log("BBAR_control", $"與HIS擷取資料開始");
                     reader = cmd.ExecuteReader();
-                    Logger.Log("BBAR", $"與HIS擷取資料結束");
+                    Logger.Log("BBAR_control", $"與HIS擷取資料結束");
                     queryTime = myTimerBasic_query.ToString();
                     List<string> list_colname = new List<string>();
                     for (int i = 0; i < reader.FieldCount; i++)
@@ -1266,11 +1266,11 @@ namespace DB2VM
                     .ToList();
 
                 // 輸出分類結果
-                Logger.Log("BBAR", $"條碼: {BarCode}");
+                Logger.Log("BBAR_control", $"條碼: {BarCode}");
 
                 foreach (KeyValuePair<string, int> item in groupedByDate)
                 {
-                    Logger.Log("BBAR", $"日期: {item.Key}, 筆數: {item.Value}");
+                    Logger.Log("BBAR_control", $"日期: {item.Key}, 筆數: {item.Value}");
                 }
                 string 病歷號 = orderClasses[0].病歷號;
                 string Today = DateTime.Now.ToString("yyyy-MM-dd");
@@ -1386,7 +1386,7 @@ namespace DB2VM
                 returnData.TimeTaken = myTimerBasic.ToString();
                 returnData.Result = $"取得醫囑完成! 共<{orderClasses.Count}>筆 ,新增<{list_value_Add.Count}>筆,修改<{list_value_replace.Count}>筆 , 從DB取得時間:{queryTime}";
                 string json_result = returnData.JsonSerializationt(true);
-                Logger.Log("BBAR", json_result);
+                Logger.Log("BBAR_control", json_result);
                 return json_result;
             }
             catch
@@ -2062,6 +2062,44 @@ namespace DB2VM
                 return "醫令串接異常";
             }
 
+        }
+        [HttpGet("get_DBdata")]
+        public string get_DBdata(string? commandText)
+        {
+            returnData returnData = new returnData();
+            MyTimerBasic myTimerBasic = new MyTimerBasic();
+            try
+            {
+                string conn_str = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.24.211)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=SISDCP)));User ID=tphphaadc;Password=tph@phaadc2860;";
+                OracleConnection conn_oracle;
+                OracleDataReader reader;
+                OracleCommand cmd;
+                try
+                {
+                    conn_oracle = new OracleConnection(conn_str);
+                    conn_oracle.Open();
+                    Logger.Log("conn_oracle", $"與HIS建立連線");
+                }
+                catch
+                {
+                    return "HIS系統連線失敗";
+                }
+                cmd = new OracleCommand(commandText, conn_oracle);
+                Logger.Log("conn_oracle", $"與HIS擷取資料開始");
+                reader = cmd.ExecuteReader();
+                Logger.Log("conn_oracle", $"與HIS擷取資料結束");
+                returnData.Code = 200;
+                returnData.TimeTaken = $"{myTimerBasic}";
+                returnData.Result = "成功取得資料";
+                return returnData.JsonSerializationt(true);
+            }
+            catch(Exception ex)
+            {
+                returnData.Code = -200;
+                returnData.Result = ex.Message;
+                return returnData.JsonSerializationt(true);
+
+            }
         }
         public static List<List<OrderClass>> GroupOrders(List<OrderClass> orders)
         {
