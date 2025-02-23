@@ -20,8 +20,8 @@ namespace WebApi.Controller
     public class pcmpo : ControllerBase
     {
         static private MySqlSslMode SSLMode = MySqlSslMode.None;
-        static private string API = "http://192.168.23.54:4433";
-        static private string API_AI = "http://192.168.5.210:3100/po_vision";
+        static private string API = "https://pharma-cetrlm.tph.mohw.gov.tw:4443";
+        //static private string API_AI = "http://192.168.5.210:3100/Po_Vision";
         private static string project = "PO_vision";
         private static string Message = "---------------------------------------------------------------------------";
         /// <summary>
@@ -60,7 +60,7 @@ namespace WebApi.Controller
                 }
                 string GUID = returnData.ValueAry[0];
                 returnData returnData_AI = textVisionClass.analyze(API, GUID, "Y");
-                if(returnData.Code != 200)
+                if(returnData_AI.Code != 200)
                 {
                     return returnData_AI.JsonSerializationt(true);
                 }
@@ -71,13 +71,8 @@ namespace WebApi.Controller
                     returnData.Result = $"AI辨識未完成";
                     return returnData.JsonSerializationt(true);
                 }
-                if (out_textVisionClasses.單號.StringIsEmpty())
-                {
-                    returnData.Code = -200;
-                    returnData.Result = $"無單號";
-                    return returnData_AI.JsonSerializationt(true);
-                }
-                out_textVisionClasses.單號 = FixOrderNumber(out_textVisionClasses.單號);
+                if (out_textVisionClasses.單號.StringIsEmpty() == false) out_textVisionClasses = FixOrderNumber(out_textVisionClasses);
+            
                 returnData returnData_poNum = textVisionClass.analyze_by_po_num(API, out_textVisionClasses);
                 return returnData_poNum.JsonSerializationt(true);
 
@@ -123,17 +118,30 @@ namespace WebApi.Controller
             };
             return positionClass;
         }
-        private string FixOrderNumber(string orderNumber)
+        //private string FixOrderNumber(string orderNumber)
+        //{
+        //    var parts = orderNumber.Split('-');
+        //    if (parts.Length < 2) return orderNumber;
+
+        //    string mainPart = parts[0];
+        //    string lastPart = int.Parse(parts[1]).ToString(); // 確保兩位數格式
+
+        //    return $"{mainPart}-{lastPart}";
+        //}
+        private textVisionClass FixOrderNumber(textVisionClass textVisionClass)
         {
-            var parts = orderNumber.Split('-');
-            if (parts.Length < 2) return orderNumber;
+            string poNum = textVisionClass.單號;
+            var parts = poNum.Split('-');
+            if (parts.Length < 2) return textVisionClass;
+
 
             string mainPart = parts[0];
             string lastPart = int.Parse(parts[1]).ToString(); // 確保兩位數格式
-
-            return $"{mainPart}-{lastPart}";
+            textVisionClass.單號 = $"{mainPart}-{lastPart}";
+            textVisionClass.PRI_KEY = textVisionClass.單號;
+            return textVisionClass;
         }
-        
+
     }
 
 }
