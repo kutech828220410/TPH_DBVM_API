@@ -54,8 +54,8 @@ namespace WebApi
             MyTimerBasic myTimer = new MyTimerBasic();
             myTimer.StartTickTime(50000);
             returnData.Method = "get_full_inv_DataTable_by_SN";
-            ServerSettingClass serverSettingClass = ServerSettingClass.get_server("http://127.0.0.1:4433", "Main", "網頁", "API01"); ;
-            List<ServerSettingClass> serverSettingClasses = new List<ServerSettingClass>();
+            sys_serverSettingClass serverSettingClass = sys_serverSettingClass.get_server("http://127.0.0.1:4433", "Main", "網頁", "API01"); ;
+            List<sys_serverSettingClass> serverSettingClasses = new List<sys_serverSettingClass>();
             serverSettingClasses.Add(serverSettingClass);
             serverSettingClasses = serverSettingClasses.MyFind("Main", "網頁", "API01");
             if (serverSettingClasses.Count == 0)

@@ -60,7 +60,7 @@ namespace DB2VM_API
             MyTimerBasic myTimer = new MyTimerBasic();
             myTimer.StartTickTime(50000);
 
-            List<ServerSettingClass> serverSettingClasses = ServerSettingClassMethod.WebApiGet($"{API_Server}");
+            List<sys_serverSettingClass> serverSettingClasses = sys_serverSettingClassMethod.WebApiGet($"{API_Server}");
             serverSettingClasses = serverSettingClasses.MyFind("Main", "網頁", "VM端");
             if (serverSettingClasses.Count == 0)
             {
