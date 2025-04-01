@@ -69,3 +69,5 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\AxAltair
 C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\AxOvkBaseAsm4.5.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\AxOvkMsr.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\AxAltairUDrv.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\ICSharpCode.SharpZipLib.pdb
+C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\ICSharpCode.SharpZipLib.xml

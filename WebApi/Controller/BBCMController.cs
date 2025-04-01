@@ -66,7 +66,14 @@ namespace DB2VM.Controller
                 medClass.類別 = reader["DIA_DRUGKINDNAME"].ToString().Trim();
                 medClass.ATC = reader["DIA_ATCCODE"].ToString().Trim();
                 medClass.懷孕用藥級別 = reader["MED_PREGNANCY"].ToString().Trim();
-
+                if(medClass.類別 == "中醫飲片" || medClass.類別 == "中藥" || medClass.類別 == "中藥錠劑" || medClass.類別 == "外用中藥")
+                {
+                    medClass.中西藥 = "中藥";
+                }
+                else
+                {
+                    medClass.中西藥 = "西藥";
+                }
                 medClass.包裝數量 = "1";
                 medClass.最小包裝數量 = "1";
 
@@ -104,7 +111,7 @@ namespace DB2VM.Controller
                     object[] value_his = medClasses_his[i].ClassToSQL<medClass, enum_雲端藥檔>();
                     object[] value_cloud = medClasses_cloud_buf[0].ClassToSQL<medClass, enum_雲端藥檔>();
 
-                    if (value_his.IsEqual(value_cloud, (int)enum_雲端藥檔.藥品條碼1, (int)enum_雲端藥檔.藥品條碼2) == false)
+                    if (value_his.IsEqual(value_cloud, (int)enum_雲端藥檔.藥品條碼1, (int)enum_雲端藥檔.藥品條碼2, (int)enum_雲端藥檔.開檔狀態) == false)
                     {
                         medClasses_his[i].藥品條碼1 = medClasses_cloud_buf[0].藥品條碼1;
                         medClasses_his[i].藥品條碼2 = medClasses_cloud_buf[0].藥品條碼2;

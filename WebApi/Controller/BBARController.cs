@@ -11,6 +11,7 @@ using Basic;
 using SQLUI;
 using Oracle.ManagedDataAccess.Client;
 using HIS_DB_Lib;
+using System.Text.Json.Serialization;
 namespace DB2VM
 {
     [Route("dbvm/[controller]")]
@@ -93,28 +94,28 @@ namespace DB2VM
                     commandText += "select ";
                     commandText += "min(PAC_VISITDT) PAC_VISITDT,";
                     commandText += "sum(PAC_SUMQTY) PAC_SUMQTY,";
-                    commandText += "PAC_ORDERSEQ,";
-                    commandText += "PAC_SEQ,";
-                    commandText += "PAC_DIACODE,";
-                    commandText += "PAC_DIANAME,";
-                    commandText += "PAC_PATNAME,";
-                    commandText += "PAC_PATID,";
-                    commandText += "PAC_UNIT,";
-                    commandText += "PAC_QTYPERTIME,";
-                    commandText += "PAC_FEQNO,";
-                    commandText += "PAC_PATHNO,";
-                    commandText += "PAC_DAYS,";
-                    commandText += "PAC_TYPE,";
-                    commandText += "PAC_DRUGNO,";
-                    commandText += "PAC_SECTNO,";
-                    commandText += "PAC_DOCCD,";
-                    commandText += "PAC_PROCDTTM ";
+                    commandText += "PAC_ORDERSEQ,"; //醫令序號
+                    commandText += "PAC_SEQ,"; //序號
+                    commandText += "PAC_DIACODE,"; //藥品院內碼
+                    commandText += "PAC_DIANAME,"; //藥品商品名稱
+                    commandText += "PAC_PATNAME,"; //病歷姓名
+                    commandText += "PAC_PATID,"; //病歷號
+                    commandText += "PAC_UNIT,"; //小單位
+                    commandText += "PAC_QTYPERTIME,"; //次劑量
+                    commandText += "PAC_FEQNO,"; //頻率
+                    commandText += "PAC_PATHNO,"; //途徑
+                    commandText += "PAC_DAYS,"; //使用天數
+                    commandText += "PAC_TYPE,"; // 醫令類型
+                    commandText += "PAC_DRUGNO,"; //領藥號
+                    commandText += "PAC_SECTNO,"; //科別
+                    commandText += "PAC_DOCCD,"; //醫師代碼
+                    commandText += "PAC_PROCDTTM "; //醫令開立時間
 
                     commandText += $"from PHAADCAL where PAC_PATID='{MRN}' ";
                     commandText += "GROUP BY ";
 
                     commandText += "PAC_ORDERSEQ,";
-                    commandText += "PAC_SEQ,";
+                    commandText += "PAC_SEQ,"; //序號
                     commandText += "PAC_DIACODE,";
                     commandText += "PAC_DIANAME,";
                     commandText += "PAC_PATNAME,";
@@ -128,7 +129,8 @@ namespace DB2VM
                     commandText += "PAC_DRUGNO,";
                     commandText += "PAC_SECTNO,";
                     commandText += "PAC_DOCCD,";
-                    commandText += "PAC_PROCDTTM ";
+                    commandText += "PAC_PAYCD";
+
 
 
 
@@ -178,6 +180,7 @@ namespace DB2VM
                     commandText += "PAC_SECTNO,";
                     commandText += "PAC_DOCCD,";
                     commandText += "PAC_PROCDTTM ";
+                    commandText += "PAC_PAYCD ";
 
                 }
                 else if (strArray_Barcode.Length == 4)
@@ -229,6 +232,7 @@ namespace DB2VM
                         commandText += "PAC_SECTNO,";
                         commandText += "PAC_DOCCD,";
                         commandText += "PAC_PROCDTTM ";
+                        commandText += "PAC_PAYCD ";
 
                     }
                     else
@@ -278,6 +282,7 @@ namespace DB2VM
                             commandText += "PAC_SECTNO,";
                             commandText += "PAC_DOCCD,";
                             commandText += "PAC_PROCDTTM ";
+                            commandText += "PAC_PAYCD ";
 
                             flag_術中醫令 = true;
                         }
@@ -326,6 +331,7 @@ namespace DB2VM
                             commandText += "PAC_SECTNO,";
                             commandText += "PAC_DOCCD,";
                             commandText += "PAC_PROCDTTM ";
+                            commandText += "PAC_PAYCD ";
 
                             flag_術中醫令 = true;
                         }
@@ -378,6 +384,7 @@ namespace DB2VM
                     commandText += "PAC_SECTNO,";
                     commandText += "PAC_DOCCD,";
                     commandText += "PAC_PROCDTTM ";
+                    commandText += "PAC_PAYCD ";
 
 
 
@@ -435,8 +442,9 @@ namespace DB2VM
                     commandText += "PAC_PROCDTTM ,";
                     commandText += "PAC_VISITDT ,";
                     commandText += "PAC_DRUGGIST ";
+                    commandText += "PAC_PAYCD ";
 
-                    
+
                 }
 
                 cmd = new OracleCommand(commandText, conn_oracle);
@@ -470,14 +478,15 @@ namespace DB2VM
                             list_temp.Add(value.ToArray());
                             OrderClass orderClass = new OrderClass();
                             string type = reader["PAC_TYPE"].ToString().Trim();
-                            if (type == "E") orderClass.藥局代碼 = "PHER";
-                            if (type == "S") orderClass.藥局代碼 = "STAT";
-                            if (type == "B") orderClass.藥局代碼 = "首日量";
-                            if (type == "O") orderClass.藥局代碼 = "OPD";
-                            if (type == "M") orderClass.藥局代碼 = "出院帶藥";
+                            if (type == "E") orderClass.藥袋類型 = "PHER";
+                            if (type == "S") orderClass.藥袋類型 = "STAT";
+                            if (type == "B") orderClass.藥袋類型 = "首日量";
+                            if (type == "O") orderClass.藥袋類型 = "OPD";
+                            if (type == "M") orderClass.藥袋類型 = "出院帶藥";
 
                             orderClass.PRI_KEY = $"{reader["PAC_ORDERSEQ"].ToString().Trim()}-{reader["PAC_DRUGNO"].ToString().Trim()}";
-                            orderClass.藥袋條碼 = $"{reader["PAC_VISITDT"].ToString().Trim()}{reader["PAC_PATID"].ToString().Trim()}{reader["PAC_SEQ"].ToString().Trim()}";
+                            orderClass.藥袋條碼 = BarCode;
+                            //orderClass.藥袋條碼 = $"{reader["PAC_VISITDT"].ToString().Trim()}{reader["PAC_PATID"].ToString().Trim()}{reader["PAC_SEQ"].ToString().Trim()}";
                             orderClass.住院序號 = reader["PAC_SEQ"].ToString().Trim();
                             orderClass.藥品碼 = reader["PAC_DIACODE"].ToString().Trim();
                             orderClass.藥品名稱 = reader["PAC_DIANAME"].ToString().Trim();
@@ -489,8 +498,16 @@ namespace DB2VM
                             orderClass.就醫時間 = $"{orderClass.就醫時間.Substring(0, 4)}-{orderClass.就醫時間.Substring(4, 2)}-{orderClass.就醫時間.Substring(6, 2)}";
                             orderClass.科別 = reader["PAC_SECTNO"].ToString().Trim();
                             orderClass.醫師代碼 = reader["PAC_DOCCD"].ToString().Trim();
-              
 
+
+                            if(reader["PAC_PAYCD"].ToString().Trim() == "Y")
+                            {
+                                orderClass.費用別 = "自費";
+                            }
+                            else
+                            {
+                                orderClass.費用別 = "健保";
+                            }
                             if (strArray_Barcode.Length >= 9)
                             {
                                 string PAC_DRUGGIST = reader["PAC_DRUGGIST"].ToString().Trim();
@@ -608,7 +625,9 @@ namespace DB2VM
                 List<object[]> list_value_buf = new List<object[]>();
                 for (int i = 0; i < orderClasses.Count; i++)
                 {
-                    list_value_buf = list_value.GetRows((int)enum_醫囑資料.PRI_KEY, orderClasses[i].PRI_KEY);
+                    list_value_buf = (from temp in list_value
+                                      where temp[(int)enum_醫囑資料.PRI_KEY].ObjectToString() == orderClasses[i].PRI_KEY
+                                      select temp).ToList();
                     if (list_value_buf.Count == 0)
                     {
                         object[] value = new object[new enum_醫囑資料().GetLength()];
@@ -628,6 +647,7 @@ namespace DB2VM
                         value[(int)enum_醫囑資料.醫師代碼] = orderClasses[i].醫師代碼;
                         value[(int)enum_醫囑資料.科別] = orderClasses[i].科別;
                         value[(int)enum_醫囑資料.就醫時間] = orderClasses[i].就醫時間;
+                        value[(int)enum_醫囑資料.開方日期] = orderClasses[i].開方日期;
                         value[(int)enum_醫囑資料.藥師姓名] = orderClasses[i].藥師姓名;
                         value[(int)enum_醫囑資料.產出時間] = DateTime.Now.ToDateTimeString_6();
                         value[(int)enum_醫囑資料.過帳時間] = DateTime.MinValue.ToDateTimeString_6();
@@ -1506,6 +1526,7 @@ namespace DB2VM
                             orderClass.病人姓名 = reader["PAC_PATNAME"].ToString().Trim();
                             orderClass.病歷號 = reader["PAC_PATID"].ToString().Trim();
                             orderClass.領藥號 = reader["PAC_DRUGNO"].ToString().Trim();
+                            orderClass.產出時間 = DateTime.Now.ToDateTimeString_6();
                             string PAC_QTYPERTIME = reader["PAC_QTYPERTIME"].ToString().Trim();
                             string PAC_SUMQTY = reader["PAC_SUMQTY"].ToString().Trim();
                             double sumQTY = PAC_SUMQTY.StringToDouble();
@@ -1594,46 +1615,7 @@ namespace DB2VM
                         value[(int)enum_醫囑資料.狀態] = "未過帳";
                         list_value_Add.Add(value);
                     }
-                    else
-                    {
-                        object[] value = list_value_buf[0];
-                        orderClasses[i].GUID = value[(int)enum_醫囑資料.GUID].ObjectToString();
-                        orderClasses[i].狀態 = value[(int)enum_醫囑資料.狀態].ObjectToString();
-                        object[] value_src = orderClasses[i].ClassToSQL<OrderClass, enum_醫囑資料>();
-                        bool flag_replace = false;
-                        if (value_src[(int)enum_醫囑資料.交易量].ObjectToString() != value[(int)enum_醫囑資料.交易量].ObjectToString())
-                        {
-                            flag_replace = true;
-                        }
-                        string src_開方日期 = value_src[(int)enum_醫囑資料.開方日期].ToDateTimeString();
-                        if (src_開方日期.StringIsEmpty()) src_開方日期 = value_src[(int)enum_醫囑資料.開方日期].ObjectToString();
-                        string dst_開方日期 = value[(int)enum_醫囑資料.開方日期].ToDateTimeString();
-                        if (dst_開方日期.StringIsEmpty()) dst_開方日期 = value[(int)enum_醫囑資料.開方日期].ObjectToString();
-                        if (src_開方日期 != dst_開方日期)
-                        {
-                            flag_replace = true;
-                        }
-                        if (flag_replace)
-                        {
-
-                            value[(int)enum_醫囑資料.PRI_KEY] = orderClasses[i].PRI_KEY;
-                            value[(int)enum_醫囑資料.藥局代碼] = orderClasses[i].藥局代碼;
-                            value[(int)enum_醫囑資料.領藥號] = orderClasses[i].領藥號;
-                            value[(int)enum_醫囑資料.藥品碼] = orderClasses[i].藥品碼;
-                            value[(int)enum_醫囑資料.藥品名稱] = orderClasses[i].藥品名稱;
-                            value[(int)enum_醫囑資料.病歷號] = orderClasses[i].病歷號;
-                            value[(int)enum_醫囑資料.藥袋條碼] = orderClasses[i].藥袋條碼;
-                            value[(int)enum_醫囑資料.病人姓名] = orderClasses[i].病人姓名;
-                            value[(int)enum_醫囑資料.交易量] = orderClasses[i].交易量;
-                            value[(int)enum_醫囑資料.開方日期] = orderClasses[i].開方日期;
-                            value[(int)enum_醫囑資料.狀態] = "未過帳";
-                            orderClasses[i].狀態 = "未過帳";
-                            list_value_replace.Add(value);
-                        }
-
-
-
-                    }
+                  
                 }
                 Task task = Task.Run(() =>
                 {
@@ -2109,6 +2091,125 @@ namespace DB2VM
                 .ToList();
 
             return groupedOrders;
+        }
+
+        [HttpGet("order")]
+        public string orderGET(string? BarCode)
+        {
+            MyTimerBasic myTimerBasic = new MyTimerBasic();
+            returnData returnData = new returnData();
+            returnData.Method = "api/bbar/order?barcode=";
+            try
+            {
+                if (BarCode.StringIsEmpty())
+                {
+                    returnData.Code = -200;
+                    returnData.Result = "Barcode空白";
+                    return returnData.JsonSerializationt(true);
+                }
+                List<object[]> list_pha_order = sQLControl_醫囑資料.GetRowsByDefult(null, (int)enum_醫囑資料.藥袋條碼, BarCode);
+                List<OrderClass> orders = list_pha_order.SQLToClass<OrderClass, enum_醫囑資料>();
+                orders = (from temp in orders
+                          where temp.產出時間.StringToDateTime() >= DateTime.Now.AddDays(-1).GetStartDate()
+                          select temp).ToList();       
+                List<cpoe> eff_cpoe = GroupOrderList(orders);
+               
+
+                string 病歷號 = orders[0].病歷號;
+                List<object[]> list_order = sQLControl_醫囑資料.GetRowsByDefult(null, (int)enum_醫囑資料.病歷號, 病歷號);
+                List<OrderClass> history_order = list_order.SQLToClass<OrderClass, enum_醫囑資料>();
+                history_order = (from temp in history_order
+                                 where temp.產出時間.StringToDateTime() >= DateTime.Now.AddDays(-1).AddMonths(-3).GetStartDate()
+                                 where temp.產出時間.StringToDateTime() >= DateTime.Now.AddDays(-1).AddMonths(-3).GetStartDate()
+                                 select temp).ToList();
+                List<cpoe> old_cpoe = GroupOrderList(history_order);
+                
+                
+                identify result = new identify
+                {
+                    有效處方 = eff_cpoe,
+                    歷史處方 = old_cpoe
+                };
+
+                returnData.Data = result;
+                returnData.Code = 200;
+                returnData.Result = $"取得醫令資料";
+                return returnData.JsonSerializationt(true);
+            }
+            catch (Exception ex)
+            {
+                returnData.Code = -200;
+                returnData.Result = $"Exception:{ex.Message}";
+                return returnData.JsonSerializationt(true);
+            }
+        }
+        private List<cpoe> GroupOrderList(List<OrderClass> orderClasses)
+        {
+            List<medClass> medClasses = medClass.get_med_cloud("http://127.0.0.1:4433");
+            Dictionary<string, List<medClass>> medClassDict = medClasses.CoverToDictionaryByCode();
+            List<cpoe> cpoeList = orderClasses
+                    .GroupBy(temp => temp.藥袋條碼)
+                    .Select(group => new cpoe
+                    {
+                        藥袋條碼 = group.Key,
+                        處方 = group.Select(value =>
+                        {
+                            List<medClass> medClassList = medClassDict.SortDictionaryByCode(value.藥品碼);
+                            medClass med = medClassList.FirstOrDefault();
+                            return new order
+                            {
+                                產出時間 = value.產出時間,
+                                藥品名稱 = value.藥品名稱,
+                                費用別 = value.費用別,
+                                醫師代碼 = value.醫師代碼,
+                                交易量 = value.交易量,
+                                健保碼 = med.健保碼,
+                                ATC = med.ATC,
+                                藥品學名 = med.藥品學名,
+                                藥品許可證號 = med.藥品許可證號,
+                                管制級別 = med.管制級別,
+                            };
+                        }).ToList()
+                    }).ToList();
+            return cpoeList;
+        }
+        public class identify
+        {           
+            [JsonPropertyName("eff_order")]
+            public List<cpoe> 有效處方 { get; set; }
+            [JsonPropertyName("old_order")]
+            public List<cpoe> 歷史處方 { get; set; }
+
+        }
+        public class order
+        {
+            [JsonPropertyName("CTYPE")]
+            public string 費用別 { get; set; }
+            [JsonPropertyName("NAME")]
+            public string 藥品名稱 { get; set; }
+            [JsonPropertyName("HI_CODE")]
+            public string 健保碼 { get; set; }
+            [JsonPropertyName("ATC")]
+            public string ATC { get; set; }
+            [JsonPropertyName("LICENSE")]
+            public string 藥品許可證號 { get; set; }
+            [JsonPropertyName("DIANAME")]
+            public string 藥品學名 { get; set; }
+            [JsonPropertyName("DOC")]
+            public string 醫師代碼 { get; set; }
+            [JsonPropertyName("DRUGKIND")]
+            public string 管制級別 { get; set; }
+            [JsonPropertyName("CT_TIME")]
+            public string 產出時間 { get; set; }
+            [JsonPropertyName("TXN_QTY")]
+            public string 交易量 { get; set; }
+        }
+        public class cpoe
+        {
+            [JsonPropertyName("MED_BAG_SN")]
+            public string 藥袋條碼 { get; set; }
+            [JsonPropertyName("order")]
+            public List<order> 處方 { get; set; }
         }
     }
 

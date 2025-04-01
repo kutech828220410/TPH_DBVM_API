@@ -93,3 +93,5 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Release\net5.0
 C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Release\net5.0\AxOvkBaseAsm4.5.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Release\net5.0\AxOvkMsr.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Release\net5.0\AxAltairUDrv.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Release\net5.0\ICSharpCode.SharpZipLib.pdb
+C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Release\net5.0\ICSharpCode.SharpZipLib.xml

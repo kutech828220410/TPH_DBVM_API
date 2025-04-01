@@ -98,3 +98,5 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\調劑資訊寫回戰情_batch\
 C:\Users\Administrator\source\repos\TPH_DBVM_API\調劑資訊寫回戰情_batch\bin\Release\netcoreapp3.1\AxOvkBaseAsm4.5.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\調劑資訊寫回戰情_batch\bin\Release\netcoreapp3.1\AxOvkMsr.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\調劑資訊寫回戰情_batch\bin\Release\netcoreapp3.1\AxAltairUDrv.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\調劑資訊寫回戰情_batch\bin\Release\netcoreapp3.1\ICSharpCode.SharpZipLib.pdb
+C:\Users\Administrator\source\repos\TPH_DBVM_API\調劑資訊寫回戰情_batch\bin\Release\netcoreapp3.1\ICSharpCode.SharpZipLib.xml

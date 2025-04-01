@@ -71,3 +71,5 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\AxOvkBaseAsm4.5.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\AxOvkMsr.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\AxAltairUDrv.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\ICSharpCode.SharpZipLib.pdb
+C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\ICSharpCode.SharpZipLib.xml

@@ -243,3 +243,5 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTm
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\Basic.xml
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\HIS_DB_Lib.xml
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\SQLUI.xml
+C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\ICSharpCode.SharpZipLib.pdb
+C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\PubTmp\Out\ICSharpCode.SharpZipLib.xml

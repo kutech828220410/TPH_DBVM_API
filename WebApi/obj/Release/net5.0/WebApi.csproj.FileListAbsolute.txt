@@ -224,3 +224,5 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\AxOvk
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\AxOvkMsr.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\AxAltairUDrv.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\Microsoft.mshtml.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\ICSharpCode.SharpZipLib.pdb
+C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\ICSharpCode.SharpZipLib.xml
