@@ -107,8 +107,8 @@ namespace DB2VM
                     commandText += "PAC_DAYS,"; //使用天數
                     commandText += "PAC_TYPE,"; // 醫令類型
                     commandText += "PAC_DRUGNO,"; //領藥號
-                    commandText += "PAC_SECTNO,"; //科別
-                    commandText += "PAC_DOCCD,"; //醫師代碼
+                    commandText += "PAC_SECTNAME,"; //科別
+                    commandText += "PAC_DOCNAME,"; //醫師代碼
                     commandText += "PAC_PROCDTTM,"; //醫令開立時間
                     commandText += "PAC_PAYCD,"; //費用別
                     commandText += "PAC_DRUGGIST "; //藥師代碼
@@ -129,8 +129,8 @@ namespace DB2VM
                     commandText += "PAC_DAYS,"; //使用天數
                     commandText += "PAC_TYPE,"; // 醫令類型
                     commandText += "PAC_DRUGNO,"; //領藥號
-                    commandText += "PAC_SECTNO,"; //科別
-                    commandText += "PAC_DOCCD,"; //醫師代碼
+                    commandText += "PAC_SECTNAME,"; //科別
+                    commandText += "PAC_DOCNAME,"; //醫師代碼
                     commandText += "PAC_PROCDTTM,"; //醫令開立時間
                     commandText += "PAC_PAYCD,"; //費用別
                     commandText += "PAC_DRUGGIST "; //藥師代碼
@@ -158,8 +158,8 @@ namespace DB2VM
                     commandText += "PAC_DAYS,"; //使用天數
                     commandText += "PAC_TYPE,"; // 醫令類型
                     commandText += "PAC_DRUGNO,"; //領藥號
-                    commandText += "PAC_SECTNO,"; //科別
-                    commandText += "PAC_DOCCD,"; //醫師代碼
+                    commandText += "PAC_SECTNAME,"; //科別
+                    commandText += "PAC_DOCNAME,"; //醫師代碼
                     commandText += "PAC_PROCDTTM,"; //醫令開立時間
                     commandText += "PAC_PAYCD,"; //費用別
                     commandText += "PAC_DRUGGIST "; //藥師代碼
@@ -180,8 +180,8 @@ namespace DB2VM
                     commandText += "PAC_DAYS,"; //使用天數
                     commandText += "PAC_TYPE,"; // 醫令類型
                     commandText += "PAC_DRUGNO,"; //領藥號
-                    commandText += "PAC_SECTNO,"; //科別
-                    commandText += "PAC_DOCCD,"; //醫師代碼
+                    commandText += "PAC_SECTNAME,"; //科別
+                    commandText += "PAC_DOCNAME,"; //醫師代碼
                     commandText += "PAC_PROCDTTM,"; //醫令開立時間
                     commandText += "PAC_PAYCD,"; //費用別
                     commandText += "PAC_DRUGGIST "; //藥師代碼
@@ -213,13 +213,13 @@ namespace DB2VM
                         commandText += "PAC_DAYS,"; //使用天數
                         commandText += "PAC_TYPE,"; // 醫令類型
                         commandText += "PAC_DRUGNO,"; //領藥號
-                        commandText += "PAC_SECTNO,"; //科別
-                        commandText += "PAC_DOCCD,"; //醫師代碼
-                        commandText += "PAC_PROCDTTM,"; //醫令開立時間
-                        commandText += "PAC_PAYCD,"; //費用別
+                        commandText += "PAC_SECTNAME,"; //科別
+                        commandText += "PAC_DOCNAME,"; //醫師代碼
+                        commandText += "PAC_PROCDTTM, "; //醫令開立時間
+                        commandText += "PAC_PAYCD, "; //費用別
                         commandText += "PAC_DRUGGIST "; //藥師代碼
 
-                        commandText += $"from PHAADC where PAC_SEQ='{住院序號}' and PAC_PROCDTTM='{醫令時間}' AND PAC_TYPE='{醫令類型}' ";
+                        commandText += $"from  phaadcal  where PAC_SEQ='{住院序號}' and PAC_PROCDTTM='{醫令時間}' AND PAC_TYPE='{醫令類型}' ";
                         commandText += "GROUP BY ";
 
                         commandText += "PAC_ORDERSEQ,"; //醫令序號
@@ -235,10 +235,10 @@ namespace DB2VM
                         commandText += "PAC_DAYS,"; //使用天數
                         commandText += "PAC_TYPE,"; // 醫令類型
                         commandText += "PAC_DRUGNO,"; //領藥號
-                        commandText += "PAC_SECTNO,"; //科別
-                        commandText += "PAC_DOCCD,"; //醫師代碼
-                        commandText += "PAC_PROCDTTM,"; //醫令開立時間
-                        commandText += "PAC_PAYCD,"; //費用別
+                        commandText += "PAC_SECTNAME,"; //科別
+                        commandText += "PAC_DOCNAME,"; //醫師代碼
+                        commandText += "PAC_PROCDTTM, "; //醫令開立時間
+                        commandText += "PAC_PAYCD, "; //費用別
                         commandText += "PAC_DRUGGIST "; //藥師代碼
 
                     }
@@ -266,8 +266,8 @@ namespace DB2VM
                             commandText += "PAC_DAYS,"; //使用天數
                             commandText += "PAC_TYPE,"; // 醫令類型
                             commandText += "PAC_DRUGNO,"; //領藥號
-                            commandText += "PAC_SECTNO,"; //科別
-                            commandText += "PAC_DOCCD,"; //醫師代碼
+                            commandText += "PAC_SECTNAME,"; //科別
+                            commandText += "PAC_DOCNAME,"; //醫師代碼
                             commandText += "PAC_PROCDTTM,"; //醫令開立時間
                             commandText += "PAC_PAYCD,"; //費用別
                             commandText += "PAC_DRUGGIST "; //藥師代碼
@@ -288,8 +288,8 @@ namespace DB2VM
                             commandText += "PAC_DAYS,"; //使用天數
                             commandText += "PAC_TYPE,"; // 醫令類型
                             commandText += "PAC_DRUGNO,"; //領藥號
-                            commandText += "PAC_SECTNO,"; //科別
-                            commandText += "PAC_DOCCD,"; //醫師代碼
+                            commandText += "PAC_SECTNAME,"; //科別
+                            commandText += "PAC_DOCNAME,"; //醫師代碼
                             commandText += "PAC_PROCDTTM,"; //醫令開立時間
                             commandText += "PAC_PAYCD,"; //費用別
                             commandText += "PAC_DRUGGIST "; //藥師代碼
@@ -318,8 +318,8 @@ namespace DB2VM
                             commandText += "PAC_DAYS,"; //使用天數
                             commandText += "PAC_TYPE,"; // 醫令類型
                             commandText += "PAC_DRUGNO,"; //領藥號
-                            commandText += "PAC_SECTNO,"; //科別
-                            commandText += "PAC_DOCCD,"; //醫師代碼
+                            commandText += "PAC_SECTNAME,"; //科別
+                            commandText += "PAC_DOCNAME,"; //醫師代碼
                             commandText += "PAC_PROCDTTM,"; //醫令開立時間
                             commandText += "PAC_PAYCD,"; //費用別
                             commandText += "PAC_DRUGGIST "; //藥師代碼
@@ -340,8 +340,8 @@ namespace DB2VM
                             commandText += "PAC_DAYS,"; //使用天數
                             commandText += "PAC_TYPE,"; // 醫令類型
                             commandText += "PAC_DRUGNO,"; //領藥號
-                            commandText += "PAC_SECTNO,"; //科別
-                            commandText += "PAC_DOCCD,"; //醫師代碼
+                            commandText += "PAC_SECTNAME,"; //科別
+                            commandText += "PAC_DOCNAME,"; //醫師代碼
                             commandText += "PAC_PROCDTTM,"; //醫令開立時間
                             commandText += "PAC_PAYCD,"; //費用別
                             commandText += "PAC_DRUGGIST "; //藥師代碼
@@ -374,8 +374,8 @@ namespace DB2VM
                     commandText += "PAC_DAYS,"; //使用天數
                     commandText += "PAC_TYPE,"; // 醫令類型
                     commandText += "PAC_DRUGNO,"; //領藥號
-                    commandText += "PAC_SECTNO,"; //科別
-                    commandText += "PAC_DOCCD,"; //醫師代碼
+                    commandText += "PAC_SECTNAME,"; //科別
+                    commandText += "PAC_DOCNAME,"; //醫師代碼
                     commandText += "PAC_PROCDTTM,"; //醫令開立時間
                     commandText += "PAC_PAYCD,"; //費用別
                     commandText += "PAC_DRUGGIST "; //藥師代碼
@@ -396,8 +396,8 @@ namespace DB2VM
                     commandText += "PAC_DAYS,"; //使用天數
                     commandText += "PAC_TYPE,"; // 醫令類型
                     commandText += "PAC_DRUGNO,"; //領藥號
-                    commandText += "PAC_SECTNO,"; //科別
-                    commandText += "PAC_DOCCD,"; //醫師代碼
+                    commandText += "PAC_SECTNAME,"; //科別
+                    commandText += "PAC_DOCNAME,"; //醫師代碼
                     commandText += "PAC_PROCDTTM,"; //醫令開立時間
                     commandText += "PAC_PAYCD,"; //費用別
                     commandText += "PAC_DRUGGIST "; //藥師代碼
@@ -431,8 +431,8 @@ namespace DB2VM
                     commandText += "PAC_DAYS,"; //使用天數
                     commandText += "PAC_TYPE,"; // 醫令類型
                     commandText += "PAC_DRUGNO,"; //領藥號
-                    commandText += "PAC_SECTNO,"; //科別
-                    commandText += "PAC_DOCCD,"; //醫師代碼
+                    commandText += "PAC_SECTNAME,"; //科別
+                    commandText += "PAC_DOCNAME,"; //醫師代碼
                     commandText += "PAC_PROCDTTM,"; //醫令開立時間
                     commandText += "PAC_PAYCD,"; //費用別
                     commandText += "PAC_DRUGGIST "; //藥師代碼
@@ -453,8 +453,8 @@ namespace DB2VM
                     commandText += "PAC_DAYS,"; //使用天數
                     commandText += "PAC_TYPE,"; // 醫令類型
                     commandText += "PAC_DRUGNO,"; //領藥號
-                    commandText += "PAC_SECTNO,"; //科別
-                    commandText += "PAC_DOCCD,"; //醫師代碼
+                    commandText += "PAC_SECTNAME,"; //科別
+                    commandText += "PAC_DOCNAME,"; //醫師代碼
                     commandText += "PAC_PROCDTTM,"; //醫令開立時間
                     commandText += "PAC_PAYCD,"; //費用別
                     commandText += "PAC_DRUGGIST "; //藥師代碼
@@ -510,8 +510,8 @@ namespace DB2VM
                             orderClass.領藥號 = reader["PAC_DRUGNO"].ToString().Trim();
                             orderClass.就醫時間 = reader["PAC_VISITDT"].ToString().Trim();
                             orderClass.就醫時間 = $"{orderClass.就醫時間.Substring(0, 4)}-{orderClass.就醫時間.Substring(4, 2)}-{orderClass.就醫時間.Substring(6, 2)}";
-                            orderClass.科別 = reader["PAC_SECTNO"].ToString().Trim();
-                            orderClass.醫師代碼 = reader["PAC_DOCCD"].ToString().Trim();
+                            orderClass.科別 = reader["PAC_SECTNAME"].ToString().Trim();
+                            orderClass.醫師代碼 = reader["PAC_DOCNAME"].ToString().Trim();
                             orderClass.頻次 = reader["PAC_FEQNO"].ToString().Trim();
                             orderClass.天數 = reader["PAC_DAYS"].ToString().Trim();
 
@@ -668,6 +668,8 @@ namespace DB2VM
                         value[(int)enum_醫囑資料.藥師姓名] = orderClasses[i].藥師姓名;
                         value[(int)enum_醫囑資料.頻次] = orderClasses[i].頻次;
                         value[(int)enum_醫囑資料.天數] = orderClasses[i].天數;
+                        value[(int)enum_醫囑資料.藥袋類型] = orderClasses[i].藥袋類型;
+                        value[(int)enum_醫囑資料.費用別] = orderClasses[i].費用別;
 
 
                         value[(int)enum_醫囑資料.產出時間] = DateTime.Now.ToDateTimeString_6();
@@ -711,6 +713,8 @@ namespace DB2VM
                             value[(int)enum_醫囑資料.藥師姓名] = orderClasses[i].藥師姓名;
                             value[(int)enum_醫囑資料.頻次] = orderClasses[i].頻次;
                             value[(int)enum_醫囑資料.天數] = orderClasses[i].天數;
+                            value[(int)enum_醫囑資料.藥袋類型] = orderClasses[i].藥袋類型;
+                            value[(int)enum_醫囑資料.費用別] = orderClasses[i].費用別;
 
                             value[(int)enum_醫囑資料.狀態] = "未過帳";
                             orderClasses[i].狀態 = "未過帳";
@@ -805,42 +809,46 @@ namespace DB2VM
                     commandText += "select ";
                     commandText += "min(PAC_VISITDT) PAC_VISITDT,";
                     commandText += "sum(PAC_SUMQTY) PAC_SUMQTY,";
-                    commandText += "PAC_ORDERSEQ,";
-                    commandText += "PAC_SEQ,";
-                    commandText += "PAC_DIACODE,";
-                    commandText += "PAC_DIANAME,";
-                    commandText += "PAC_PATNAME,";
-                    commandText += "PAC_PATID,";
-                    commandText += "PAC_UNIT,";
-                    commandText += "PAC_QTYPERTIME,";
-                    commandText += "PAC_FEQNO,";
-                    commandText += "PAC_PATHNO,";
-                    commandText += "PAC_DAYS,";
-                    commandText += "PAC_TYPE,";
-                    commandText += "PAC_DRUGNO,";
-                    commandText += "PAC_SECTNO,";
-                    commandText += "PAC_DOCCD,";
-                    commandText += "PAC_PROCDTTM ";
+                    commandText += "PAC_ORDERSEQ,"; //醫令序號
+                    commandText += "PAC_SEQ,"; //序號
+                    commandText += "PAC_DIACODE,"; //藥品院內碼
+                    commandText += "PAC_DIANAME,"; //藥品商品名稱
+                    commandText += "PAC_PATNAME,"; //病歷姓名
+                    commandText += "PAC_PATID,"; //病歷號
+                    commandText += "PAC_UNIT,"; //小單位
+                    commandText += "PAC_QTYPERTIME,"; //次劑量
+                    commandText += "PAC_FEQNO,"; //頻率
+                    commandText += "PAC_PATHNO,"; //途徑
+                    commandText += "PAC_DAYS,"; //使用天數
+                    commandText += "PAC_TYPE,"; // 醫令類型
+                    commandText += "PAC_DRUGNO,"; //領藥號
+                    commandText += "PAC_SECTNAME,"; //科別
+                    commandText += "PAC_DOCNAME,"; //醫師代碼
+                    commandText += "PAC_PROCDTTM,"; //醫令開立時間
+                    commandText += "PAC_PAYCD,"; //費用別
+                    commandText += "PAC_DRUGGIST "; //藥師代碼
 
                     commandText += $"from PHAADCAL where PAC_PATID='{MRN}' ";
                     commandText += "GROUP BY ";
 
-                    commandText += "PAC_ORDERSEQ,";
-                    commandText += "PAC_SEQ,";
-                    commandText += "PAC_DIACODE,";
-                    commandText += "PAC_DIANAME,";
-                    commandText += "PAC_PATNAME,";
-                    commandText += "PAC_PATID,";
-                    commandText += "PAC_UNIT,";
-                    commandText += "PAC_QTYPERTIME,";
-                    commandText += "PAC_FEQNO,";
-                    commandText += "PAC_PATHNO,";
-                    commandText += "PAC_DAYS,";
-                    commandText += "PAC_TYPE,";
-                    commandText += "PAC_DRUGNO,";
-                    commandText += "PAC_SECTNO,";
-                    commandText += "PAC_DOCCD,";
-                    commandText += "PAC_PROCDTTM ";
+                    commandText += "PAC_ORDERSEQ,"; //醫令序號
+                    commandText += "PAC_SEQ,"; //序號
+                    commandText += "PAC_DIACODE,"; //藥品院內碼
+                    commandText += "PAC_DIANAME,"; //藥品商品名稱
+                    commandText += "PAC_PATNAME,"; //病歷姓名
+                    commandText += "PAC_PATID,"; //病歷號
+                    commandText += "PAC_UNIT,"; //小單位
+                    commandText += "PAC_QTYPERTIME,"; //次劑量
+                    commandText += "PAC_FEQNO,"; //頻率
+                    commandText += "PAC_PATHNO,"; //途徑
+                    commandText += "PAC_DAYS,"; //使用天數
+                    commandText += "PAC_TYPE,"; // 醫令類型
+                    commandText += "PAC_DRUGNO,"; //領藥號
+                    commandText += "PAC_SECTNAME,"; //科別
+                    commandText += "PAC_DOCNAME,"; //醫師代碼
+                    commandText += "PAC_PROCDTTM,"; //醫令開立時間
+                    commandText += "PAC_PAYCD,"; //費用別
+                    commandText += "PAC_DRUGGIST "; //藥師代碼
 
 
 
@@ -854,42 +862,46 @@ namespace DB2VM
                     commandText += "select ";
                     commandText += "min(PAC_VISITDT) PAC_VISITDT,";
                     commandText += "sum(PAC_SUMQTY) PAC_SUMQTY,";
-                    commandText += "PAC_ORDERSEQ,";
-                    commandText += "PAC_SEQ,";
-                    commandText += "PAC_DIACODE,";
-                    commandText += "PAC_DIANAME,";
-                    commandText += "PAC_PATNAME,";
-                    commandText += "PAC_PATID,";
-                    commandText += "PAC_UNIT,";
-                    commandText += "PAC_QTYPERTIME,";
-                    commandText += "PAC_FEQNO,";
-                    commandText += "PAC_PATHNO,";
-                    commandText += "PAC_DAYS,";
-                    commandText += "PAC_TYPE,";
-                    commandText += "PAC_DRUGNO,";
-                    commandText += "PAC_SECTNO,";
-                    commandText += "PAC_DOCCD,";
-                    commandText += "PAC_PROCDTTM ";
+                    commandText += "PAC_ORDERSEQ,"; //醫令序號
+                    commandText += "PAC_SEQ,"; //序號
+                    commandText += "PAC_DIACODE,"; //藥品院內碼
+                    commandText += "PAC_DIANAME,"; //藥品商品名稱
+                    commandText += "PAC_PATNAME,"; //病歷姓名
+                    commandText += "PAC_PATID,"; //病歷號
+                    commandText += "PAC_UNIT,"; //小單位
+                    commandText += "PAC_QTYPERTIME,"; //次劑量
+                    commandText += "PAC_FEQNO,"; //頻率
+                    commandText += "PAC_PATHNO,"; //途徑
+                    commandText += "PAC_DAYS,"; //使用天數
+                    commandText += "PAC_TYPE,"; // 醫令類型
+                    commandText += "PAC_DRUGNO,"; //領藥號
+                    commandText += "PAC_SECTNAME,"; //科別
+                    commandText += "PAC_DOCNAME,"; //醫師代碼
+                    commandText += "PAC_PROCDTTM,"; //醫令開立時間
+                    commandText += "PAC_PAYCD,"; //費用別
+                    commandText += "PAC_DRUGGIST "; //藥師代碼
 
                     commandText += $"from phaadcal where PAC_SEQ='{PAC_SEQ}' and PAC_VISITDT='{PAC_VISITDT}' AND PAC_DIACODE='{PAC_DIACODE}' AND PAC_ORDERSEQ='{PAC_ORDERSEQ}' ";
                     commandText += "GROUP BY ";
 
-                    commandText += "PAC_ORDERSEQ,";
-                    commandText += "PAC_SEQ,";
-                    commandText += "PAC_DIACODE,";
-                    commandText += "PAC_DIANAME,";
-                    commandText += "PAC_PATNAME,";
-                    commandText += "PAC_PATID,";
-                    commandText += "PAC_UNIT,";
-                    commandText += "PAC_QTYPERTIME,";
-                    commandText += "PAC_FEQNO,";
-                    commandText += "PAC_PATHNO,";
-                    commandText += "PAC_DAYS,";
-                    commandText += "PAC_TYPE,";
-                    commandText += "PAC_DRUGNO,";
-                    commandText += "PAC_SECTNO,";
-                    commandText += "PAC_DOCCD,";
-                    commandText += "PAC_PROCDTTM ";
+                    commandText += "PAC_ORDERSEQ,"; //醫令序號
+                    commandText += "PAC_SEQ,"; //序號
+                    commandText += "PAC_DIACODE,"; //藥品院內碼
+                    commandText += "PAC_DIANAME,"; //藥品商品名稱
+                    commandText += "PAC_PATNAME,"; //病歷姓名
+                    commandText += "PAC_PATID,"; //病歷號
+                    commandText += "PAC_UNIT,"; //小單位
+                    commandText += "PAC_QTYPERTIME,"; //次劑量
+                    commandText += "PAC_FEQNO,"; //頻率
+                    commandText += "PAC_PATHNO,"; //途徑
+                    commandText += "PAC_DAYS,"; //使用天數
+                    commandText += "PAC_TYPE,"; // 醫令類型
+                    commandText += "PAC_DRUGNO,"; //領藥號
+                    commandText += "PAC_SECTNAME,"; //科別
+                    commandText += "PAC_DOCNAME,"; //醫師代碼
+                    commandText += "PAC_PROCDTTM,"; //醫令開立時間
+                    commandText += "PAC_PAYCD,"; //費用別
+                    commandText += "PAC_DRUGGIST "; //藥師代碼
 
                 }
                 else if (strArray_Barcode.Length == 4)
@@ -905,42 +917,46 @@ namespace DB2VM
                         commandText += "select ";
                         commandText += "min(PAC_VISITDT) PAC_VISITDT,";
                         commandText += "sum(PAC_SUMQTY) PAC_SUMQTY,";
-                        commandText += "PAC_ORDERSEQ,";
-                        commandText += "PAC_SEQ,";
-                        commandText += "PAC_DIACODE,";
-                        commandText += "PAC_DIANAME,";
-                        commandText += "PAC_PATNAME,";
-                        commandText += "PAC_PATID,";
-                        commandText += "PAC_UNIT,";
-                        commandText += "PAC_QTYPERTIME,";
-                        commandText += "PAC_FEQNO,";
-                        commandText += "PAC_PATHNO,";
-                        commandText += "PAC_DAYS,";
-                        commandText += "PAC_TYPE,";
-                        commandText += "PAC_DRUGNO,";
-                        commandText += "PAC_SECTNO,";
-                        commandText += "PAC_DOCCD,";
-                        commandText += "PAC_PROCDTTM ";
+                        commandText += "PAC_ORDERSEQ,"; //醫令序號
+                        commandText += "PAC_SEQ,"; //序號
+                        commandText += "PAC_DIACODE,"; //藥品院內碼
+                        commandText += "PAC_DIANAME,"; //藥品商品名稱
+                        commandText += "PAC_PATNAME,"; //病歷姓名
+                        commandText += "PAC_PATID,"; //病歷號
+                        commandText += "PAC_UNIT,"; //小單位
+                        commandText += "PAC_QTYPERTIME,"; //次劑量
+                        commandText += "PAC_FEQNO,"; //頻率
+                        commandText += "PAC_PATHNO,"; //途徑
+                        commandText += "PAC_DAYS,"; //使用天數
+                        commandText += "PAC_TYPE,"; // 醫令類型
+                        commandText += "PAC_DRUGNO,"; //領藥號
+                        commandText += "PAC_SECTNAME,"; //科別
+                        commandText += "PAC_DOCNAME,"; //醫師代碼
+                        commandText += "PAC_PROCDTTM,"; //醫令開立時間
+                        commandText += "PAC_PAYCD,"; //費用別
+                        commandText += "PAC_DRUGGIST "; //藥師代碼
 
                         commandText += $"from PHAADC where PAC_SEQ='{住院序號}' and PAC_PROCDTTM='{醫令時間}' AND PAC_TYPE='{醫令類型}' ";
                         commandText += "GROUP BY ";
 
-                        commandText += "PAC_ORDERSEQ,";
-                        commandText += "PAC_SEQ,";
-                        commandText += "PAC_DIACODE,";
-                        commandText += "PAC_DIANAME,";
-                        commandText += "PAC_PATNAME,";
-                        commandText += "PAC_PATID,";
-                        commandText += "PAC_UNIT,";
-                        commandText += "PAC_QTYPERTIME,";
-                        commandText += "PAC_FEQNO,";
-                        commandText += "PAC_PATHNO,";
-                        commandText += "PAC_DAYS,";
-                        commandText += "PAC_TYPE,";
-                        commandText += "PAC_DRUGNO,";
-                        commandText += "PAC_SECTNO,";
-                        commandText += "PAC_DOCCD,";
-                        commandText += "PAC_PROCDTTM ";
+                        commandText += "PAC_ORDERSEQ,"; //醫令序號
+                        commandText += "PAC_SEQ,"; //序號
+                        commandText += "PAC_DIACODE,"; //藥品院內碼
+                        commandText += "PAC_DIANAME,"; //藥品商品名稱
+                        commandText += "PAC_PATNAME,"; //病歷姓名
+                        commandText += "PAC_PATID,"; //病歷號
+                        commandText += "PAC_UNIT,"; //小單位
+                        commandText += "PAC_QTYPERTIME,"; //次劑量
+                        commandText += "PAC_FEQNO,"; //頻率
+                        commandText += "PAC_PATHNO,"; //途徑
+                        commandText += "PAC_DAYS,"; //使用天數
+                        commandText += "PAC_TYPE,"; // 醫令類型
+                        commandText += "PAC_DRUGNO,"; //領藥號
+                        commandText += "PAC_SECTNAME,"; //科別
+                        commandText += "PAC_DOCNAME,"; //醫師代碼
+                        commandText += "PAC_PROCDTTM,"; //醫令開立時間
+                        commandText += "PAC_PAYCD,"; //費用別
+                        commandText += "PAC_DRUGGIST "; //藥師代碼
 
                     }
                     else
@@ -954,42 +970,46 @@ namespace DB2VM
                             commandText += "select ";
                             commandText += "min(PAC_VISITDT) PAC_VISITDT,";
                             commandText += "sum(PAC_SUMQTY) PAC_SUMQTY,";
-                            commandText += "PAC_ORDERSEQ,";
-                            commandText += "PAC_SEQ,";
-                            commandText += "PAC_DIACODE,";
-                            commandText += "PAC_DIANAME,";
-                            commandText += "PAC_PATNAME,";
-                            commandText += "PAC_PATID,";
-                            commandText += "PAC_UNIT,";
-                            commandText += "PAC_QTYPERTIME,";
-                            commandText += "PAC_FEQNO,";
-                            commandText += "PAC_PATHNO,";
-                            commandText += "PAC_DAYS,";
-                            commandText += "PAC_TYPE,";
-                            commandText += "PAC_DRUGNO,";
-                            commandText += "PAC_SECTNO,";
-                            commandText += "PAC_DOCCD,";
-                            commandText += "PAC_PROCDTTM ";
+                            commandText += "PAC_ORDERSEQ,"; //醫令序號
+                            commandText += "PAC_SEQ,"; //序號
+                            commandText += "PAC_DIACODE,"; //藥品院內碼
+                            commandText += "PAC_DIANAME,"; //藥品商品名稱
+                            commandText += "PAC_PATNAME,"; //病歷姓名
+                            commandText += "PAC_PATID,"; //病歷號
+                            commandText += "PAC_UNIT,"; //小單位
+                            commandText += "PAC_QTYPERTIME,"; //次劑量
+                            commandText += "PAC_FEQNO,"; //頻率
+                            commandText += "PAC_PATHNO,"; //途徑
+                            commandText += "PAC_DAYS,"; //使用天數
+                            commandText += "PAC_TYPE,"; // 醫令類型
+                            commandText += "PAC_DRUGNO,"; //領藥號
+                            commandText += "PAC_SECTNAME,"; //科別
+                            commandText += "PAC_DOCNAME,"; //醫師代碼
+                            commandText += "PAC_PROCDTTM,"; //醫令開立時間
+                            commandText += "PAC_PAYCD,"; //費用別
+                            commandText += "PAC_DRUGGIST "; //藥師代碼
 
                             commandText += $"from phaadcal where PAC_DRUGNO='{PAC_DRUGNO}' and PAC_VISITDT='{PAC_VISITDT}' AND PAC_PATID='{PAC_PATID}' AND PAC_SEQ='{PAC_SEQ}'  ";
                             commandText += "GROUP BY ";
 
-                            commandText += "PAC_ORDERSEQ,";
-                            commandText += "PAC_SEQ,";
-                            commandText += "PAC_DIACODE,";
-                            commandText += "PAC_DIANAME,";
-                            commandText += "PAC_PATNAME,";
-                            commandText += "PAC_PATID,";
-                            commandText += "PAC_UNIT,";
-                            commandText += "PAC_QTYPERTIME,";
-                            commandText += "PAC_FEQNO,";
-                            commandText += "PAC_PATHNO,";
-                            commandText += "PAC_DAYS,";
-                            commandText += "PAC_TYPE,";
-                            commandText += "PAC_DRUGNO,";
-                            commandText += "PAC_SECTNO,";
-                            commandText += "PAC_DOCCD,";
-                            commandText += "PAC_PROCDTTM ";
+                            commandText += "PAC_ORDERSEQ,"; //醫令序號
+                            commandText += "PAC_SEQ,"; //序號
+                            commandText += "PAC_DIACODE,"; //藥品院內碼
+                            commandText += "PAC_DIANAME,"; //藥品商品名稱
+                            commandText += "PAC_PATNAME,"; //病歷姓名
+                            commandText += "PAC_PATID,"; //病歷號
+                            commandText += "PAC_UNIT,"; //小單位
+                            commandText += "PAC_QTYPERTIME,"; //次劑量
+                            commandText += "PAC_FEQNO,"; //頻率
+                            commandText += "PAC_PATHNO,"; //途徑
+                            commandText += "PAC_DAYS,"; //使用天數
+                            commandText += "PAC_TYPE,"; // 醫令類型
+                            commandText += "PAC_DRUGNO,"; //領藥號
+                            commandText += "PAC_SECTNAME,"; //科別
+                            commandText += "PAC_DOCNAME,"; //醫師代碼
+                            commandText += "PAC_PROCDTTM,"; //醫令開立時間
+                            commandText += "PAC_PAYCD,"; //費用別
+                            commandText += "PAC_DRUGGIST "; //藥師代碼
 
                             flag_術中醫令 = true;
                         }
@@ -1002,42 +1022,46 @@ namespace DB2VM
                             commandText += "select ";
                             commandText += "min(PAC_VISITDT) PAC_VISITDT,";
                             commandText += "sum(PAC_SUMQTY) PAC_SUMQTY,";
-                            commandText += "PAC_ORDERSEQ,";
-                            commandText += "PAC_SEQ,";
-                            commandText += "PAC_DIACODE,";
-                            commandText += "PAC_DIANAME,";
-                            commandText += "PAC_PATNAME,";
-                            commandText += "PAC_PATID,";
-                            commandText += "PAC_UNIT,";
-                            commandText += "PAC_QTYPERTIME,";
-                            commandText += "PAC_FEQNO,";
-                            commandText += "PAC_PATHNO,";
-                            commandText += "PAC_DAYS,";
-                            commandText += "PAC_TYPE,";
-                            commandText += "PAC_DRUGNO,";
-                            commandText += "PAC_SECTNO,";
-                            commandText += "PAC_DOCCD,";
-                            commandText += "PAC_PROCDTTM ";
+                            commandText += "PAC_ORDERSEQ,"; //醫令序號
+                            commandText += "PAC_SEQ,"; //序號
+                            commandText += "PAC_DIACODE,"; //藥品院內碼
+                            commandText += "PAC_DIANAME,"; //藥品商品名稱
+                            commandText += "PAC_PATNAME,"; //病歷姓名
+                            commandText += "PAC_PATID,"; //病歷號
+                            commandText += "PAC_UNIT,"; //小單位
+                            commandText += "PAC_QTYPERTIME,"; //次劑量
+                            commandText += "PAC_FEQNO,"; //頻率
+                            commandText += "PAC_PATHNO,"; //途徑
+                            commandText += "PAC_DAYS,"; //使用天數
+                            commandText += "PAC_TYPE,"; // 醫令類型
+                            commandText += "PAC_DRUGNO,"; //領藥號
+                            commandText += "PAC_SECTNAME,"; //科別
+                            commandText += "PAC_DOCNAME,"; //醫師代碼
+                            commandText += "PAC_PROCDTTM,"; //醫令開立時間
+                            commandText += "PAC_PAYCD,"; //費用別
+                            commandText += "PAC_DRUGGIST "; //藥師代碼
 
                             commandText += $"from phaadcal where PAC_SEQ='{PAC_SEQ}' and PAC_VISITDT='{PAC_VISITDT}' AND PAC_DIACODE='{PAC_DIACODE}' AND PAC_ORDERSEQ='{PAC_ORDERSEQ}' ";
                             commandText += "GROUP BY ";
 
-                            commandText += "PAC_ORDERSEQ,";
-                            commandText += "PAC_SEQ,";
-                            commandText += "PAC_DIACODE,";
-                            commandText += "PAC_DIANAME,";
-                            commandText += "PAC_PATNAME,";
-                            commandText += "PAC_PATID,";
-                            commandText += "PAC_UNIT,";
-                            commandText += "PAC_QTYPERTIME,";
-                            commandText += "PAC_FEQNO,";
-                            commandText += "PAC_PATHNO,";
-                            commandText += "PAC_DAYS,";
-                            commandText += "PAC_TYPE,";
-                            commandText += "PAC_DRUGNO,";
-                            commandText += "PAC_SECTNO,";
-                            commandText += "PAC_DOCCD,";
-                            commandText += "PAC_PROCDTTM ";
+                            commandText += "PAC_ORDERSEQ,"; //醫令序號
+                            commandText += "PAC_SEQ,"; //序號
+                            commandText += "PAC_DIACODE,"; //藥品院內碼
+                            commandText += "PAC_DIANAME,"; //藥品商品名稱
+                            commandText += "PAC_PATNAME,"; //病歷姓名
+                            commandText += "PAC_PATID,"; //病歷號
+                            commandText += "PAC_UNIT,"; //小單位
+                            commandText += "PAC_QTYPERTIME,"; //次劑量
+                            commandText += "PAC_FEQNO,"; //頻率
+                            commandText += "PAC_PATHNO,"; //途徑
+                            commandText += "PAC_DAYS,"; //使用天數
+                            commandText += "PAC_TYPE,"; // 醫令類型
+                            commandText += "PAC_DRUGNO,"; //領藥號
+                            commandText += "PAC_SECTNAME,"; //科別
+                            commandText += "PAC_DOCNAME,"; //醫師代碼
+                            commandText += "PAC_PROCDTTM,"; //醫令開立時間
+                            commandText += "PAC_PAYCD,"; //費用別
+                            commandText += "PAC_DRUGGIST "; //藥師代碼
 
                             flag_術中醫令 = true;
                         }
@@ -1054,42 +1078,46 @@ namespace DB2VM
                     commandText += "select ";
                     commandText += "min(PAC_VISITDT) PAC_VISITDT,";
                     commandText += "sum(PAC_SUMQTY) PAC_SUMQTY,";
-                    commandText += "PAC_ORDERSEQ,";
-                    commandText += "PAC_SEQ,";
-                    commandText += "PAC_DIACODE,";
-                    commandText += "PAC_DIANAME,";
-                    commandText += "PAC_PATNAME,";
-                    commandText += "PAC_PATID,";
-                    commandText += "PAC_UNIT,";
-                    commandText += "PAC_QTYPERTIME,";
-                    commandText += "PAC_FEQNO,";
-                    commandText += "PAC_PATHNO,";
-                    commandText += "PAC_DAYS,";
-                    commandText += "PAC_TYPE,";
-                    commandText += "PAC_DRUGNO,";
-                    commandText += "PAC_SECTNO,";
-                    commandText += "PAC_DOCCD,";
-                    commandText += "PAC_PROCDTTM ";
+                    commandText += "PAC_ORDERSEQ,"; //醫令序號
+                    commandText += "PAC_SEQ,"; //序號
+                    commandText += "PAC_DIACODE,"; //藥品院內碼
+                    commandText += "PAC_DIANAME,"; //藥品商品名稱
+                    commandText += "PAC_PATNAME,"; //病歷姓名
+                    commandText += "PAC_PATID,"; //病歷號
+                    commandText += "PAC_UNIT,"; //小單位
+                    commandText += "PAC_QTYPERTIME,"; //次劑量
+                    commandText += "PAC_FEQNO,"; //頻率
+                    commandText += "PAC_PATHNO,"; //途徑
+                    commandText += "PAC_DAYS,"; //使用天數
+                    commandText += "PAC_TYPE,"; // 醫令類型
+                    commandText += "PAC_DRUGNO,"; //領藥號
+                    commandText += "PAC_SECTNAME,"; //科別
+                    commandText += "PAC_DOCNAME,"; //醫師代碼
+                    commandText += "PAC_PROCDTTM,"; //醫令開立時間
+                    commandText += "PAC_PAYCD,"; //費用別
+                    commandText += "PAC_DRUGGIST "; //藥師代碼
 
                     commandText += $"from PHAADC where PAC_SEQ='{住院序號}' and PAC_PROCDTTM='{醫令時間}' AND PAC_TYPE='{醫令類型}' ";
                     commandText += "GROUP BY ";
 
-                    commandText += "PAC_ORDERSEQ,";
-                    commandText += "PAC_SEQ,";
-                    commandText += "PAC_DIACODE,";
-                    commandText += "PAC_DIANAME,";
-                    commandText += "PAC_PATNAME,";
-                    commandText += "PAC_PATID,";
-                    commandText += "PAC_UNIT,";
-                    commandText += "PAC_QTYPERTIME,";
-                    commandText += "PAC_FEQNO,";
-                    commandText += "PAC_PATHNO,";
-                    commandText += "PAC_DAYS,";
-                    commandText += "PAC_TYPE,";
-                    commandText += "PAC_DRUGNO,";
-                    commandText += "PAC_SECTNO,";
-                    commandText += "PAC_DOCCD,";
-                    commandText += "PAC_PROCDTTM ";
+                    commandText += "PAC_ORDERSEQ,"; //醫令序號
+                    commandText += "PAC_SEQ,"; //序號
+                    commandText += "PAC_DIACODE,"; //藥品院內碼
+                    commandText += "PAC_DIANAME,"; //藥品商品名稱
+                    commandText += "PAC_PATNAME,"; //病歷姓名
+                    commandText += "PAC_PATID,"; //病歷號
+                    commandText += "PAC_UNIT,"; //小單位
+                    commandText += "PAC_QTYPERTIME,"; //次劑量
+                    commandText += "PAC_FEQNO,"; //頻率
+                    commandText += "PAC_PATHNO,"; //途徑
+                    commandText += "PAC_DAYS,"; //使用天數
+                    commandText += "PAC_TYPE,"; // 醫令類型
+                    commandText += "PAC_DRUGNO,"; //領藥號
+                    commandText += "PAC_SECTNAME,"; //科別
+                    commandText += "PAC_DOCNAME,"; //醫師代碼
+                    commandText += "PAC_PROCDTTM,"; //醫令開立時間
+                    commandText += "PAC_PAYCD,"; //費用別
+                    commandText += "PAC_DRUGGIST "; //藥師代碼
 
 
 
@@ -1108,24 +1136,24 @@ namespace DB2VM
                     commandText += "select ";
                     commandText += "min(PAC_VISITDT) PAC_VISITDT,";
                     commandText += "sum(PAC_SUMQTY) PAC_SUMQTY,";
-                    commandText += "PAC_ORDERSEQ,";
-                    commandText += "PAC_SEQ,";
-                    commandText += "PAC_DIACODE,";
-                    commandText += "PAC_DIANAME,";
-                    commandText += "PAC_PATNAME,";
-                    commandText += "PAC_PATID,";
-                    commandText += "PAC_UNIT,";
-                    commandText += "PAC_QTYPERTIME,";
-                    commandText += "PAC_FEQNO,";
-                    commandText += "PAC_PATHNO,";
-                    commandText += "PAC_DAYS,";
-                    commandText += "PAC_TYPE,";
-                    commandText += "PAC_DRUGNO,";
-                    commandText += "PAC_SECTNO,";
-                    commandText += "PAC_DOCCD,";
-                    commandText += "PAC_PROCDTTM ,";
-                    commandText += "PAC_VISITDT ,";
-                    commandText += "PAC_DRUGGIST ";
+                    commandText += "PAC_ORDERSEQ,"; //醫令序號
+                    commandText += "PAC_SEQ,"; //序號
+                    commandText += "PAC_DIACODE,"; //藥品院內碼
+                    commandText += "PAC_DIANAME,"; //藥品商品名稱
+                    commandText += "PAC_PATNAME,"; //病歷姓名
+                    commandText += "PAC_PATID,"; //病歷號
+                    commandText += "PAC_UNIT,"; //小單位
+                    commandText += "PAC_QTYPERTIME,"; //次劑量
+                    commandText += "PAC_FEQNO,"; //頻率
+                    commandText += "PAC_PATHNO,"; //途徑
+                    commandText += "PAC_DAYS,"; //使用天數
+                    commandText += "PAC_TYPE,"; // 醫令類型
+                    commandText += "PAC_DRUGNO,"; //領藥號
+                    commandText += "PAC_SECTNAME,"; //科別
+                    commandText += "PAC_DOCNAME,"; //醫師代碼
+                    commandText += "PAC_PROCDTTM,"; //醫令開立時間
+                    commandText += "PAC_PAYCD,"; //費用別
+                    commandText += "PAC_DRUGGIST "; //藥師代碼
                     commandText += $"from phaadcal where PAC_DRUGNO={本次領藥號}  and PAC_PATID={_病歷號} and PAC_SEQ={序號} ";
                     //commandText += $"from phaadcal where PAC_DRUGNO={本次領藥號} and PAC_VISITDT = {看診日期}   ";
                     //commandText += $"from phaadcal where PAC_DRUGNO={本次領藥號} and PAC_PATID={_病歷號} and  PAC_VISITDT={看診日期} ";
@@ -1134,24 +1162,24 @@ namespace DB2VM
 
                     commandText += "GROUP BY ";
 
-                    commandText += "PAC_ORDERSEQ,";
-                    commandText += "PAC_SEQ,";
-                    commandText += "PAC_DIACODE,";
-                    commandText += "PAC_DIANAME,";
-                    commandText += "PAC_PATNAME,";
-                    commandText += "PAC_PATID,";
-                    commandText += "PAC_UNIT,";
-                    commandText += "PAC_QTYPERTIME,";
-                    commandText += "PAC_FEQNO,";
-                    commandText += "PAC_PATHNO,";
-                    commandText += "PAC_DAYS,";
-                    commandText += "PAC_TYPE,";
-                    commandText += "PAC_DRUGNO,";
-                    commandText += "PAC_SECTNO,";
-                    commandText += "PAC_DOCCD,";
-                    commandText += "PAC_PROCDTTM ,";
-                    commandText += "PAC_VISITDT ,";
-                    commandText += "PAC_DRUGGIST ";
+                    commandText += "PAC_ORDERSEQ,"; //醫令序號
+                    commandText += "PAC_SEQ,"; //序號
+                    commandText += "PAC_DIACODE,"; //藥品院內碼
+                    commandText += "PAC_DIANAME,"; //藥品商品名稱
+                    commandText += "PAC_PATNAME,"; //病歷姓名
+                    commandText += "PAC_PATID,"; //病歷號
+                    commandText += "PAC_UNIT,"; //小單位
+                    commandText += "PAC_QTYPERTIME,"; //次劑量
+                    commandText += "PAC_FEQNO,"; //頻率
+                    commandText += "PAC_PATHNO,"; //途徑
+                    commandText += "PAC_DAYS,"; //使用天數
+                    commandText += "PAC_TYPE,"; // 醫令類型
+                    commandText += "PAC_DRUGNO,"; //領藥號
+                    commandText += "PAC_SECTNAME,"; //科別
+                    commandText += "PAC_DOCNAME,"; //醫師代碼
+                    commandText += "PAC_PROCDTTM,"; //醫令開立時間
+                    commandText += "PAC_PAYCD,"; //費用別
+                    commandText += "PAC_DRUGGIST "; //藥師代碼
 
 
                 }
@@ -1188,26 +1216,39 @@ namespace DB2VM
                             list_temp.Add(value.ToArray());
                             OrderClass orderClass = new OrderClass();
                             string type = reader["PAC_TYPE"].ToString().Trim();
-                            if (type == "E") orderClass.藥局代碼 = "PHER";
-                            if (type == "S") orderClass.藥局代碼 = "STAT";
-                            if (type == "B") orderClass.藥局代碼 = "首日量";
-                            if (type == "O") orderClass.藥局代碼 = "OPD";
-                            if (type == "M") orderClass.藥局代碼 = "出院帶藥";
+                            if (type == "E") orderClass.藥袋類型 = "PHER";
+                            if (type == "S") orderClass.藥袋類型 = "STAT";
+                            if (type == "B") orderClass.藥袋類型 = "首日量";
+                            if (type == "O") orderClass.藥袋類型 = "OPD";
+                            if (type == "M") orderClass.藥袋類型 = "出院帶藥";
+
 
                             orderClass.PRI_KEY = $"{reader["PAC_ORDERSEQ"].ToString().Trim()}-{reader["PAC_DRUGNO"].ToString().Trim()}";
-                            orderClass.藥袋條碼 = $"{reader["PAC_VISITDT"].ToString().Trim()}{reader["PAC_PATID"].ToString().Trim()}{reader["PAC_SEQ"].ToString().Trim()}";
+                            orderClass.藥袋條碼 = BarCode;
+                            //orderClass.藥袋條碼 = $"{reader["PAC_VISITDT"].ToString().Trim()}{reader["PAC_PATID"].ToString().Trim()}{reader["PAC_SEQ"].ToString().Trim()}";
                             orderClass.住院序號 = reader["PAC_SEQ"].ToString().Trim();
                             orderClass.藥品碼 = reader["PAC_DIACODE"].ToString().Trim();
                             orderClass.藥品名稱 = reader["PAC_DIANAME"].ToString().Trim();
                             orderClass.病人姓名 = reader["PAC_PATNAME"].ToString().Trim();
                             orderClass.病歷號 = reader["PAC_PATID"].ToString().Trim();
                             orderClass.領藥號 = reader["PAC_DRUGNO"].ToString().Trim();
-
                             orderClass.就醫時間 = reader["PAC_VISITDT"].ToString().Trim();
                             orderClass.就醫時間 = $"{orderClass.就醫時間.Substring(0, 4)}-{orderClass.就醫時間.Substring(4, 2)}-{orderClass.就醫時間.Substring(6, 2)}";
-                            orderClass.科別 = reader["PAC_SECTNO"].ToString().Trim();
-                            orderClass.醫師代碼 = reader["PAC_DOCCD"].ToString().Trim();
+                            orderClass.科別 = reader["PAC_SECTNAME"].ToString().Trim();
+                            orderClass.醫師代碼 = reader["PAC_DOCNAME"].ToString().Trim();
+                            orderClass.頻次 = reader["PAC_FEQNO"].ToString().Trim();
+                            orderClass.天數 = reader["PAC_DAYS"].ToString().Trim();
 
+
+
+                            if (reader["PAC_PAYCD"].ToString().Trim() == "Y")
+                            {
+                                orderClass.費用別 = "自費";
+                            }
+                            else
+                            {
+                                orderClass.費用別 = "健保";
+                            }
 
                             if (strArray_Barcode.Length >= 9)
                             {
@@ -1363,8 +1404,15 @@ namespace DB2VM
                         value[(int)enum_醫囑資料.科別] = orderClasses[i].科別;
                         value[(int)enum_醫囑資料.就醫時間] = orderClasses[i].就醫時間;
                         value[(int)enum_醫囑資料.藥師姓名] = orderClasses[i].藥師姓名;
+                        value[(int)enum_醫囑資料.頻次] = orderClasses[i].頻次;
+                        value[(int)enum_醫囑資料.天數] = orderClasses[i].天數;
+                        value[(int)enum_醫囑資料.藥袋類型] = orderClasses[i].藥袋類型;
+                        value[(int)enum_醫囑資料.費用別] = orderClasses[i].費用別;
+
                         value[(int)enum_醫囑資料.產出時間] = DateTime.Now.ToDateTimeString_6();
                         value[(int)enum_醫囑資料.過帳時間] = DateTime.MinValue.ToDateTimeString_6();
+
+
                         value[(int)enum_醫囑資料.狀態] = "未過帳";
                         list_value_Add.Add(value);
                     }
@@ -1402,6 +1450,10 @@ namespace DB2VM
                             value[(int)enum_醫囑資料.就醫時間] = orderClasses[i].就醫時間;
                             value[(int)enum_醫囑資料.開方日期] = orderClasses[i].開方日期;
                             value[(int)enum_醫囑資料.藥師姓名] = orderClasses[i].藥師姓名;
+                            value[(int)enum_醫囑資料.頻次] = orderClasses[i].頻次;
+                            value[(int)enum_醫囑資料.天數] = orderClasses[i].天數;
+                            value[(int)enum_醫囑資料.藥袋類型] = orderClasses[i].藥袋類型;
+                            value[(int)enum_醫囑資料.費用別] = orderClasses[i].費用別;
 
                             value[(int)enum_醫囑資料.狀態] = "未過帳";
                             orderClasses[i].狀態 = "未過帳";
@@ -1729,8 +1781,8 @@ namespace DB2VM
                 //commandText += "PAC_DAYS,";
                 //commandText += "PAC_TYPE,";
                 //commandText += "PAC_DRUGNO,";
-                //commandText += "PAC_SECTNO,";
-                //commandText += "PAC_DOCCD,";
+                //commandText += "PAC_SECTNAME,";
+                //commandText += "PAC_DOCNAME,";
                 //commandText += "PAC_PROCDTTM ,";
                 //commandText += "PAC_VISITDT ,";
                 //commandText += "PAC_DRUGGIST ";
@@ -1752,8 +1804,8 @@ namespace DB2VM
                 //commandText += "PAC_DAYS,";
                 //commandText += "PAC_TYPE,";
                 //commandText += "PAC_DRUGNO,";
-                //commandText += "PAC_SECTNO,";
-                //commandText += "PAC_DOCCD,";
+                //commandText += "PAC_SECTNAME,";
+                //commandText += "PAC_DOCNAME,";
                 //commandText += "PAC_PROCDTTM ,";
                 //commandText += "PAC_VISITDT ,";
                 //commandText += "PAC_DRUGGIST ";
@@ -1775,8 +1827,8 @@ namespace DB2VM
                 commandText += "PAC_DAYS,";
                 commandText += "PAC_TYPE,";
                 commandText += "PAC_DRUGNO,";
-                commandText += "PAC_SECTNO,";
-                commandText += "PAC_DOCCD,";
+                commandText += "PAC_SECTNAME,";
+                commandText += "PAC_DOCNAME,";
                 commandText += "PAC_PROCDTTM ,";
                 commandText += "PAC_VISITDT ,";
                 commandText += "PAC_DRUGGIST ";
@@ -1796,8 +1848,8 @@ namespace DB2VM
                 commandText += "PAC_DAYS,";
                 commandText += "PAC_TYPE,";
                 commandText += "PAC_DRUGNO,";
-                commandText += "PAC_SECTNO,";
-                commandText += "PAC_DOCCD,";
+                commandText += "PAC_SECTNAME,";
+                commandText += "PAC_DOCNAME,";
                 commandText += "PAC_PROCDTTM ,";
                 commandText += "PAC_VISITDT ,";
                 commandText += "PAC_DRUGGIST ";
@@ -1851,8 +1903,8 @@ namespace DB2VM
 
                             orderClass.就醫時間 = reader["PAC_VISITDT"].ToString().Trim();
                             orderClass.就醫時間 = $"{orderClass.就醫時間.Substring(0, 4)}-{orderClass.就醫時間.Substring(4, 2)}-{orderClass.就醫時間.Substring(6, 2)}";
-                            orderClass.科別 = reader["PAC_SECTNO"].ToString().Trim();
-                            orderClass.醫師代碼 = reader["PAC_DOCCD"].ToString().Trim();
+                            orderClass.科別 = reader["PAC_SECTNAME"].ToString().Trim();
+                            orderClass.醫師代碼 = reader["PAC_DOCNAME"].ToString().Trim();
 
 
                             if (strArray_Barcode.Length >= 9)
@@ -2171,33 +2223,75 @@ namespace DB2VM
             List<medClass> medClasses = medClass.get_med_cloud("http://127.0.0.1:4433");
             Dictionary<string, List<medClass>> medClassDict = medClasses.CoverToDictionaryByCode();
             List<cpoe> cpoeList = orderClasses
-                    .GroupBy(temp => temp.藥袋條碼)
-                    .Select(group => new cpoe
+                .GroupBy(temp => temp.藥袋條碼)
+                .Select(group =>
+                {
+                    OrderClass orderClass = group.First();
+                    List<order> orders = group
+                    .Select(value =>
+                    {
+                        medClass med = medClassDict.SortDictionaryByCode(value.藥品碼).FirstOrDefault();
+                        if (med == null) return null;
+                        
+                        return new order
+                        {
+                            藥品名稱 = value.藥品名稱,
+                            費用別 = value.費用別,
+                            交易量 = value.交易量.Replace("-", ""),
+                            頻次 = value.頻次,
+                            天數 = value.天數,
+                            健保碼 = med.健保碼,
+                            ATC = med.ATC,
+                            藥品學名 = med.藥品學名,
+                            藥品許可證號 = med.藥品許可證號,
+                            管制級別 = med.管制級別,
+                        };
+                        
+                    })
+                    .Where(value => value != null)
+                    .ToList();
+                    return new cpoe
                     {
                         藥袋條碼 = group.Key,
-                        處方 = group.Select(value =>
-                        {
-                            List<medClass> medClassList = medClassDict.SortDictionaryByCode(value.藥品碼);
-                            medClass med = medClassList.FirstOrDefault();
-                            return new order
-                            {
-                                產出時間 = value.產出時間,
-                                藥品名稱 = value.藥品名稱,
-                                費用別 = value.費用別,
-                                醫師代碼 = value.醫師代碼,
-                                交易量 = value.交易量.Replace("-",""),
-                                科別 = value.科別,
-                                頻次 = value.頻次,
-                                天數 = value.天數,
-                                健保碼 = med.健保碼,
-                                ATC = med.ATC,
-                                藥品學名 = med.藥品學名,
-                                藥品許可證號 = med.藥品許可證號,
-                                管制級別 = med.管制級別,
-                            };
-                        }).ToList()
-                    }).ToList();
+                        產出時間 = orderClass.產出時間,
+                        醫師代碼 = group.Any(item => item.醫師代碼 == item.病人姓名).ToString(),
+                        處方 = orders
+                    };
+                }).ToList();
             return cpoeList;
+            //List<cpoe> cpoeList = orderClasses
+            //        .GroupBy(temp => temp.藥袋條碼)
+            //        .Select(group =>
+            //        {
+            //            cpoe cpoe = group.First();
+            //        }).tol
+            //
+            //科別 = group.FirstOrDefault().科別,
+            //處方 = group.Select(value =>
+            //{
+            //    //List<medClass> medClassList = medClassDict.SortDictionaryByCode(value.藥品碼);
+            //    medClass med = medClassDict.SortDictionaryByCode(value.藥品碼).FirstOrDefault();
+            //    string flag = false.ToString();
+            //    if (value.醫師代碼 == value.病人姓名) flag = true.ToString();
+            //    return new order
+            //    {
+            //        藥品名稱 = value.藥品名稱,
+            //        費用別 = value.費用別,
+            //        交易量 = value.交易量.Replace("-", ""),
+            //        頻次 = value.頻次,
+            //        天數 = value.天數,
+            //        健保碼 = med.健保碼,
+            //        ATC = med.ATC,
+            //        藥品學名 = med.藥品學名,
+            //        藥品許可證號 = med.藥品許可證號,
+            //        管制級別 = med.管制級別,
+            //    };
+
+            //}).ToList()
+
+
+
+
         }
         public class identify
         {           
@@ -2221,16 +2315,10 @@ namespace DB2VM
             public string 藥品許可證號 { get; set; }
             [JsonPropertyName("DIANAME")]
             public string 藥品學名 { get; set; }
-            [JsonPropertyName("DOC")]
-            public string 醫師代碼 { get; set; }
             [JsonPropertyName("DRUGKIND")]
             public string 管制級別 { get; set; }
-            [JsonPropertyName("CT_TIME")]
-            public string 產出時間 { get; set; }
             [JsonPropertyName("TXN_QTY")]
             public string 交易量 { get; set; }
-            [JsonPropertyName("SECTNO")]
-            public string 科別 { get; set; }
             [JsonPropertyName("FREQ")]
             public string 頻次 { get; set; }
             [JsonPropertyName("DAYS")]
@@ -2240,8 +2328,14 @@ namespace DB2VM
         {
             [JsonPropertyName("MED_BAG_SN")]
             public string 藥袋條碼 { get; set; }
+            [JsonPropertyName("DOC")]
+            public string 醫師代碼 { get; set; }
+            [JsonPropertyName("CT_TIME")]
+            public string 產出時間 { get; set; }
             [JsonPropertyName("order")]
             public List<order> 處方 { get; set; }
+            [JsonPropertyName("SECTNO")]
+            public string 科別 { get; set; }
         }
     }
 
