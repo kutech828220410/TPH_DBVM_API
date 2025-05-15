@@ -96,7 +96,10 @@ namespace DB2VM.Controller
             for (int i = 0; i < medClasses_his.Count; i++)
             {
                 string code = medClasses_his[i].藥品碼;
+                if(code == "EALA")
+                {
 
+                }
                 List<medClass> medClasses_cloud_buf = keyValuePairs_med_cloud.SortDictionaryByCode(code);
 
                 if (medClasses_cloud_buf.Count == 0)

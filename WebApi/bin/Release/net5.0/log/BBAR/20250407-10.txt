@@ -1,0 +1,44 @@
+20250407-10:53:30 - 條碼: 1140002644202504060942340;7160;OIMO2;0000229702
+20250407-10:53:30 - 日期: 2025-04-06, 筆數: 1
+20250407-10:53:30 - {
+  "Data": [
+    {
+      "GUID": "852a2853-21d7-454b-a8e3-56f1314df528",
+      "PRI_KEY": "20250406094234207-7160",
+      "MED_BAG_SN": "1140002644202504060942340;7160;OIMO2;0000229702",
+      "BRYPE": "STAT",
+      "CODE": "OIMO2",
+      "NAME": "Loperamide  2mg(華興)",
+      "HCASENO": "1140002644",
+      "MED_BAG_NUM": "7160",
+      "DAYS": "1",
+      "FREQ": "STAT",
+      "CTYPE": "健保",
+      "PATNAME": "劉吳金蓮",
+      "PATCODE": "0000229702",
+      "DOCID": "陳威元",
+      "SECTNO": "心臟血管外科",
+      "TXN_QTY": "-1",
+      "ORD_START": "2025/04/06 09:42:34",
+      "VISITDT_TIME": "2025-04-06",
+      "STATE": "已過帳"
+    }
+  ],
+  "Code": 200,
+  "Method": "",
+  "Result": "取得醫囑完成! 共<1>筆 ,新增<0>筆,修改<0>筆 , 從DB取得時間:471.994ms",
+  "Value": "",
+  "ValueAry": [],
+  "TimeTaken": "1081.392ms",
+  "Token": "",
+  "Server": "",
+  "DbName": "",
+  "TableName": "",
+  "Port": 0,
+  "UserName": "",
+  "Password": "",
+  "ServerType": "",
+  "ServerName": "",
+  "ServerContent": "",
+  "RequestUrl": ""
+}

@@ -40,40 +40,49 @@ namespace PHAADCAL_update
                 commandText += "select ";
                 commandText += "min(PAC_VISITDT) PAC_VISITDT,";
                 commandText += "sum(PAC_SUMQTY) PAC_SUMQTY,";
-                commandText += "PAC_ORDERSEQ,";
-                commandText += "PAC_SEQ,";
-                commandText += "PAC_DIACODE,";
-                commandText += "PAC_DIANAME,";
-                commandText += "PAC_PATNAME,";
-                commandText += "PAC_PATID,";
-                commandText += "PAC_UNIT,";
-                commandText += "PAC_QTYPERTIME,";
-                commandText += "PAC_FEQNO,";
-                commandText += "PAC_PATHNO,";
-                commandText += "PAC_DAYS,";
-                commandText += "PAC_TYPE,";
-                commandText += "PAC_DRUGNO,";
-                commandText += "PAC_PROCDTTM, ";
-                commandText += "PAC_ORDERKIND ";
+                commandText += "PAC_ORDERSEQ,"; //醫令序號
+                commandText += "PAC_SEQ,"; //序號
+                commandText += "PAC_DIACODE,"; //藥品院內碼
+                commandText += "PAC_DIANAME,"; //藥品商品名稱
+                commandText += "PAC_PATNAME,"; //病歷姓名
+                commandText += "PAC_PATID,"; //病歷號
+                commandText += "PAC_UNIT,"; //小單位
+                commandText += "PAC_QTYPERTIME,"; //次劑量
+                commandText += "PAC_FEQNO,"; //頻率
+                commandText += "PAC_PATHNO,"; //途徑
+                commandText += "PAC_DAYS,"; //使用天數
+                commandText += "PAC_TYPE,"; // 醫令類型
+                commandText += "PAC_DRUGNO,"; //領藥號
+                commandText += "PAC_SECTNAME,"; //科別
+                commandText += "PAC_DOCNAME,"; //醫師代碼
+                commandText += "PAC_PROCDTTM,"; //醫令開立時間
+                commandText += "PAC_PAYCD,"; //費用別
+                commandText += "PAC_DRUGGIST "; //藥師代碼
+
+
+                
 
                 commandText += $"from PHAADCAL where SUBSTR(PAC_PROCDTTM, 1, 8) = '{datetime.Year}{datetime.Month.ToString("00")}{datetime.Day.ToString("00")}' AND (PAC_ORDERKIND = '1' OR PAC_ORDERKIND = '2')";
                 commandText += "GROUP BY ";
 
-                commandText += "PAC_ORDERSEQ,";
-                commandText += "PAC_SEQ,";
-                commandText += "PAC_DIACODE,";
-                commandText += "PAC_DIANAME,";
-                commandText += "PAC_PATNAME,";
-                commandText += "PAC_PATID,";
-                commandText += "PAC_UNIT,";
-                commandText += "PAC_QTYPERTIME,";
-                commandText += "PAC_FEQNO,";
-                commandText += "PAC_PATHNO,";
-                commandText += "PAC_DAYS,";
-                commandText += "PAC_TYPE,";
-                commandText += "PAC_DRUGNO,";
-                commandText += "PAC_PROCDTTM, ";
-                commandText += "PAC_ORDERKIND ";
+                commandText += "PAC_ORDERSEQ,"; //醫令序號
+                commandText += "PAC_SEQ,"; //序號
+                commandText += "PAC_DIACODE,"; //藥品院內碼
+                commandText += "PAC_DIANAME,"; //藥品商品名稱
+                commandText += "PAC_PATNAME,"; //病歷姓名
+                commandText += "PAC_PATID,"; //病歷號
+                commandText += "PAC_UNIT,"; //小單位
+                commandText += "PAC_QTYPERTIME,"; //次劑量
+                commandText += "PAC_FEQNO,"; //頻率
+                commandText += "PAC_PATHNO,"; //途徑
+                commandText += "PAC_DAYS,"; //使用天數
+                commandText += "PAC_TYPE,"; // 醫令類型
+                commandText += "PAC_DRUGNO,"; //領藥號
+                commandText += "PAC_SECTNAME,"; //科別
+                commandText += "PAC_DOCNAME,"; //醫師代碼
+                commandText += "PAC_PROCDTTM,"; //醫令開立時間
+                commandText += "PAC_PAYCD,"; //費用別
+                commandText += "PAC_DRUGGIST "; //藥師代碼
 
                 cmd = new OracleCommand(commandText, conn_oracle);
 
@@ -87,26 +96,45 @@ namespace PHAADCAL_update
 
                         OrderClass orderClass = new OrderClass();
                         string type = reader["PAC_TYPE"].ToString().Trim();
-                        if (type == "E") orderClass.藥局代碼 = "PHER";
-                        if (type == "S") orderClass.藥局代碼 = "STAT";
-                        if (type == "B") orderClass.藥局代碼 = "首日量";
-                        if (type == "O") orderClass.藥局代碼 = "OPD";
-                        if (type == "M") orderClass.藥局代碼 = "出院帶藥";
+                        if (type == "E") orderClass.藥袋類型 = "PHER";
+                        if (type == "S") orderClass.藥袋類型 = "STAT";
+                        if (type == "B") orderClass.藥袋類型 = "首日量";
+                        if (type == "O") orderClass.藥袋類型 = "OPD";
+                        if (type == "M") orderClass.藥袋類型 = "出院帶藥";
 
                         orderClass.PRI_KEY = $"{reader["PAC_ORDERSEQ"].ToString().Trim()}-{reader["PAC_DRUGNO"].ToString().Trim()}-{reader["PAC_PATID"].ToString().Trim()}";
-                        orderClass.藥袋條碼 = $"{reader["PAC_VISITDT"].ToString().Trim()}{reader["PAC_PATID"].ToString().Trim()}{reader["PAC_SEQ"].ToString().Trim()}";
+                        //orderClass.藥袋條碼 = $"{reader["PAC_VISITDT"].ToString().Trim()}{reader["PAC_PATID"].ToString().Trim()}{reader["PAC_SEQ"].ToString().Trim()}";
+                        orderClass.住院序號 = reader["PAC_SEQ"].ToString().Trim();
+
                         orderClass.藥品碼 = reader["PAC_DIACODE"].ToString().Trim();
                         orderClass.藥品名稱 = reader["PAC_DIANAME"].ToString().Trim();
                         orderClass.病人姓名 = reader["PAC_PATNAME"].ToString().Trim();
                         orderClass.病歷號 = reader["PAC_PATID"].ToString().Trim();
                         orderClass.領藥號 = reader["PAC_DRUGNO"].ToString().Trim();
-                        orderClass.藥袋類型 = reader["PAC_ORDERKIND"].ToString().Trim();
-
+                        //orderClass.藥袋類型 = reader["PAC_ORDERKIND"].ToString().Trim();
+                        orderClass.就醫時間 = reader["PAC_VISITDT"].ToString().Trim();
+                        orderClass.就醫時間 = $"{orderClass.就醫時間.Substring(0, 4)}-{orderClass.就醫時間.Substring(4, 2)}-{orderClass.就醫時間.Substring(6, 2)}";
+                        orderClass.科別 = reader["PAC_SECTNAME"].ToString().Trim();
+                        orderClass.醫師代碼 = reader["PAC_DOCNAME"].ToString().Trim();
+                        orderClass.頻次 = reader["PAC_FEQNO"].ToString().Trim();
+                        orderClass.天數 = reader["PAC_DAYS"].ToString().Trim();
+                        orderClass.單次劑量 = reader["PAC_QTYPERTIME"].ToString().Trim();
+                        orderClass.劑量單位 = reader["PAC_UNIT"].ToString().Trim();
                         string PAC_QTYPERTIME = reader["PAC_QTYPERTIME"].ToString().Trim();
                         string PAC_SUMQTY = reader["PAC_SUMQTY"].ToString().Trim();
                         double sumQTY = PAC_SUMQTY.StringToDouble();
                         //sumQTY = Math.Ceiling(sumQTY);
                         orderClass.交易量 = (sumQTY * -1).ToString();
+
+                        if (reader["PAC_PAYCD"].ToString().Trim() == "Y")
+                        {
+                            orderClass.費用別 = "自費";
+                        }
+                        else
+                        {
+                            orderClass.費用別 = "健保";
+                        }
+
                         string Time = reader["PAC_PROCDTTM"].ToString().Trim();
                         if (Time.Length == 14)
                         {

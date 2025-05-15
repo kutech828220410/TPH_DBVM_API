@@ -44,6 +44,10 @@
               "target": "Package",
               "version": "[3.1.0.600, )"
             },
+            "Microsoft.Bcl.AsyncInterfaces": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "MySql.Data": {
               "target": "Package",
               "version": "[8.0.29, )"
@@ -52,9 +56,17 @@
               "target": "Package",
               "version": "[3.21.90, )"
             },
+            "SharpZipLib": {
+              "target": "Package",
+              "version": "[1.4.2, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "System.Configuration.ConfigurationManager": {
               "target": "Package",
-              "version": "[6.0.1, )"
+              "version": "[8.0.1, )"
             },
             "System.Data.Odbc": {
               "target": "Package",
@@ -62,11 +74,7 @@
             },
             "System.Text.Json": {
               "target": "Package",
-              "version": "[6.0.0, )"
-            },
-            "Unofficial.Microsoft.mshtml": {
-              "target": "Package",
-              "version": "[7.0.3300, )"
+              "version": "[8.0.0, )"
             }
           },
           "imports": [

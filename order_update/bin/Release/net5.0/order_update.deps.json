@@ -399,11 +399,59 @@
           }
         }
       },
+      "Newtonsoft.Json/13.0.0.0": {
+        "runtime": {
+          "Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.1.25517"
+          }
+        }
+      },
       "Interop.SpeechLib/5.4.0.0": {
         "runtime": {
           "Interop.SpeechLib.dll": {
             "assemblyVersion": "5.4.0.0",
             "fileVersion": "5.4.0.0"
+          }
+        }
+      },
+      "H_Pannel_lib/1.0.0.0": {
+        "runtime": {
+          "H_Pannel_lib.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "MyOffice/1.0.0.0": {
+        "runtime": {
+          "MyOffice.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "PopupControl/1.5.0.28608": {
+        "runtime": {
+          "PopupControl.dll": {
+            "assemblyVersion": "1.5.0.28608",
+            "fileVersion": "1.5.0.28608"
+          }
+        }
+      },
+      "SunnyUI/3.6.5.0": {
+        "runtime": {
+          "SunnyUI.dll": {
+            "assemblyVersion": "3.6.5.0",
+            "fileVersion": "3.6.5.0"
+          }
+        }
+      },
+      "CSkin/12.8.0.0": {
+        "runtime": {
+          "CSkin.dll": {
+            "assemblyVersion": "12.8.0.0",
+            "fileVersion": "12.8.0.0"
           }
         }
       },
@@ -495,6 +543,46 @@
           }
         }
       },
+      "zxing/0.16.6.0": {
+        "runtime": {
+          "zxing.dll": {
+            "assemblyVersion": "0.16.6.0",
+            "fileVersion": "0.16.6.0"
+          }
+        }
+      },
+      "NPOI/2.4.1.0": {
+        "runtime": {
+          "NPOI.dll": {
+            "assemblyVersion": "2.4.1.0",
+            "fileVersion": "2.4.1.0"
+          }
+        }
+      },
+      "Microsoft.Office.Interop.Excel/15.0.0.0": {
+        "runtime": {
+          "Microsoft.Office.Interop.Excel.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.4569.1506"
+          }
+        }
+      },
+      "NPOI.OOXML/2.4.1.0": {
+        "runtime": {
+          "NPOI.OOXML.dll": {
+            "assemblyVersion": "2.4.1.0",
+            "fileVersion": "2.4.1.0"
+          }
+        }
+      },
+      "SunnyUI.Common/3.6.5.0": {
+        "runtime": {
+          "SunnyUI.Common.dll": {
+            "assemblyVersion": "3.6.5.0",
+            "fileVersion": "3.6.5.0"
+          }
+        }
+      },
       "TCP/1.0.0.0": {
         "runtime": {
           "TCP.dll": {
@@ -511,9 +599,49 @@
           }
         }
       },
+      "AxOvkBase/1.0.0.0": {
+        "runtime": {
+          "AxOvkBase.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "AxAltairUDrvAsm4.5/1.0.0.0": {
+        "runtime": {
+          "AxAltairUDrvAsm4.5.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "AxOvkBaseAsm4.5/1.0.0.0": {
+        "runtime": {
+          "AxOvkBaseAsm4.5.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "AxOvkMsr/1.0.0.0": {
+        "runtime": {
+          "AxOvkMsr.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "MeasureSystemFunction/1.0.0.0": {
         "runtime": {
           "MeasureSystemFunction.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "AxAltairUDrv/1.0.0.0": {
+        "runtime": {
+          "AxAltairUDrv.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -524,6 +652,38 @@
           "MVSDK.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "office/15.0.0.0": {
+        "runtime": {
+          "office.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.4613.1000"
+          }
+        }
+      },
+      "NPOI.OpenXml4Net/2.4.1.0": {
+        "runtime": {
+          "NPOI.OpenXml4Net.dll": {
+            "assemblyVersion": "2.4.1.0",
+            "fileVersion": "2.4.1.0"
+          }
+        }
+      },
+      "NPOI.OpenXmlFormats/2.4.1.0": {
+        "runtime": {
+          "NPOI.OpenXmlFormats.dll": {
+            "assemblyVersion": "2.4.1.0",
+            "fileVersion": "2.4.1.0"
+          }
+        }
+      },
+      "stdole/7.0.3300.0": {
+        "runtime": {
+          "stdole.dll": {
+            "assemblyVersion": "7.0.3300.0",
+            "fileVersion": "7.0.9466.1"
           }
         }
       }
@@ -749,7 +909,37 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Newtonsoft.Json/13.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Interop.SpeechLib/5.4.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "H_Pannel_lib/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MyOffice/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PopupControl/1.5.0.28608": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SunnyUI/3.6.5.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CSkin/12.8.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -809,6 +999,31 @@
       "serviceable": false,
       "sha512": ""
     },
+    "zxing/0.16.6.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NPOI/2.4.1.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Office.Interop.Excel/15.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NPOI.OOXML/2.4.1.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SunnyUI.Common/3.6.5.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "TCP/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
@@ -819,12 +1034,57 @@
       "serviceable": false,
       "sha512": ""
     },
+    "AxOvkBase/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AxAltairUDrvAsm4.5/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AxOvkBaseAsm4.5/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AxOvkMsr/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "MeasureSystemFunction/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
+    "AxAltairUDrv/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "MVSDK/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "office/15.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NPOI.OpenXml4Net/2.4.1.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NPOI.OpenXmlFormats/2.4.1.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "stdole/7.0.3300.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

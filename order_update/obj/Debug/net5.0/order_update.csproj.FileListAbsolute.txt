@@ -85,3 +85,13 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Debug\net5.0\N
 C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Debug\net5.0\NPOI.OpenXmlFormats.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Debug\net5.0\HIS_DB_Lib.xml
 C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\obj\Debug\net5.0\order_update.csproj.AssemblyReference.cache
+C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Debug\net5.0\AxOvkBase.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Debug\net5.0\AxAltairUDrvAsm4.5.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Debug\net5.0\AxOvkBaseAsm4.5.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Debug\net5.0\AxOvkMsr.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Debug\net5.0\AxAltairUDrv.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Debug\net5.0\stdole.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Debug\net5.0\Basic.xml
+C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Debug\net5.0\SQLUI.xml
+C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Debug\net5.0\ICSharpCode.SharpZipLib.pdb
+C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Debug\net5.0\ICSharpCode.SharpZipLib.xml

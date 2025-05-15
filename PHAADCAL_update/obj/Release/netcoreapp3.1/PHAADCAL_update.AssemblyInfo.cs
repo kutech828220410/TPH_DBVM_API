@@ -11,7 +11,13 @@
 using System;
 using System.Reflection;
 
-
+[assembly: System.Reflection.AssemblyCompanyAttribute("PHAADCAL_update")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyProductAttribute("PHAADCAL_update")]
+[assembly: System.Reflection.AssemblyTitleAttribute("PHAADCAL_update")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // 由 MSBuild WriteCodeFragment 類別產生。
 

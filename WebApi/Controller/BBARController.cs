@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ using HIS_DB_Lib;
 using System.Text.Json.Serialization;
 namespace DB2VM
 {
+
     [Route("dbvm/[controller]")]
     [ApiController]
     public class BBARController : ControllerBase
@@ -40,7 +42,7 @@ namespace DB2VM
 
         private SQLControl sQLControl_UDSDBBCM = new SQLControl(MySQL_server, MySQL_database, "UDSDBBCM", MySQL_userid, MySQL_password, (uint)MySQL_port.StringToInt32(), MySql.Data.MySqlClient.MySqlSslMode.None);
         private SQLControl sQLControl_醫囑資料 = new SQLControl(MySQL_server, MySQL_database, "order_list", MySQL_userid, MySQL_password, (uint)MySQL_port.StringToInt32(), MySql.Data.MySqlClient.MySqlSslMode.None);
-
+        private string API_Server = "https://pharma-cetrlm.tph.mohw.gov.tw:4443";
         [HttpGet]
         public string Get(string? BarCode, string? test, string? MRN)
         {
@@ -49,6 +51,9 @@ namespace DB2VM
             OracleConnection conn_oracle;
             OracleDataReader reader;
             OracleCommand cmd;
+            string ICD1 = "";
+            string ICD2 = "";
+            string ICD3 = "";
             try
             {
                 try
@@ -162,7 +167,11 @@ namespace DB2VM
                     commandText += "PAC_DOCNAME,"; //醫師代碼
                     commandText += "PAC_PROCDTTM,"; //醫令開立時間
                     commandText += "PAC_PAYCD,"; //費用別
+                    commandText += "PAC_ICDX1,"; //診斷碼1
+                    commandText += "PAC_ICDX2,"; //診斷碼2
+                    commandText += "PAC_ICDX3,"; //診斷碼3
                     commandText += "PAC_DRUGGIST "; //藥師代碼
+
 
                     commandText += $"from phaadcal where PAC_SEQ='{PAC_SEQ}' and PAC_VISITDT='{PAC_VISITDT}' AND PAC_DIACODE='{PAC_DIACODE}' AND PAC_ORDERSEQ='{PAC_ORDERSEQ}' ";
                     commandText += "GROUP BY ";
@@ -184,6 +193,9 @@ namespace DB2VM
                     commandText += "PAC_DOCNAME,"; //醫師代碼
                     commandText += "PAC_PROCDTTM,"; //醫令開立時間
                     commandText += "PAC_PAYCD,"; //費用別
+                    commandText += "PAC_ICDX1,"; //診斷碼1
+                    commandText += "PAC_ICDX2,"; //診斷碼2
+                    commandText += "PAC_ICDX3,"; //診斷碼3
                     commandText += "PAC_DRUGGIST "; //藥師代碼
 
                 }
@@ -217,6 +229,9 @@ namespace DB2VM
                         commandText += "PAC_DOCNAME,"; //醫師代碼
                         commandText += "PAC_PROCDTTM, "; //醫令開立時間
                         commandText += "PAC_PAYCD, "; //費用別
+                        commandText += "PAC_ICDX1,"; //診斷碼1
+                        commandText += "PAC_ICDX2,"; //診斷碼2
+                        commandText += "PAC_ICDX3,"; //診斷碼3
                         commandText += "PAC_DRUGGIST "; //藥師代碼
 
                         commandText += $"from  phaadcal  where PAC_SEQ='{住院序號}' and PAC_PROCDTTM='{醫令時間}' AND PAC_TYPE='{醫令類型}' ";
@@ -239,6 +254,9 @@ namespace DB2VM
                         commandText += "PAC_DOCNAME,"; //醫師代碼
                         commandText += "PAC_PROCDTTM, "; //醫令開立時間
                         commandText += "PAC_PAYCD, "; //費用別
+                        commandText += "PAC_ICDX1,"; //診斷碼1
+                        commandText += "PAC_ICDX2,"; //診斷碼2
+                        commandText += "PAC_ICDX3,"; //診斷碼3
                         commandText += "PAC_DRUGGIST "; //藥師代碼
 
                     }
@@ -270,6 +288,9 @@ namespace DB2VM
                             commandText += "PAC_DOCNAME,"; //醫師代碼
                             commandText += "PAC_PROCDTTM,"; //醫令開立時間
                             commandText += "PAC_PAYCD,"; //費用別
+                            commandText += "PAC_ICDX1,"; //診斷碼1
+                            commandText += "PAC_ICDX2,"; //診斷碼2
+                            commandText += "PAC_ICDX3,"; //診斷碼3
                             commandText += "PAC_DRUGGIST "; //藥師代碼
 
                             commandText += $"from phaadcal where PAC_DRUGNO='{PAC_DRUGNO}' and PAC_VISITDT='{PAC_VISITDT}' AND PAC_PATID='{PAC_PATID}' AND PAC_SEQ='{PAC_SEQ}'  ";
@@ -292,6 +313,9 @@ namespace DB2VM
                             commandText += "PAC_DOCNAME,"; //醫師代碼
                             commandText += "PAC_PROCDTTM,"; //醫令開立時間
                             commandText += "PAC_PAYCD,"; //費用別
+                            commandText += "PAC_ICDX1,"; //診斷碼1
+                            commandText += "PAC_ICDX2,"; //診斷碼2
+                            commandText += "PAC_ICDX3,"; //診斷碼3
                             commandText += "PAC_DRUGGIST "; //藥師代碼
 
                             flag_術中醫令 = true;
@@ -322,6 +346,9 @@ namespace DB2VM
                             commandText += "PAC_DOCNAME,"; //醫師代碼
                             commandText += "PAC_PROCDTTM,"; //醫令開立時間
                             commandText += "PAC_PAYCD,"; //費用別
+                            commandText += "PAC_ICDX1,"; //診斷碼1
+                            commandText += "PAC_ICDX2,"; //診斷碼2
+                            commandText += "PAC_ICDX3,"; //診斷碼3
                             commandText += "PAC_DRUGGIST "; //藥師代碼
 
                             commandText += $"from phaadcal where PAC_SEQ='{PAC_SEQ}' and PAC_VISITDT='{PAC_VISITDT}' AND PAC_DIACODE='{PAC_DIACODE}' AND PAC_ORDERSEQ='{PAC_ORDERSEQ}' ";
@@ -344,6 +371,9 @@ namespace DB2VM
                             commandText += "PAC_DOCNAME,"; //醫師代碼
                             commandText += "PAC_PROCDTTM,"; //醫令開立時間
                             commandText += "PAC_PAYCD,"; //費用別
+                            commandText += "PAC_ICDX1,"; //診斷碼1
+                            commandText += "PAC_ICDX2,"; //診斷碼2
+                            commandText += "PAC_ICDX3,"; //診斷碼3
                             commandText += "PAC_DRUGGIST "; //藥師代碼
 
                             flag_術中醫令 = true;
@@ -378,6 +408,9 @@ namespace DB2VM
                     commandText += "PAC_DOCNAME,"; //醫師代碼
                     commandText += "PAC_PROCDTTM,"; //醫令開立時間
                     commandText += "PAC_PAYCD,"; //費用別
+                    commandText += "PAC_ICDX1,"; //診斷碼1
+                    commandText += "PAC_ICDX2,"; //診斷碼2
+                    commandText += "PAC_ICDX3,"; //診斷碼3
                     commandText += "PAC_DRUGGIST "; //藥師代碼
 
                     commandText += $"from PHAADC where PAC_SEQ='{住院序號}' and PAC_PROCDTTM='{醫令時間}' AND PAC_TYPE='{醫令類型}' ";
@@ -400,6 +433,9 @@ namespace DB2VM
                     commandText += "PAC_DOCNAME,"; //醫師代碼
                     commandText += "PAC_PROCDTTM,"; //醫令開立時間
                     commandText += "PAC_PAYCD,"; //費用別
+                    commandText += "PAC_ICDX1,"; //診斷碼1
+                    commandText += "PAC_ICDX2,"; //診斷碼2
+                    commandText += "PAC_ICDX3,"; //診斷碼3
                     commandText += "PAC_DRUGGIST "; //藥師代碼
 
 
@@ -435,6 +471,9 @@ namespace DB2VM
                     commandText += "PAC_DOCNAME,"; //醫師代碼
                     commandText += "PAC_PROCDTTM,"; //醫令開立時間
                     commandText += "PAC_PAYCD,"; //費用別
+                    commandText += "PAC_ICDX1,"; //診斷碼1
+                    commandText += "PAC_ICDX2,"; //診斷碼2
+                    commandText += "PAC_ICDX3,"; //診斷碼3
                     commandText += "PAC_DRUGGIST "; //藥師代碼
 
                     commandText += $"from phaadcal where PAC_DRUGNO={本次領藥號}  and PAC_PATID={_病歷號} and PAC_SEQ={序號} ";
@@ -457,6 +496,9 @@ namespace DB2VM
                     commandText += "PAC_DOCNAME,"; //醫師代碼
                     commandText += "PAC_PROCDTTM,"; //醫令開立時間
                     commandText += "PAC_PAYCD,"; //費用別
+                    commandText += "PAC_ICDX1,"; //診斷碼1
+                    commandText += "PAC_ICDX2,"; //診斷碼2
+                    commandText += "PAC_ICDX3,"; //診斷碼3
                     commandText += "PAC_DRUGGIST "; //藥師代碼
 
 
@@ -493,11 +535,14 @@ namespace DB2VM
                             list_temp.Add(value.ToArray());
                             OrderClass orderClass = new OrderClass();
                             string type = reader["PAC_TYPE"].ToString().Trim();
+
                             if (type == "E") orderClass.藥袋類型 = "PHER";
                             if (type == "S") orderClass.藥袋類型 = "STAT";
                             if (type == "B") orderClass.藥袋類型 = "首日量";
                             if (type == "O") orderClass.藥袋類型 = "OPD";
                             if (type == "M") orderClass.藥袋類型 = "出院帶藥";
+
+                         
 
                             orderClass.PRI_KEY = $"{reader["PAC_ORDERSEQ"].ToString().Trim()}-{reader["PAC_DRUGNO"].ToString().Trim()}";
                             orderClass.藥袋條碼 = BarCode;
@@ -514,6 +559,13 @@ namespace DB2VM
                             orderClass.醫師代碼 = reader["PAC_DOCNAME"].ToString().Trim();
                             orderClass.頻次 = reader["PAC_FEQNO"].ToString().Trim();
                             orderClass.天數 = reader["PAC_DAYS"].ToString().Trim();
+                            orderClass.單次劑量 = reader["PAC_QTYPERTIME"].ToString().Trim();
+                            orderClass.劑量單位 = reader["PAC_UNIT"].ToString().Trim();
+                            ICD1 = reader["PAC_ICDX1"].ToString().Trim();
+                            ICD2 = reader["PAC_ICDX2"].ToString().Trim();
+                            ICD3 = reader["PAC_ICDX3"].ToString().Trim();
+
+
 
 
 
@@ -725,6 +777,7 @@ namespace DB2VM
 
                     }
                 }
+                List<Task> tasks = new List<Task>();
                 Task task = Task.Run(() =>
                 {
                     if (list_value_Add.Count > 0)
@@ -736,7 +789,62 @@ namespace DB2VM
                         this.sQLControl_醫囑資料.UpdateByDefulteExtra(null, list_value_replace);
                     }
                 });
+                tasks.Add(Task.Run(new Action(delegate
+                {
+                    
+                    List<suspiciousRxLogClass> suspiciousRxLoges = suspiciousRxLogClass.get_by_barcode(API_Server, orderClasses[0].藥袋條碼);
+                    List<string> list_診斷碼 = new List<string>();
+                    List<string> list_中文說明 = new List<string>();
+                    suspiciousRxLogClass suspiciousRxLogClasses = new suspiciousRxLogClass();
 
+                    if (suspiciousRxLoges.Count  != 0)
+                    {
+                        List<string> disease_list = new List<string>();
+                        if (ICD1.StringIsEmpty() == false) disease_list.Add(ICD1);
+                        if (ICD2.StringIsEmpty() == false) disease_list.Add(ICD2);
+                        if (ICD3.StringIsEmpty() == false) disease_list.Add(ICD3);
+                        if(disease_list.Count > 0)
+                        {
+                            string disease = string.Join(";", disease_list);
+
+                            List<diseaseClass> diseaseClasses = diseaseClass.get_by_ICD(API_Server, disease);
+                            
+                            if (diseaseClasses.Count > 0)
+                            {
+                                foreach (var item in diseaseClasses)
+                                {
+                                    list_診斷碼.Add(item.疾病代碼);
+                                    list_中文說明.Add(item.中文說明);
+                                }
+                            }
+                        }
+                        
+
+                        suspiciousRxLogClasses = new suspiciousRxLogClass()
+                        {
+                            GUID = Guid.NewGuid().ToString(),
+                            藥袋條碼 = orderClasses[0].藥袋條碼,
+                            加入時間 = DateTime.Now.ToDateTimeString(),
+                            病歷號 = orderClasses[0].病歷號,
+                            科別 = orderClasses[0].科別,
+                            醫生姓名 = orderClasses[0].醫師代碼,
+                            開方時間 = orderClasses[0].開方日期,
+                            藥袋類型 = orderClasses[0].藥袋類型,
+                            //錯誤類別 = string.Join(",", suspiciousRxLog.error_type),
+                            //簡述事件 = suspiciousRxLog.response,
+                            狀態 = enum_suspiciousRxLog_status.未辨識.GetEnumName(),
+                            調劑人員 = orderClasses[0].藥師姓名,
+                            調劑時間 = orderClasses[0].過帳時間,
+                            //提報等級 = enum_suspiciousRxLog_ReportLevel.Normal.GetEnumName(),
+                            提報時間 = DateTime.MinValue.ToDateTimeString(),
+                            處理時間 = DateTime.MinValue.ToDateTimeString(),
+                            診斷碼 = string.Join(";", list_診斷碼),
+                            診斷內容 = string.Join(";", list_中文說明)
+                        };
+                        suspiciousRxLogClass.add(API_Server, suspiciousRxLogClasses);
+                    }
+                })));
+                Task.WhenAll(tasks).Wait();
                 returnData.Code = 200;
                 returnData.Data = orderClasses;
                 returnData.TimeTaken = myTimerBasic.ToString();
@@ -755,10 +863,11 @@ namespace DB2VM
 
         [Route("order_controll_drug")]
         [HttpGet]
-        public string order_controll_drug(string? BarCode, string? test, string? MRN)
+        public string order_controll_drug(string? BarCode, string? MRN)
         {
             bool flag_術中醫令 = false;
             string conn_str = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.24.211)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=SISDCP)));User ID=tphphaadc;Password=tph@phaadc2860;";
+
             OracleConnection conn_oracle;
             OracleDataReader reader;
             OracleCommand cmd;
@@ -879,6 +988,9 @@ namespace DB2VM
                     commandText += "PAC_DOCNAME,"; //醫師代碼
                     commandText += "PAC_PROCDTTM,"; //醫令開立時間
                     commandText += "PAC_PAYCD,"; //費用別
+                    commandText += "PAC_ICDX1,"; //診斷碼1
+                    commandText += "PAC_ICDX2,"; //診斷碼2
+                    commandText += "PAC_ICDX3,"; //診斷碼3
                     commandText += "PAC_DRUGGIST "; //藥師代碼
 
                     commandText += $"from phaadcal where PAC_SEQ='{PAC_SEQ}' and PAC_VISITDT='{PAC_VISITDT}' AND PAC_DIACODE='{PAC_DIACODE}' AND PAC_ORDERSEQ='{PAC_ORDERSEQ}' ";
@@ -901,6 +1013,9 @@ namespace DB2VM
                     commandText += "PAC_DOCNAME,"; //醫師代碼
                     commandText += "PAC_PROCDTTM,"; //醫令開立時間
                     commandText += "PAC_PAYCD,"; //費用別
+                    commandText += "PAC_ICDX1,"; //診斷碼1
+                    commandText += "PAC_ICDX2,"; //診斷碼2
+                    commandText += "PAC_ICDX3,"; //診斷碼3
                     commandText += "PAC_DRUGGIST "; //藥師代碼
 
                 }
@@ -936,7 +1051,7 @@ namespace DB2VM
                         commandText += "PAC_PAYCD,"; //費用別
                         commandText += "PAC_DRUGGIST "; //藥師代碼
 
-                        commandText += $"from PHAADC where PAC_SEQ='{住院序號}' and PAC_PROCDTTM='{醫令時間}' AND PAC_TYPE='{醫令類型}' ";
+                        commandText += $"from phaadcal where PAC_SEQ='{住院序號}' and PAC_PROCDTTM='{醫令時間}' AND PAC_TYPE='{醫令類型}' ";
                         commandText += "GROUP BY ";
 
                         commandText += "PAC_ORDERSEQ,"; //醫令序號
@@ -1153,7 +1268,11 @@ namespace DB2VM
                     commandText += "PAC_DOCNAME,"; //醫師代碼
                     commandText += "PAC_PROCDTTM,"; //醫令開立時間
                     commandText += "PAC_PAYCD,"; //費用別
+                    commandText += "PAC_ICDX1,"; //診斷碼1
+                    commandText += "PAC_ICDX2,"; //診斷碼2
+                    commandText += "PAC_ICDX3,"; //診斷碼3
                     commandText += "PAC_DRUGGIST "; //藥師代碼
+                   
                     commandText += $"from phaadcal where PAC_DRUGNO={本次領藥號}  and PAC_PATID={_病歷號} and PAC_SEQ={序號} ";
                     //commandText += $"from phaadcal where PAC_DRUGNO={本次領藥號} and PAC_VISITDT = {看診日期}   ";
                     //commandText += $"from phaadcal where PAC_DRUGNO={本次領藥號} and PAC_PATID={_病歷號} and  PAC_VISITDT={看診日期} ";
@@ -1179,6 +1298,9 @@ namespace DB2VM
                     commandText += "PAC_DOCNAME,"; //醫師代碼
                     commandText += "PAC_PROCDTTM,"; //醫令開立時間
                     commandText += "PAC_PAYCD,"; //費用別
+                    commandText += "PAC_ICDX1,"; //診斷碼1
+                    commandText += "PAC_ICDX2,"; //診斷碼2
+                    commandText += "PAC_ICDX3,"; //診斷碼3
                     commandText += "PAC_DRUGGIST "; //藥師代碼
 
 
@@ -1238,7 +1360,9 @@ namespace DB2VM
                             orderClass.醫師代碼 = reader["PAC_DOCNAME"].ToString().Trim();
                             orderClass.頻次 = reader["PAC_FEQNO"].ToString().Trim();
                             orderClass.天數 = reader["PAC_DAYS"].ToString().Trim();
-
+                            string ICD1 = reader["PAC_ICDX1"].ToString().Trim();
+                            string ICD2 = reader["PAC_ICDX2"].ToString().Trim();
+                            string ICD3 = reader["PAC_ICDX3"].ToString().Trim();
 
 
                             if (reader["PAC_PAYCD"].ToString().Trim() == "Y")
@@ -1284,14 +1408,15 @@ namespace DB2VM
 
                         }
                     }
-                    catch
+                    catch(Exception ex)
                     {
-                        return "HIS系統回傳資料異常!";
+
+                        return $"HIS系統回傳資料異常! \n {ex} \n {commandText}";
                     }
                 }
-                catch
+                catch(Exception ex)
                 {
-                    return "HIS系統命令下達失敗!";
+                    return $"HIS系統命令下達失敗!\n {ex} \n { commandText} ";
                 }
                 conn_oracle.Close();
                 conn_oracle.Dispose();
@@ -1359,27 +1484,16 @@ namespace DB2VM
                 string 病歷號 = orderClasses[0].病歷號;
                 string Today = DateTime.Now.ToString("yyyy-MM-dd");
                 string tenDaysAgo = DateTime.Now.AddDays(-0).ToString("yyyy-MM-dd");
+                //string tenDaysAgo = DateTime.Now.AddDays(-5).ToString("yyyy-MM-dd");
+
                 //orderClasses = orderClasses.Where(temp => string.Compare(temp.就醫時間, tenDaysAgo) >= 0 && string.Compare(temp.就醫時間, Today) <= 0).ToList();
                 orderClasses = orderClasses.Where(temp => string.Compare(temp.就醫時間, tenDaysAgo) >= 0).ToList();
 
-                if(orderClasses[0].領藥號.StringIsEmpty() == false)
-                {
-                    if (orderClasses[0].領藥號.Substring(0, 1) != "4")
-                    {
-                        //orderClasses = (from temp in orderClasses
-                        //                where temp.開方日期.StringToDateTime().IsInDate(DateTime.Now.GetStartDate(), DateTime.Now.GetEndDate()) == true
-                        //                select temp).ToList();
-                        //orderClasses = (from temp in orderClasses
-                        //                where temp.就醫時間.StringToDateTime().IsInDate(DateTime.Now.GetStartDate(), DateTime.Now.GetEndDate()) == true
-                        //                select temp).ToList();
-                        //orderClasses = orderClasses.Where(temp => string.Compare(temp.就醫時間, tenDaysAgo) >= 0).ToList();
-
-                    }
-                }
-             
-
-                //orderClasses = orderClasses.Where(temp => temp.就醫時間 == Today).ToList();
-                List<object[]> list_value = this.sQLControl_醫囑資料.GetRowsByDefult(null, enum_醫囑資料.病歷號.GetEnumName(), 病歷號);
+                
+                List<OrderClass> orders = OrderClass.get_by_PATCODE("http://127.0.0.1:4433", 病歷號);
+                List<object[]> list_value = sQLControl_醫囑資料.GetRowsByDefult(null, (int)enum_醫囑資料.病歷號, 病歷號);
+           
+                //List<object[]> list_value = sQLControl.GetRowsByDefult(null, enum_醫囑資料.病歷號.GetEnumName(), 病歷號);
                 List<object[]> list_value_buf = new List<object[]>();
                 for (int i = 0; i < orderClasses.Count; i++)
                 {
@@ -1408,6 +1522,8 @@ namespace DB2VM
                         value[(int)enum_醫囑資料.天數] = orderClasses[i].天數;
                         value[(int)enum_醫囑資料.藥袋類型] = orderClasses[i].藥袋類型;
                         value[(int)enum_醫囑資料.費用別] = orderClasses[i].費用別;
+                        value[(int)enum_醫囑資料.開方日期] = orderClasses[i].開方日期;
+
 
                         value[(int)enum_醫囑資料.產出時間] = DateTime.Now.ToDateTimeString_6();
                         value[(int)enum_醫囑資料.過帳時間] = DateTime.MinValue.ToDateTimeString_6();
@@ -1484,9 +1600,10 @@ namespace DB2VM
                 Logger.Log("BBAR_control", json_result);
                 return json_result;
             }
-            catch
+            catch(Exception ex)
             {
-                return "醫令串接異常";
+
+                return $"醫令串接異常 \n {ex}";
             }
 
         }
@@ -2337,6 +2454,7 @@ namespace DB2VM
             [JsonPropertyName("SECTNO")]
             public string 科別 { get; set; }
         }
+
     }
 
 }

@@ -1,0 +1,88 @@
+20250408-19:26:26 - 條碼: 1140004738202504081646181;8513;OTAR2;0002384228
+20250408-19:26:26 - 日期: 2025-04-09, 筆數: 1
+20250408-19:26:26 - {
+  "Data": [
+    {
+      "GUID": "3c2a1973-cd00-4c7f-ac2b-dcb4683c98fc",
+      "PRI_KEY": "20250408164619070-8513",
+      "MED_BAG_SN": "1140004738202504081646181;8513;OTAR2;0002384228",
+      "BRYPE": "首日量",
+      "CODE": "OTAR2",
+      "NAME": "※ Tagrisso 80mg",
+      "MED_BAG_NUM": "8513",
+      "HCASENO": "1140004738",
+      "DAYS": "1",
+      "FREQ": "QD",
+      "CTYPE": "自費",
+      "PATNAME": "黃真君",
+      "PATCODE": "0002384228",
+      "TXN_QTY": "-1",
+      "DOCID": "蕭詠聰",
+      "SECTNO": "胸腔內科",
+      "ORD_START": "2025/04/08 16:46:18",
+      "VISITDT_TIME": "2025-04-09",
+      "STATE": "未過帳"
+    }
+  ],
+  "Code": 200,
+  "Method": "",
+  "Result": "取得醫囑完成! 共<1>筆 ,新增<0>筆,修改<0>筆 , 從DB取得時間:10.840ms",
+  "Value": "",
+  "ValueAry": [],
+  "TimeTaken": "76.595ms",
+  "Token": "",
+  "Server": "",
+  "DbName": "",
+  "TableName": "",
+  "Port": 0,
+  "UserName": "",
+  "Password": "",
+  "ServerType": "",
+  "ServerName": "",
+  "ServerContent": "",
+  "RequestUrl": ""
+}
+20250408-19:26:31 - 條碼: 1140004738202504081646181;8513;OTAR2;0002384228
+20250408-19:26:31 - 日期: 2025-04-09, 筆數: 1
+20250408-19:26:31 - {
+  "Data": [
+    {
+      "GUID": "3c2a1973-cd00-4c7f-ac2b-dcb4683c98fc",
+      "PRI_KEY": "20250408164619070-8513",
+      "MED_BAG_SN": "1140004738202504081646181;8513;OTAR2;0002384228",
+      "BRYPE": "首日量",
+      "CODE": "OTAR2",
+      "NAME": "※ Tagrisso 80mg",
+      "MED_BAG_NUM": "8513",
+      "HCASENO": "1140004738",
+      "DAYS": "1",
+      "FREQ": "QD",
+      "CTYPE": "自費",
+      "PATNAME": "黃真君",
+      "PATCODE": "0002384228",
+      "TXN_QTY": "-1",
+      "DOCID": "蕭詠聰",
+      "SECTNO": "胸腔內科",
+      "ORD_START": "2025/04/08 16:46:18",
+      "VISITDT_TIME": "2025-04-09",
+      "STATE": "未過帳"
+    }
+  ],
+  "Code": 200,
+  "Method": "",
+  "Result": "取得醫囑完成! 共<1>筆 ,新增<0>筆,修改<0>筆 , 從DB取得時間:8.103ms",
+  "Value": "",
+  "ValueAry": [],
+  "TimeTaken": "45.828ms",
+  "Token": "",
+  "Server": "",
+  "DbName": "",
+  "TableName": "",
+  "Port": 0,
+  "UserName": "",
+  "Password": "",
+  "ServerType": "",
+  "ServerName": "",
+  "ServerContent": "",
+  "RequestUrl": ""
+}

@@ -1,0 +1,240 @@
+20250407-04:20:20 - 與HIS建立連線
+20250407-04:20:20 - 與HIS擷取資料開始
+20250407-04:20:20 - 與HIS擷取資料結束
+20250407-04:20:20 - 條碼: 1192;20250405;0002430935;1;QDPC;PO;28;0;20250405102421839
+20250407-04:20:20 - 日期: 2025-04-05, 筆數: 1
+20250407-04:20:21 - {
+  "Data": [
+    {
+      "GUID": "c9db9dbc-41ab-49b3-ab92-4ea9b0805cb9",
+      "PRI_KEY": "20250405102421839-1192",
+      "MED_BAG_SN": "1192;20250405;0002430935;1;QDPC;PO;28;0;20250405102421839",
+      "BRYPE": "PHER",
+      "CODE": "ORIT3",
+      "NAME": "管3 RITALIN LA  20mg",
+      "HCASENO": "1",
+      "MED_BAG_NUM": "1192",
+      "DAYS": "28",
+      "FREQ": "QDPC",
+      "CTYPE": "健保",
+      "PATNAME": "黃彥綸",
+      "PATCODE": "0002430935",
+      "DOCID": "陳昱文",
+      "SECTNO": "精神科",
+      "TXN_QTY": "-28",
+      "ORD_START": "2025/04/05 10:25:22",
+      "VISITDT_TIME": "2025-04-05",
+      "PHARER_ID": "-1",
+      "STATE": "已過帳"
+    }
+  ],
+  "Code": 200,
+  "Method": "",
+  "Result": "取得醫囑完成! 共<1>筆 ,新增<0>筆,修改<0>筆 , 從DB取得時間:150.166ms",
+  "Value": "",
+  "ValueAry": [],
+  "TimeTaken": "500.087ms",
+  "Token": "",
+  "Server": "",
+  "DbName": "",
+  "TableName": "",
+  "Port": 0,
+  "UserName": "",
+  "Password": "",
+  "ServerType": "",
+  "ServerName": "",
+  "ServerContent": "",
+  "RequestUrl": ""
+}
+20250407-04:20:53 - 與HIS建立連線
+20250407-04:20:53 - 與HIS擷取資料開始
+20250407-04:20:53 - 與HIS擷取資料結束
+20250407-04:20:53 - 條碼: 1192;20250405;0002430935;1;QDPC;PO;28;0;20250405102421839
+20250407-04:20:53 - 日期: 2025-04-05, 筆數: 1
+20250407-04:20:53 - {
+  "Data": [
+    {
+      "GUID": "2f8bb7f7-fdf9-40b1-a76b-012b5a0d9535",
+      "PRI_KEY": "20250405102421839-1192",
+      "MED_BAG_SN": "1192;20250405;0002430935;1;QDPC;PO;28;0;20250405102421839",
+      "BRYPE": "PHER",
+      "CODE": "ORIT3",
+      "NAME": "管3 RITALIN LA  20mg",
+      "HCASENO": "1",
+      "MED_BAG_NUM": "1192",
+      "DAYS": "28",
+      "FREQ": "QDPC",
+      "CTYPE": "健保",
+      "PATNAME": "黃彥綸",
+      "PATCODE": "0002430935",
+      "DOCID": "陳昱文",
+      "SECTNO": "精神科",
+      "TXN_QTY": "-28",
+      "ORD_START": "2025/04/05 10:25:22",
+      "VISITDT_TIME": "2025-04-05",
+      "PHARER_ID": "-1",
+      "STATE": ""
+    }
+  ],
+  "Code": 200,
+  "Method": "",
+  "Result": "取得醫囑完成! 共<1>筆 ,新增<1>筆,修改<0>筆 , 從DB取得時間:5.128ms",
+  "Value": "",
+  "ValueAry": [],
+  "TimeTaken": "63.437ms",
+  "Token": "",
+  "Server": "",
+  "DbName": "",
+  "TableName": "",
+  "Port": 0,
+  "UserName": "",
+  "Password": "",
+  "ServerType": "",
+  "ServerName": "",
+  "ServerContent": "",
+  "RequestUrl": ""
+}
+20250407-04:20:55 - 與HIS建立連線
+20250407-04:20:55 - 與HIS擷取資料開始
+20250407-04:20:55 - 與HIS擷取資料結束
+20250407-04:20:56 - 條碼: 1192;20250405;0002430935;1;QDPC;PO;28;0;20250405102421839
+20250407-04:20:56 - 日期: 2025-04-05, 筆數: 1
+20250407-04:20:56 - {
+  "Data": [
+    {
+      "GUID": "2f8bb7f7-fdf9-40b1-a76b-012b5a0d9535",
+      "PRI_KEY": "20250405102421839-1192",
+      "MED_BAG_SN": "1192;20250405;0002430935;1;QDPC;PO;28;0;20250405102421839",
+      "BRYPE": "PHER",
+      "CODE": "ORIT3",
+      "NAME": "管3 RITALIN LA  20mg",
+      "HCASENO": "1",
+      "MED_BAG_NUM": "1192",
+      "DAYS": "28",
+      "FREQ": "QDPC",
+      "CTYPE": "健保",
+      "PATNAME": "黃彥綸",
+      "PATCODE": "0002430935",
+      "DOCID": "陳昱文",
+      "SECTNO": "精神科",
+      "TXN_QTY": "-28",
+      "ORD_START": "2025/04/05 10:25:22",
+      "VISITDT_TIME": "2025-04-05",
+      "PHARER_ID": "-1",
+      "STATE": "未過帳"
+    }
+  ],
+  "Code": 200,
+  "Method": "",
+  "Result": "取得醫囑完成! 共<1>筆 ,新增<0>筆,修改<0>筆 , 從DB取得時間:3.196ms",
+  "Value": "",
+  "ValueAry": [],
+  "TimeTaken": "50.291ms",
+  "Token": "",
+  "Server": "",
+  "DbName": "",
+  "TableName": "",
+  "Port": 0,
+  "UserName": "",
+  "Password": "",
+  "ServerType": "",
+  "ServerName": "",
+  "ServerContent": "",
+  "RequestUrl": ""
+}
+20250407-04:20:58 - 與HIS建立連線
+20250407-04:20:58 - 與HIS擷取資料開始
+20250407-04:20:58 - 與HIS擷取資料結束
+20250407-04:20:58 - 條碼: 1192;20250405;0002430935;1;QDPC;PO;28;0;20250405102421839
+20250407-04:20:58 - 日期: 2025-04-05, 筆數: 1
+20250407-04:20:58 - {
+  "Data": [
+    {
+      "GUID": "2f8bb7f7-fdf9-40b1-a76b-012b5a0d9535",
+      "PRI_KEY": "20250405102421839-1192",
+      "MED_BAG_SN": "1192;20250405;0002430935;1;QDPC;PO;28;0;20250405102421839",
+      "BRYPE": "PHER",
+      "CODE": "ORIT3",
+      "NAME": "管3 RITALIN LA  20mg",
+      "HCASENO": "1",
+      "MED_BAG_NUM": "1192",
+      "DAYS": "28",
+      "FREQ": "QDPC",
+      "CTYPE": "健保",
+      "PATNAME": "黃彥綸",
+      "PATCODE": "0002430935",
+      "DOCID": "陳昱文",
+      "SECTNO": "精神科",
+      "TXN_QTY": "-28",
+      "ORD_START": "2025/04/05 10:25:22",
+      "VISITDT_TIME": "2025-04-05",
+      "PHARER_ID": "-1",
+      "STATE": "未過帳"
+    }
+  ],
+  "Code": 200,
+  "Method": "",
+  "Result": "取得醫囑完成! 共<1>筆 ,新增<0>筆,修改<0>筆 , 從DB取得時間:3.973ms",
+  "Value": "",
+  "ValueAry": [],
+  "TimeTaken": "35.323ms",
+  "Token": "",
+  "Server": "",
+  "DbName": "",
+  "TableName": "",
+  "Port": 0,
+  "UserName": "",
+  "Password": "",
+  "ServerType": "",
+  "ServerName": "",
+  "ServerContent": "",
+  "RequestUrl": ""
+}
+20250407-04:21:03 - 與HIS建立連線
+20250407-04:21:03 - 與HIS擷取資料開始
+20250407-04:21:03 - 與HIS擷取資料結束
+20250407-04:21:03 - 條碼: 1192;20250405;0002430935;1;QDPC;PO;28;0;20250405102421839
+20250407-04:21:03 - 日期: 2025-04-05, 筆數: 1
+20250407-04:21:03 - {
+  "Data": [
+    {
+      "GUID": "2f8bb7f7-fdf9-40b1-a76b-012b5a0d9535",
+      "PRI_KEY": "20250405102421839-1192",
+      "MED_BAG_SN": "1192;20250405;0002430935;1;QDPC;PO;28;0;20250405102421839",
+      "BRYPE": "PHER",
+      "CODE": "ORIT3",
+      "NAME": "管3 RITALIN LA  20mg",
+      "HCASENO": "1",
+      "MED_BAG_NUM": "1192",
+      "DAYS": "28",
+      "FREQ": "QDPC",
+      "CTYPE": "健保",
+      "PATNAME": "黃彥綸",
+      "PATCODE": "0002430935",
+      "DOCID": "陳昱文",
+      "SECTNO": "精神科",
+      "TXN_QTY": "-28",
+      "ORD_START": "2025/04/05 10:25:22",
+      "VISITDT_TIME": "2025-04-05",
+      "PHARER_ID": "-1",
+      "STATE": "未過帳"
+    }
+  ],
+  "Code": 200,
+  "Method": "",
+  "Result": "取得醫囑完成! 共<1>筆 ,新增<0>筆,修改<0>筆 , 從DB取得時間:2.880ms",
+  "Value": "",
+  "ValueAry": [],
+  "TimeTaken": "37.576ms",
+  "Token": "",
+  "Server": "",
+  "DbName": "",
+  "TableName": "",
+  "Port": 0,
+  "UserName": "",
+  "Password": "",
+  "ServerType": "",
+  "ServerName": "",
+  "ServerContent": "",
+  "RequestUrl": ""
+}

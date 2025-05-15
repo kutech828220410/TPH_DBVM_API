@@ -136,6 +136,10 @@ namespace WebApi.Controller
 
 
             string mainPart = parts[0];
+            if(mainPart.Length > 10)
+            {
+                mainPart = mainPart.Substring(7, 10);
+            }
             string lastPart = int.Parse(parts[1]).ToString(); // 確保兩位數格式
             textVisionClass.單號 = $"{mainPart}-{lastPart}";
             //textVisionClass.PRI_KEY = textVisionClass.單號;

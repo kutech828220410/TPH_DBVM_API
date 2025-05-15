@@ -90,3 +90,13 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\PHAADCAL_update\bin\Debug\netco
 C:\Users\Administrator\source\repos\TPH_DBVM_API\PHAADCAL_update\bin\Debug\netcoreapp3.1\runtimes\linux\lib\netcoreapp2.0\System.DirectoryServices.Protocols.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\PHAADCAL_update\bin\Debug\netcoreapp3.1\runtimes\osx\lib\netcoreapp2.0\System.DirectoryServices.Protocols.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\PHAADCAL_update\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.DirectoryServices.Protocols.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\PHAADCAL_update\bin\Debug\netcoreapp3.1\AxOvkBase.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\PHAADCAL_update\bin\Debug\netcoreapp3.1\AxAltairUDrvAsm4.5.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\PHAADCAL_update\bin\Debug\netcoreapp3.1\AxOvkBaseAsm4.5.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\PHAADCAL_update\bin\Debug\netcoreapp3.1\AxOvkMsr.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\PHAADCAL_update\bin\Debug\netcoreapp3.1\AxAltairUDrv.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\PHAADCAL_update\bin\Debug\netcoreapp3.1\stdole.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\PHAADCAL_update\bin\Debug\netcoreapp3.1\Basic.xml
+C:\Users\Administrator\source\repos\TPH_DBVM_API\PHAADCAL_update\bin\Debug\netcoreapp3.1\SQLUI.xml
+C:\Users\Administrator\source\repos\TPH_DBVM_API\PHAADCAL_update\bin\Debug\netcoreapp3.1\ICSharpCode.SharpZipLib.pdb
+C:\Users\Administrator\source\repos\TPH_DBVM_API\PHAADCAL_update\bin\Debug\netcoreapp3.1\ICSharpCode.SharpZipLib.xml

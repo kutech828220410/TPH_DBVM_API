@@ -11,6 +11,7 @@
           "MySql.Data": "8.0.29",
           "Oracle.ManagedDataAccess.Core": "3.21.90",
           "Basic": "1.0.0.0",
+          "CSkin": "12.8.0.0",
           "HIS_DB_Lib": "1.0.0.0",
           "SQLUI": "1.0.0.0"
         },
@@ -419,6 +420,14 @@
           }
         }
       },
+      "CSkin/12.8.0.0": {
+        "runtime": {
+          "CSkin.dll": {
+            "assemblyVersion": "12.8.0.0",
+            "fileVersion": "12.8.0.0"
+          }
+        }
+      },
       "HIS_DB_Lib/1.0.0.0": {
         "runtime": {
           "HIS_DB_Lib.dll": {
@@ -496,14 +505,6 @@
           "SunnyUI.dll": {
             "assemblyVersion": "3.6.5.0",
             "fileVersion": "3.6.5.0"
-          }
-        }
-      },
-      "CSkin/10.23.0.0": {
-        "runtime": {
-          "CSkin.dll": {
-            "assemblyVersion": "10.23.0.0",
-            "fileVersion": "10.23.0.0"
           }
         }
       },
@@ -651,9 +652,49 @@
           }
         }
       },
+      "AxOvkBase/1.0.0.0": {
+        "runtime": {
+          "AxOvkBase.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "AxAltairUDrvAsm4.5/1.0.0.0": {
+        "runtime": {
+          "AxAltairUDrvAsm4.5.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "AxOvkBaseAsm4.5/1.0.0.0": {
+        "runtime": {
+          "AxOvkBaseAsm4.5.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "AxOvkMsr/1.0.0.0": {
+        "runtime": {
+          "AxOvkMsr.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "MeasureSystemFunction/1.0.0.0": {
         "runtime": {
           "MeasureSystemFunction.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "AxAltairUDrv/1.0.0.0": {
+        "runtime": {
+          "AxAltairUDrv.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -696,6 +737,14 @@
           "NPOI.OpenXmlFormats.dll": {
             "assemblyVersion": "2.4.1.0",
             "fileVersion": "2.4.1.0"
+          }
+        }
+      },
+      "stdole/7.0.3300.0": {
+        "runtime": {
+          "stdole.dll": {
+            "assemblyVersion": "7.0.3300.0",
+            "fileVersion": "7.0.9466.1"
           }
         }
       }
@@ -901,6 +950,11 @@
       "serviceable": false,
       "sha512": ""
     },
+    "CSkin/12.8.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "HIS_DB_Lib/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
@@ -947,11 +1001,6 @@
       "sha512": ""
     },
     "SunnyUI/3.6.5.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "CSkin/10.23.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -1046,7 +1095,32 @@
       "serviceable": false,
       "sha512": ""
     },
+    "AxOvkBase/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AxAltairUDrvAsm4.5/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AxOvkBaseAsm4.5/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AxOvkMsr/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "MeasureSystemFunction/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AxAltairUDrv/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -1072,6 +1146,11 @@
       "sha512": ""
     },
     "NPOI.OpenXmlFormats/2.4.1.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "stdole/7.0.3300.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
