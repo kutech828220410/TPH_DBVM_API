@@ -4,6 +4,8 @@ using Basic;
 using HIS_DB_Lib;
 using Oracle.ManagedDataAccess.Client;
 using SQLUI;
+using System.Threading.Tasks;
+
 namespace PHAADCAL_update
 {
     class Program
@@ -29,7 +31,12 @@ namespace PHAADCAL_update
             OracleConnection conn_oracle;
             OracleDataReader reader;
             OracleCommand cmd;
+            string ICD1 = "";
+            string ICD2 = "";
+            string ICD3 = "";
             string commandText = "";
+            string API_Server = "https://pharma-cetrlm.tph.mohw.gov.tw:4443";
+
             try
             {
 
@@ -57,6 +64,9 @@ namespace PHAADCAL_update
                 commandText += "PAC_DOCNAME,"; //醫師代碼
                 commandText += "PAC_PROCDTTM,"; //醫令開立時間
                 commandText += "PAC_PAYCD,"; //費用別
+                commandText += "PAC_ICDX1,"; //診斷碼1
+                commandText += "PAC_ICDX2,"; //診斷碼2
+                commandText += "PAC_ICDX3,"; //診斷碼3
                 commandText += "PAC_DRUGGIST "; //藥師代碼
 
 
@@ -82,6 +92,9 @@ namespace PHAADCAL_update
                 commandText += "PAC_DOCNAME,"; //醫師代碼
                 commandText += "PAC_PROCDTTM,"; //醫令開立時間
                 commandText += "PAC_PAYCD,"; //費用別
+                commandText += "PAC_ICDX1,"; //診斷碼1
+                commandText += "PAC_ICDX2,"; //診斷碼2
+                commandText += "PAC_ICDX3,"; //診斷碼3
                 commandText += "PAC_DRUGGIST "; //藥師代碼
 
                 cmd = new OracleCommand(commandText, conn_oracle);
@@ -153,6 +166,7 @@ namespace PHAADCAL_update
                             orderClass.GUID = Guid.NewGuid().ToString();
                             list_order_add.Add(orderClass.ClassToSQL<OrderClass, enum_醫囑資料>());
                         }
+                        
 
                     }
                 }
@@ -164,6 +178,47 @@ namespace PHAADCAL_update
                 conn_oracle.Close();
                 conn_oracle.Dispose();
                 sQLControl_醫囑資料.AddRows(null, list_order_add);
+
+                List<Task> tasks = new List<Task>();
+                tasks.Add(Task.Run(new Action(delegate
+                {
+
+                    if (orderClasses.Count == 0) return;
+                    List<suspiciousRxLogClass> suspiciousRxLoges = suspiciousRxLogClass.get_by_barcode(API_Server, orderClasses[0].PRI_KEY);
+                    suspiciousRxLogClass suspiciousRxLogClasses = new suspiciousRxLogClass();
+
+                    if (suspiciousRxLoges.Count == 0)
+                    {
+                        List<string> disease_list = new List<string>();
+                        if (ICD1.StringIsEmpty() == false) disease_list.Add(ICD1);
+                        if (ICD2.StringIsEmpty() == false) disease_list.Add(ICD2);
+                        if (ICD3.StringIsEmpty() == false) disease_list.Add(ICD3);
+                        List<diseaseClass> diseaseClasses = diseaseClass.get_by_ICD(API_Server, disease_list);
+
+                        suspiciousRxLogClasses = new suspiciousRxLogClass()
+                        {
+                            GUID = Guid.NewGuid().ToString(),
+                            藥袋條碼 = orderClasses[0].藥袋條碼,
+                            加入時間 = DateTime.Now.ToDateTimeString(),
+                            病歷號 = orderClasses[0].病歷號,
+                            科別 = orderClasses[0].科別,
+                            醫生姓名 = orderClasses[0].醫師代碼,
+                            開方時間 = orderClasses[0].開方日期,
+                            藥袋類型 = orderClasses[0].藥袋類型,
+                            //錯誤類別 = string.Join(",", suspiciousRxLog.error_type),
+                            //簡述事件 = suspiciousRxLog.response,
+                            狀態 = enum_suspiciousRxLog_status.未辨識.GetEnumName(),
+                            調劑人員 = orderClasses[0].藥師姓名,
+                            調劑時間 = DateTime.Now.ToDateTimeString(),
+                            //提報等級 = enum_suspiciousRxLog_ReportLevel.Normal.GetEnumName(),
+                            提報時間 = DateTime.MinValue.ToDateTimeString(),
+                            處理時間 = DateTime.MinValue.ToDateTimeString(),
+                            diseaseClasses = diseaseClasses
+                        };
+                        suspiciousRxLogClass.add(API_Server, suspiciousRxLogClasses);
+                    }
+                })));
+                Task.WhenAll(tasks).Wait();
                 Console.WriteLine($"搜尋到<{orderClasses.Count}>筆資料,共新增<{list_order_add.Count}>筆資料!");
                 System.Threading.Thread.Sleep(3000);
 

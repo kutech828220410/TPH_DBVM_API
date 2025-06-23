@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "調劑資訊寫回戰情_ba
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "connectTest", "connectTest\connectTest.csproj", "{7C5D3249-0B5C-4E0A-B016-868197B776C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OracleSimpleQueryTool", "OracleSimpleQueryTool\OracleSimpleQueryTool.csproj", "{5873804F-23A0-43C6-BD00-28BF05249A57}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{7C5D3249-0B5C-4E0A-B016-868197B776C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C5D3249-0B5C-4E0A-B016-868197B776C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C5D3249-0B5C-4E0A-B016-868197B776C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5873804F-23A0-43C6-BD00-28BF05249A57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5873804F-23A0-43C6-BD00-28BF05249A57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5873804F-23A0-43C6-BD00-28BF05249A57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5873804F-23A0-43C6-BD00-28BF05249A57}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

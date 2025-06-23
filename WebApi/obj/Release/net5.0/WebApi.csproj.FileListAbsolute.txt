@@ -204,7 +204,6 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\WebAp
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\SQLUI.xml
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\Basic.xml
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\CSkin.dll
-C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\WebApi.csproj.AssemblyReference.cache
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\stdole.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\AxOvkBase.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\AxAltairUDrvAsm4.5.dll
@@ -218,3 +217,4 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\Swash
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\WebApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\Microsoft.OpenApi.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\bin\Release\net5.0\ICSharpCode.SharpZipLib.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\WebApi\obj\Release\net5.0\WebApi.csproj.AssemblyReference.cache
