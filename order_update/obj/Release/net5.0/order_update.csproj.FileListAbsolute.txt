@@ -92,3 +92,11 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Release\net5.0
 C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Release\net5.0\AxOvkBaseAsm4.5.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Release\net5.0\AxOvkMsr.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Release\net5.0\AxAltairUDrv.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Release\net5.0\AudioProcessingLibrary.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Release\net5.0\NAudio.WinMM.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Release\net5.0\NAudio.Core.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Release\net5.0\NAudio.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Release\net5.0\ICSharpCode.SharpZipLib.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Release\net5.0\NAudio.Wasapi.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Release\net5.0\ICSharpCode.SharpZipLib.pdb
+C:\Users\Administrator\source\repos\TPH_DBVM_API\order_update\bin\Release\net5.0\ICSharpCode.SharpZipLib.xml

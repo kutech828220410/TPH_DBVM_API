@@ -73,3 +73,10 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\AxAltairUDrv.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\ICSharpCode.SharpZipLib.pdb
 C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\ICSharpCode.SharpZipLib.xml
+C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\AudioProcessingLibrary.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\NAudio.WinMM.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\NAudio.Core.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\NAudio.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\Microsoft.Win32.Registry.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\bin\Release\NAudio.Wasapi.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\Torder_update_batch\obj\Release\Torder_update_batch.exe.config

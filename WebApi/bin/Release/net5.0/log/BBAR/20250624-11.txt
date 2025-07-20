@@ -1,0 +1,47 @@
+20250624-11:12:09 - 條碼: 7334;20250624;0002224466;1140007977;QDPC;PO;7;7304;20250623160544330
+20250624-11:12:09 - 日期: 2025-06-24, 筆數: 1
+20250624-11:12:09 - {
+  "Data": [
+    {
+      "GUID": "43fb8f9b-a0df-4a8f-b25a-41aeb606d1c6",
+      "PRI_KEY": "20250624095625994-7334",
+      "MED_BAG_SN": "7334;20250624;0002224466;1140007977;QDPC;PO;7;7304;20250623160544330",
+      "BRYPE": "出院帶藥",
+      "CODE": "OFLA3",
+      "NAME": "Metrozole 250mg",
+      "HCASENO": "1140007977",
+      "MED_BAG_NUM": "7334",
+      "DAYS": "1",
+      "SD": "1",
+      "DUNIT": "TAB",
+      "FREQ": "TIDPC",
+      "CTYPE": "健保",
+      "PATNAME": "辜書卿",
+      "PATCODE": "0002224466",
+      "DOCID": "王志賢",
+      "SECTNO": "肝膽腸胃科",
+      "TXN_QTY": "-21",
+      "ORD_START": "2025/06/24 09:56:40",
+      "VISITDT_TIME": "2025-06-24",
+      "PHARER_ID": "-1",
+      "STATE": "已過帳"
+    }
+  ],
+  "Code": 200,
+  "Method": "",
+  "Result": "取得醫囑完成! 共<1>筆 ,新增<0>筆,修改<0>筆 , HIS連線時間；71.770ms，取得HIS資料；808.527ms，DB寫入時間:597.996ms",
+  "Value": "",
+  "ValueAry": [],
+  "TimeTaken": "1478.775ms",
+  "Token": "",
+  "Server": "",
+  "DbName": "",
+  "TableName": "",
+  "Port": 0,
+  "UserName": "",
+  "Password": "",
+  "ServerType": "",
+  "ServerName": "",
+  "ServerContent": "",
+  "RequestUrl": ""
+}

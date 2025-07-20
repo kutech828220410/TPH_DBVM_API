@@ -71,3 +71,10 @@ C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\AxOvkMsr
 C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\AxAltairUDrv.dll
 C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\ICSharpCode.SharpZipLib.pdb
 C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\ICSharpCode.SharpZipLib.xml
+C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\AudioProcessingLibrary.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\NAudio.WinMM.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\NAudio.Core.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\NAudio.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\Microsoft.Win32.Registry.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\bin\Release\NAudio.Wasapi.dll
+C:\Users\Administrator\source\repos\TPH_DBVM_API\med_update\obj\Release\med_update.exe.config
